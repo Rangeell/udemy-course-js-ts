@@ -30,14 +30,14 @@ function verificar() {
         const nome = input.value
 
         document.body.append(...Object.values(dynamicParagraphs))
-        dynamicParagraphs.p1.textContent = `Seu nome é ${nome}`
-        dynamicParagraphs.p2.textContent = `Seu nome tem ${nome.length} caracteres.`
-        dynamicParagraphs.p3.textContent = `A segunda letra do seu nome é: ${nome.charAt(1)}`
-        dynamicParagraphs.p5.textContent = `As últimas 3 letras do seu nome são: ${nome.slice(nome.length - 3)}`
-        dynamicParagraphs.p6.textContent = `O primeiro índice do seu nome é: ${nome.charAt(0)}`
-        dynamicParagraphs.p6.textContent = `O último índice do seu nome é: ${nome.slice(nome.length - 1)}`
-        dynamicParagraphs.p7.textContent = `As palavras do seu nome são: ${nome.split(' ')}`
-        dynamicParagraphs.p8.textContent = `Seu nome em letras maiúsculas é: ${nome.toUpperCase()}`
-        dynamicParagraphs.p9.textContent = `Seu nome em letras minúsculas é: ${nome.toLowerCase()}`
+        dynamicParagraphs.p1.innerHTML = `Seu nome é <strong>${nome}</strong>`
+        dynamicParagraphs.p2.innerHTML = `Seu nome tem <strong>${nome.length}</strong> caracteres.`
+        dynamicParagraphs.p3.innerHTML = `A segunda letra do seu nome é: <strong>${nome[1]}</strong>`
+        dynamicParagraphs.p4.innerHTML = `As últimas 3 letras do seu nome são: <strong>${nome.slice(-3)}</strong>`
+        dynamicParagraphs.p5.innerHTML = `O primeiro índice da letra 'o' seu nome é: <strong>${nome.search(/r/i)}</strong>`
+        dynamicParagraphs.p6.innerHTML = `O último índice da letra 'o' seu nome é: <strong>${nome.lastIndexOf('o')}</strong>`
+        dynamicParagraphs.p7.innerHTML = `As palavras do seu nome são: <strong>${nome.split(' ')}</strong>`
+        dynamicParagraphs.p8.innerHTML = `Seu nome em letras maiúsculas é: <strong>${nome.toUpperCase()}</strong>`
+        dynamicParagraphs.p9.innerHTML = `Seu nome em letras minúsculas é: <strong>${nome.toLowerCase()}</strong>`
     }
 }
