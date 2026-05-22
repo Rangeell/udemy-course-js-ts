@@ -19,6 +19,3 @@ for (let i in alunos){
 console.log(`Removidos: ${removidos}, ${alunos[2]}`)
 console.log(alunos instanceof Array)
 console.log(`A constante alunos é considerada um "${typeof alunos}" indexadado`)
-
-
-
