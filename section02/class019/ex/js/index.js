@@ -10,14 +10,12 @@
             return name = name[0].toUpperCase() + name.slice(1).toLowerCase()
         }
 
-
         const user = {
             name: form.querySelector('#iname').value,
             surname: form.querySelector('#isurname').value,
             weight: form.querySelector('#iweight').value,
             height: form.querySelector('#iheight').value
         }
-
 
         for (let i in userData) {
             if (userData[i].name === user.name) {
