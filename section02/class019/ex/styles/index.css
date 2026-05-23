@@ -116,3 +116,7 @@ button:active {
     transition: .1s ease;
     filter: none;
 }
+
+#res p {
+    margin-top: 10px;
+}

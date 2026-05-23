@@ -1,50 +1,39 @@
-// Select inputs
-const input = {
-    txtName: document.querySelector('#iname'),
-    txtSurname: document.querySelector('#isurname'),
-    txtWeight: document.querySelector('#iweight'),
-    txtHeight: document.querySelector('#iheight'),
-}
+(function meuEscopo() {
+    const form = document.querySelector('#form')
+    const res = document.querySelector('#res')
+    const userData = []
 
-const res = document.querySelector('#res')
-const button = document.querySelector('button[type="submit"]')
-const user = []
+    form.addEventListener('submit', function (evento) {
+        evento.preventDefault()
 
-button.addEventListener('keydown', function(enter) {
-    if (enter === 'enter') {
-        enter.preveventDefault()
-    }
-})
-
-button.addEventListener('click', verificar)
-function verificar() {
-    if (input.txtName.value === ''
-        || input.txtSurname.value === ''
-        || input.txtWeight.value === ''
-        || input.txtHeight.value === '') {
-        return
-    }
-
-    const user = [
-        dataUser = {
-            name: input.txtName.value,
-            surname: input.txtSurname.value,
-            weight: input.txtWeight.value,
-            height: input.txtHeight.value
+        function formatName(name) {
+            return name = name[0].toUpperCase() + name.slice(1).toLowerCase()
         }
-    ]
 
-    let p1 = document.createElement('p')
-    let p2 = document.createElement('p')
-    let p3 = document.createElement('p')
-    let p4 = document.createElement('p')
 
-    res.append(
-        p1, p2, p3, p4
-    )
+        const user = {
+            name: form.querySelector('#iname').value,
+            surname: form.querySelector('#isurname').value,
+            weight: form.querySelector('#iweight').value,
+            height: form.querySelector('#iheight').value
+        }
 
-    p1.innerText = `${dataUser.name}`
-    p2.innerText = `${dataUser.surname}`
-    p3.innerText = `${dataUser.weight}`
-    p4.innerText = `${dataUser.height}`
-}
+
+        for (let i in userData) {
+            if (userData[i].name === user.name) {
+                alert('Esse usuário já existe!')
+                return
+            }
+        }
+
+        userData.push(user)
+
+        const p = document.createElement('p')
+        p.innerHTML = `${formatName(user.name)}, ${formatName(user.surname)}, ${user.weight}kg, ${user.height}cm`
+
+        res.appendChild(p)
+
+        form.reset()
+        console.log(userData)
+    })
+}) ()
