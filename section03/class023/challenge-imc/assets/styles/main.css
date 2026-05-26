@@ -5,12 +5,17 @@
 :root {
     --white-default: #ffffff;
     --black-default: #000000;
+
     --primary-color: #0d6a86;
     --primary-dark-color: #05475c;
     --secundary-color: #8ccfe4;
     --tetiary-color: #115367;
+
     --result-background-color: #00FEC1;
     --result-font-color: #01190D;
+
+    --button-reset-backgroun-color: #be1e1e;
+    --button-reset-backgroun-color-dark: #931a1a;
 }
 
 * {
@@ -141,16 +146,16 @@ form button {
     width: 100%;
     padding: 12px;
     border-radius: 5px;
-
+    
     font-size: 1rem;
     font-weight: bold;
-
+    
     background-color: var(--primary-color);
     color: var(--white-default);
     transition: filter .3s ease, transform .3s ease;
 }
 
-form button:is(:hover, :focus) {
+form button:is(:hover, :focus-visible) {
     cursor: pointer;
     filter: brightness(1.2) saturate(160%);
 }
@@ -166,6 +171,19 @@ form button:active {
     transition: .1s ease;
 }
 
+form button[type="reset"] {
+    background-color: var(--button-reset-backgroun-color);
+    transition: filter .3s ease;
+}
+
+form button[type="reset"]:focus-visible {
+    outline: 2px solid var(--button-reset-backgroun-color-dark);
+}
+
+form button[type="reset"]:active {
+    background-color: var(--button-reset-backgroun-color-dark);
+    filter: brightness(1);
+}
 
 .res {
     width: 100%;
@@ -180,7 +198,7 @@ form button:active {
     background-color: var(--result-background-color);
 }
 
-@media screen and (max-width: 669px) {
+@media screen and (max-width: 692px) {
     form {
         order: -1;
     }
