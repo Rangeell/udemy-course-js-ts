@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chall Class023-IMC | Resolution</title>
+
+    <link rel="stylesheet" href="./assets/styles/main.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Tabela IMC</h1>
+        </header>
+
+        <section>
+            <div class="imc-list">
+                <h3>IMC</h3>
+                <ul>
+                    <li>Menos do que 18,5</li>
+                    <li>Entre 18,5 e 24,9</li>
+                    <li>Entre 25 e 29,9</li>
+                    <li>Entre 30 e 34,9</li>
+                    <li>Entre 35 e 39,9</li>
+                    <li>Mais do que 40</li>
+                </ul>
+            </div>
+
+            <div class="imc-list-result">
+                <h3>Resultado</h3>
+                <ul>
+                    <li>Abaixo do peso</li>
+                    <li>Eutrófico</li>
+                    <li>Sobrepeso</li>
+                    <li>Obesidade grau 1</li>
+                    <li>Obesidade grau 2</li>
+                    <li>Obesidade grau 3</li>
+                </ul>
+            </div>
+        </section>
+
+        <form action="" method="get" autocomplete="on">
+            <h2>Calcule seu IMC</h2>
+
+            <p>
+                <label for="weight">Peso:</label>
+                <input type="text" name="weight" id="weight" autofocus placeholder="ex: 80">
+            </p>
+
+            <p>
+                <label for="height">Altura</label>
+                <input type="text" name="height" id="height" placeholder="ex: 1,75">
+            </p>
+
+            <p>
+                <button type="submit">Enviar</button>
+            </p>
+
+            <p>
+                <button type="reset">Limpar</button>
+            </p>
+
+            <div class="result">
+            </div>
+        </form>
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
