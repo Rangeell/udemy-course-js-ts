@@ -37,18 +37,8 @@ body {
     height: 100dvh;
 
     font-size: 1.2rem;
-    line-height: 1.5rem;
 
     background-color: var(--primary-color);
-}
-
-header {
-    text-align: center;
-}
-
-header p {
-    text-align: justify;
-    margin-top: 1rem;
 }
 
 main {
@@ -58,7 +48,7 @@ main {
     align-items: center;
     gap: 1rem;
 
-    width: clamp(320px, 50%, 740px);
+    width: clamp(520px, 50%, 740px);
     margin-top: 3rem;
     padding: 1rem;
     border-radius: 10px;
@@ -71,56 +61,4 @@ main {
 
 main:hover {
     filter: none;
-}
-
-form input {
-    height: 2rem;
-    padding: 0 1rem;
-    margin-top: 1rem;
-    border: 1px solid var(--tetiary-color);
-    border-radius: 8px;
-
-    transition: background-color .3s ease;
-}
-
-form input:is(:hover, :focus) {
-    background-color: var(--secundary-color);
-}
-
-form input:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-form button {
-    width: 7rem;
-    aspect-ratio: 3/1;
-    border-radius: 5px;
-    padding: 8px;
-    margin-top: 1rem;
-
-    font-size: 1rem;
-    font-weight: bold;
-
-    background-color: var(--primary-color);
-    color: var(--white-default);
-    transition: filter .3s ease, transform .3s ease;
-}
-
-form button:is(:hover, :focus) {
-    cursor: pointer;
-    filter: brightness(1.2) saturate(160%);
-    transform: scale(1.1);
-}
-
-form button:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-    /* transition: none; */
-}
-
-form button:active {
-    background-color: var(--primary-dark-color);
-    transform: scale(.92);
-    transition: .1s ease;
 }
