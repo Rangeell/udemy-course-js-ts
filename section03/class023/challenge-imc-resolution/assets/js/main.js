@@ -1,5 +1,3 @@
-// Capturar evento de submit do formulário
-
 (function myScope() {
     const form = document.querySelector('form')
 
