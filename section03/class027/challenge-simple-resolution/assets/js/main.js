@@ -1,4 +1,4 @@
-(function myScope() {
+(function   myScope() {
     // SELECT DATE
     const date = new Date()
 
