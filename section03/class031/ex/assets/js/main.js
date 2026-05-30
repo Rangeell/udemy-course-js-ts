@@ -9,9 +9,9 @@
     const main = document.querySelector('main')
 
     for (let i = 0; i < elements.length; i++) {
-        const {tag, text} = elements[i]
+        const { tag, text } = elements[i]
         const component = document.createElement(tag)
-        
+
         main.append(component)
         component.innerText = text
     }
