@@ -7,15 +7,15 @@
     ]
 
     const main = document.querySelector('main')
-    const kingDiv = document.createElement('div')
+    const parentDiv = document.createElement('div')
 
     for (let i = 0; i < elements.length; i++) {
         const { tag, text } = elements[i]
         const newTag = document.createElement(tag)
 
         newTag.innerText = text
-        kingDiv.append(newTag)
+        parentDiv.append(newTag)
     }
-    main.appendChild(kingDiv)
+    main.appendChild(parentDiv)
 
 })()
