@@ -8,17 +8,15 @@ Escreva uma função que recebe um número e retorne o seguinte:
     - Use a função com número de 0 a 100
 */
 
-function fizzBuzz(n) {
-    if (typeof n !== 'number') return n
-    if (n < 0 || n > 100) return 'O número deve estar entre 0 e 100'
+function fizzBuzz(numero) {
+    if (typeof numero !== 'number') return numero
+    if (numero % 3 === 0 && numero % 5 === 0) return 'FizzBuzz'
+    if (numero % 3 === 0) return 'Fizz'
+    if (numero % 5 === 0) return 'Buzz'
 
-    if (n % 3 === 0 && n % 5 === 0) return 'FizzBuzz'
-    if (n % 3 === 0) return 'Fizz'
-    if (n % 5 === 0) return 'Buzz'
-
-    return n
+    return numero
 }
-console.log(fizzBuzz(11))
+console.log ('a', fizzBuzz('a'))
 
 for (let i = 0; i <= 100; i++) {
     console.log(`${i} -> ${fizzBuzz(i)}`)
