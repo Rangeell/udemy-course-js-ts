@@ -18,9 +18,6 @@
     const pauseButton = document.querySelector('#pause')
     pauseButton.addEventListener('click', function () {
         timerContainer.classList.add('stop')
-        
-        setTimeout(function () {
-            clearInterval(stopWatch)
-        })
+        clearInterval(stopWatch)
     })
 })()
