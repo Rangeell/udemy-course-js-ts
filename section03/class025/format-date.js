@@ -1,6 +1,6 @@
 function zeroAEsquerda(num) {
     return num >= 10 ? num: `0${num}`
-}
+}w
 
 function formatDate(data) {
     const dia = data.getDate()
