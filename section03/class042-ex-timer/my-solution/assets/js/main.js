@@ -18,8 +18,8 @@
 
     const startButton = document.querySelector('#start')
     startButton.addEventListener('click', function () {
-
         timerContainer.classList.remove('stop')
+        clearInterval(timeInterval)
 
         timeInterval = setInterval(function () {
             seconds++
