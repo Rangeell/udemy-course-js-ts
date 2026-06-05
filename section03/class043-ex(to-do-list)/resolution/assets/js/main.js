@@ -88,6 +88,5 @@
             createTask(v)
         }
     }
-
     addSavesTasks()
 })()
