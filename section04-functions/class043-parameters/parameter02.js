@@ -12,7 +12,7 @@ function funcao(a, b, c) {
 funcao(1, 2, 3, 4, 5, 6, 7)
 
 /*
-O mesmo funciona para funcções que possuem menos parâmetros que do que argumentos que são passado
+O mesmo funciona para funcções que possuem mais parâmetros que do que argumentos que são passado
 */
 
 function funcao(a, b, c, d, e, f) {
