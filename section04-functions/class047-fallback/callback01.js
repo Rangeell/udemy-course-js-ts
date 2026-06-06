@@ -1,3 +1,9 @@
+/*
+    - Simulando tempo de carregamento de um servidor, banco de dados ou requisição de API com setTimeOut e geração de números randômicos
+    
+    - Usando funções de callback para garantir que os comandos/ações sejam executadas na ordem correta.
+*/
+
 function rand(min = 1000, max = 3000) {
     const num = Math.random() * (max - min) + min
     return Math.floor(num)
