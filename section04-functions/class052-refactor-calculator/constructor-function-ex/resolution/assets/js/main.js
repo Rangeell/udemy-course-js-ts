@@ -60,7 +60,6 @@
             }
         }
     }
-
     const calculate = new Calculator()
     calculate.start()
 })()
