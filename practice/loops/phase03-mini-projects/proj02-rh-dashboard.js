@@ -1,4 +1,12 @@
 /*
+FASE 3 — MATURAÇÃO (PROJETOS COMPLETOS)
+    Matéria: Loops + Métodos de Array + Tratamento de Dados
+    Fase: 3 (Maturação / Desafio de Projeto)
+    Tipo: Consolidação de Folha de Pagamento e Bônus
+    Arquivo: proj02-rh-dashboard.js
+*/
+
+/*
 O Enunciado
     Você está criando o módulo de IA do sistema de RH de uma empresa. Você recebeu uma lista de funcionários (funcionarios) e um objeto contendo a tabela de bônus por departamento (tabelaBonus).
 
@@ -57,7 +65,6 @@ function gerarRelatorioFolha(funcionarios, tabelaBonus) {
         throw new TypeError('O segundo argumento precisa ser um objeto e não pode estar vazio!')
     }
 
-
     let custo = 0
     let maiorSalario = 0
     let salarioAtt = 0
@@ -66,6 +73,7 @@ function gerarRelatorioFolha(funcionarios, tabelaBonus) {
     funcionarios.forEach(v => {
         const bonus = tabelaBonus[v.departamento] || 0
         const salarioBase = Number(v.salarioBase)
+
         if (!salarioBase) return
 
         salarioAtt = salarioBase + bonus
@@ -82,3 +90,20 @@ function gerarRelatorioFolha(funcionarios, tabelaBonus) {
     }
 }
 console.log(gerarRelatorioFolha(funcionarios, tabelaBonus))
+
+/*
+=======================================================================
+FEEDBACK DO MENTOR - PROJETO 02: RH DASHBOARD
+=======================================================================
+✔ PONTOS FORTES:
+- Implementação sênior do uso de 'arguments.length' para blindar a função.
+- Uso impecável do conceito de Early Return (if (!salarioBase) return) 
+  para higienizar dados corrompidos sem travar o loop.
+- Resolução 100% autônoma e correta da lógica de maior valor.
+
+💡 APRENDIZADO CHAVE:
+- Lapidação de código (Clean Code): Compreendido como o operador lógico 
+  OR (||) pode ser usado como 'fallback' (valor padrão) para eliminar 
+  blocos inteiros de 'if/else' estruturais.
+=======================================================================
+*/

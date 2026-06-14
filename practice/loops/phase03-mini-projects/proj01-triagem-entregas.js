@@ -1,4 +1,14 @@
 /*
+FASE 3 — MATURAÇÃO (PROJETOS COMPLETOS)
+    Matéria: Programação / Estruturas de Repetição Combinadas
+    Fase: 3 (Maturação / Desafio de Projeto)
+    Tipo: Sistema de Logística e Triagem de Carga
+    Arquivo: proj01-triagem-entregas.js
+    Objetivo: Criar um motor de triagem que varre um lote de entregas complexo, calcula fretes dinâmicos baseados nas rotas e separa pedidos válidos de pedidos retidos.
+*/
+
+
+/*
 O Enunciado
     Você está desenvolvendo o sistema de roteamento de uma empresa de logística. Você recebeu um objeto chamado loteDeCargas. Cada chave desse objeto é uma região de destino (ex: "'SP'", "RJ"). Dentro de cada região, existe um array de objetos, onde cada objeto é um pacote que precisa ser entregue.
 
@@ -79,3 +89,20 @@ function processarTriagemLogistica(loteDeCargas) {
 
 console.log(processarTriagemLogistica(loteDeCargas))
 console.log(Object.keys(loteDeCargas))
+
+/*
+=======================================================================
+FEEDBACK DO MENTOR - PROJETO 01: TRIAGEM LOGÍSTICA
+=======================================================================
+✔ PONTOS FORTES:
+- Excelente intuição arquitetural ao reduzir o problema de 3 para 2 loops 
+  aninhados, evitando processamento redundante.
+- Validação robusta de tipos e consistência de dados na entrada.
+
+💡 APRENDIZADO CHAVE:
+- Inicialização de acumuladores matemáticos: Entendido que 'null' quebra 
+  operações aritméticas gerando NaN. O correto para somas é iniciar com 0.
+- Acesso Dinâmico: Substituição de múltiplos blocos 'if' manuais de 
+  checagem de chaves pelo acesso dinâmico por colchetes (objeto[variavel]).
+=======================================================================
+*/
