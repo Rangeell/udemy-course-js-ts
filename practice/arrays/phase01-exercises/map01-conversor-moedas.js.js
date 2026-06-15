@@ -1,7 +1,7 @@
 /*
 FASE 1 — OPERAÇÕES FUNCIONAIS (MÉTODOS DE ARRAY)
     Matéria: Método map()
-    Fase: 1 (Introdução / Primeiro Exercício)
+    Fase: 1 (Introdução / Primeiros Exercícios)
     Tipo: Transformação de Catálogo de Produtos
     Arquivo: map01-conversor-moedas.js
 */

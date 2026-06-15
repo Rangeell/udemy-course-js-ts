@@ -1,7 +1,7 @@
 /*
 FASE 4 — OPERAÇÕES FUNCIONAIS (MÉTODOS DE ARRAY)
     Matéria: Método filter()
-    Fase: 4 (Introdução / Primeiro Exercício)
+    Fase: 4 (Introdução / Primeiros Exercícios)
     Tipo: Controle de Estoque Limpo
     Arquivo: filter01-limpa-estoque.js
 
