@@ -54,7 +54,6 @@
     ValidatesCpf.prototype.isSequence = function () {
         return this.cleanCpf[0].repeat(this.cleanCpf.length) === this.cleanCpf
     }
-
     cpf = new ValidatesCpf('705.484.450-52')
     console.log(cpf.isValid())
 })()
