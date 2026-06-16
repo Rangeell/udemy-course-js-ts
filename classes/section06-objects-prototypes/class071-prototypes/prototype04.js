@@ -2,7 +2,7 @@
 
 /*
 Modificando nossa constructor function
-    Tornando ela mais permática com o uso so .prototype
+    Tornando ela mais perfomática com o uso so .prototype
 */
 
 function Pessoa(nome, sobrenome) {

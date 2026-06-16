@@ -58,6 +58,7 @@ function Caneca(nome, preco, material, estoque) {
 Caneca.prototype = Object.create(Produto.prototype) // Para herdar os métodos, mas passa a ter Produto como construtor
 Caneca.prototype.constructor = Caneca // Para voltar a ser Caneca como construtor
 
+const produto = new Produto('Gen', 111)
 const camiseta = new Camiseta('Regata', 7.5, 'Preta')
 const caneca = new Caneca('Caneca', 13, 'Plástico', 5)
 
@@ -65,3 +66,4 @@ console.log(caneca)
 console.log(caneca.estoque) // Usando Getter
 console.log(caneca.estoque = 10) // Usando Setter
 console.log(camiseta)
+console.log(Object.getPrototypeOf(camiseta))

@@ -14,13 +14,13 @@ const objA = {
 // new Object -> Object.prototype
 const objB = {
     chaveB: 'B',
-    // __proto__: Object.prototype
+    // __proto__: objA
 }
 
 // new Object -> Object.prototype
 const objC = new Object
 objC.chaveC = 'C'
-// __proto__: Object.prototype
+// __proto__: objB
 
 Object.setPrototypeOf(objB, objA)
 Object.setPrototypeOf(objC, objB)

@@ -15,6 +15,7 @@ Produto.prototype.aumento = function (percentual) {
     this.preco = this.preco + (this.preco * percentual / 100)
 }
 
+// Objeto instanciado
 const p1 = new Produto('Camiseta', 50)
 
 // Objeto literal
