@@ -27,8 +27,8 @@ Conta.prototype.verSaldo = function () {
 
 // Sub-Classe/Classe filha - ContaCorrente
 function ContaCorrente(agencia, conta, saldo, limite) {
-    Conta.call(this, agencia, conta, saldo) // Linka os parâmetros e o contexto do this
-    this.limite = limite // Adiciona um parâmetro específico desta conta
+    Conta.call(this, agencia, conta, saldo) // Linka os parâmetros/atributos e o contexto do this
+    this.limite = limite // Adiciona um atributo específico desta conta
 }
 
 // Linka os prototypes
@@ -48,17 +48,18 @@ ContaCorrente.prototype.sacar = function (valor) {
 }
 
 // Sub-Classe/Classe Filha - ContaPoupança
+// Na ContaPoupanca o funcionamento vai ser o de uma Conta normal. Logo, tanto os métodos, quanto os atributos serão os mesmos de Conta
 function ContaPoupanca(agencia, conta, saldo) {
     Conta.call(this, agencia, conta, saldo)
 }
-ContaPoupanca.prototype = Object.create(Conta.prototype)
-ContaPoupanca.prototype.constructor = ContaPoupanca
+ContaPoupanca.prototype = Object.create(Conta.prototype) // Herda todos os métodos de Conta, porém ContaPoupanca perde seu construtor 
+ContaPoupanca.prototype.constructor = ContaPoupanca // Retorna o Construtor de volta
 
 const conta1 = new Conta(11, 22, 10)
 const contaCorrente = new ContaCorrente(11, 22, 0, 100)
 const contaPoupanca = new Conta(12, 33, 0)
 
-// Fazendo os testes
+// Fazendo os testes para diferenciar
 contaCorrente.depositar(10)
 contaCorrente.sacar(110)
 contaCorrente.sacar(1)
