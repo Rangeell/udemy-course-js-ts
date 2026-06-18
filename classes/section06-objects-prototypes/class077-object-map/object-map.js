@@ -12,6 +12,7 @@ for (const pessoa of pessoas) {
     const { id } = pessoa
     novasPessoas.set(id, { ...pessoa })
 }
+console.log(novasPessoas)
 
 // console.log(novasPessoas)
 // console.log(novasPessoas.get(2)) // Usando get para obter uma pessao em específico
@@ -29,4 +30,3 @@ for (const valores of novasPessoas.values()) { // Itera sobre os valores
 }
 
 novasPessoas.delete(2) // Remove a Maria da coleção
-console.log(novasPessoas)
