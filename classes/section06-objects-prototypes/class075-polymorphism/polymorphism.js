@@ -1,4 +1,4 @@
-// SuperClass - Classe mãe
+// SuperClass - Classe mãe (Em POO)
 function Conta(agencia, conta, saldo) {
     this.agencia = agencia
     this.conta = conta
