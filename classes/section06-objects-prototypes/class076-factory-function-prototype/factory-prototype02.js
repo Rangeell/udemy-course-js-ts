@@ -19,7 +19,7 @@ const beber = {
 }
 
 // Cria o objeto que será o prototype fora da função construtora
-const pessoaPrototype = { ...falar, ...comer, ...beber } // Usamos o spred operator para copiar os métodos para dentro dele
+const pessoaPrototype = { ...falar, ...comer, ...beber } // Usamos o spred operator para copiar os métodos para dentro dele / A cópia pode ser feita também com Object.assing()
 
 function criaPessoa(nome, sobrenome) {
     return Object.create(pessoaPrototype, { // Linka o prototype/métodos, porém temos que criarmos os atributos
