@@ -18,5 +18,5 @@ class Pessoa {
 const p1 = new Pessoa('Breno', 'Rangel')
 console.log(p1)
 console.log(p1.nomeCompleto)
-console.log(p1.nomeCompleto = 'Maria de Albuquerque')
+p1.nomeCompleto = 'Luiz Otávio Miranda'
 console.log(p1.nomeCompleto)
