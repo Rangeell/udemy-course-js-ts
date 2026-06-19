@@ -32,17 +32,8 @@ class ValidaCpf {
         })
     }
 
-    validates() {
-        if (typeof this.cleanCpf === 'undefined') return false
-        if (this.cleanCpf.length !== 11) return false
-        if (this.isSequence()) return false //* Valida se o CPF limpo não é uma sequência do primeiro número
-
-        const halfCpf = this.cleanCpf.slice(0, -2) //* Retorna o CPF limpo sem os 2 últimos digitos
-        const digit1 = this.getDigit(halfCpf)
-        const digit2 = this.getDigit(halfCpf + digit1)
-        const trueCpf = halfCpf + digit1 + digit2
-
-        return trueCpf === this.cleanCpf
+    isSequence() {
+        return this.cleanCpf[0].repeat(11) === this.cleanCpf //* Retorna true se o CPF limpo for uma sequêcia do primeiro número do mesmo
     }
 
     getDigit(halfCpf) {
@@ -59,10 +50,19 @@ class ValidaCpf {
         return digit >= 10 ? '0' : String(digit)
     }
 
-    isSequence() {
-        return this.cleanCpf[0].repeat(11) === this.cleanCpf //* Retorna true se o CPF limpo for uma sequêcia do primeiro número do mesmo
-    }
+    validates() {
+        if (!this.cleanCpf) return false
+        if (typeof this.cleanCpf !== 'string') return false
+        if (this.cleanCpf.length !== 11) return false
+        if (this.isSequence()) return false //* Valida se o CPF limpo não é uma sequência do primeiro número
 
+        const halfCpf = this.cleanCpf.slice(0, -2) //* Retorna o CPF limpo sem os 2 últimos digitos
+        const digit1 = this.getDigit(halfCpf)
+        const digit2 = this.getDigit(halfCpf + digit1)
+        const trueCpf = halfCpf + digit1 + digit2
+
+        return trueCpf === this.cleanCpf
+    }
 }
 
 // Testes
