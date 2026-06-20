@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./assets/styles/main.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Formulário de Cadastro</h1>
+        </header>
+
+        <section>
+            <ul>
+                <li>Nenhum campo pode estar vazio</li>
+                <li>Usuário só poderá conter letras e/ou números</li>
+                <li><abbr class="tooltip" data-tooltip="Texto">Usuário</abbr> deverá ter entre 3 e 12 caracteres</li>
+                <li><abbr class="tooltip" data-tooltip="Senha">Senha</abbr> precisa ter entre 6 e 12 caracteres</li>
+            </ul>
+        </section>
+
+        <form action="#" method="post" autocomplete="on">
+            <p class="name-area">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" placeholder="Seu primeiro nome" autocomplete="name">
+            </p>
+
+            <p class="surname-area">
+                <label for="surname">Sobrenome:</label>
+                <input type="text" name="surname" id="surname" placeholder="Seu sobrenome completo" autocomplete="name">
+            </p>
+
+            <p class="cpf-area">
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00">
+            </p>
+
+            <p class="username-area">
+                <label for="username">Usuário:</label>
+                <input type="text" name="username" id="username" placeholder="Nome de usuário entre 3 e 12 caracteres"
+                    autocomplete="username">
+            </p>
+
+            <p class="password-area">
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" placeholder="**************">
+            </p>
+
+            <p class="repeat-password-area">
+                <label for="repeat-password">Repetir senha:</label>
+                <input type="password" name="repeat-password" id="repeat-password" placeholder="**************">
+            </p>
+
+            <p>
+                <button>Enviar</button>
+            </p>
+
+        </form>
+
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
