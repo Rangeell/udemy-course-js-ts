@@ -25,10 +25,9 @@
     outline: 0;
     box-sizing: border-box;
     text-decoration: none;
-    user-select: none;
+    /* user-select: none; */
     appearance: none;
     font-family: "Open Sans", sans-serif;
-    list-style: none;
     list-style-position: inside;
 }
 
@@ -63,7 +62,7 @@ main {
     padding: 2rem 1.5rem;
     border-radius: 10px;
 
-    background-color: white;
+    background-color: var(--white-default);
     filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.599));
 
     transition: all .3s ease;
@@ -85,7 +84,7 @@ header p {
 section {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-self: center;
     gap: 1rem;
 
@@ -93,113 +92,112 @@ section {
     margin-top: 1rem;
 }
 
-.imc-list {
-    flex: 0 0 210px
-}
-
-.imc-list-result {
-    flex: 0 0 210px
-}
-
-
 form {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
     width: 100%;
 }
 
-form p {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 0.5rem;
-
-    width: 100%;
+p {
     margin-top: 1rem;
 }
 
-form input {
+.error-text {
+    color: var(--button-reset-backgroun-color);
+    font-size: .9rem;
+    margin-top: .3rem;
+}
+
+input,
+button {
     width: 100%;
-    height: 2.5rem;
-    padding: 0 1rem;
-    border: 1px solid var(--tetiary-color);
-    border-radius: 5px;
+    padding: 10px;
 
-    font-size: 1rem;
-
-    transition: background-color .3s ease;
+    border: 1px solid var(--secundary-color);
+    border-radius: 3px;
 }
 
-form input:is(:hover, :focus) {
-    background-color: var(--secundary-color);
+input::placeholder {
+    color: #535151b1;
 }
 
-form input:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
+input:is(:focus-visible) {
+    border-color: var(--tetiary-color);
 }
 
-form button {
-    width: 100%;
-    padding: 12px;
-    border-radius: 5px;
-    
-    font-size: 1rem;
-    font-weight: bold;
-    
+button {
+    margin-top: 1rem;
+    border: 0;
+
     background-color: var(--primary-color);
     color: var(--white-default);
-    transition: filter .3s ease, transform .3s ease;
-}
 
-form button:is(:hover, :focus-visible) {
+    font-weight: bold;
+    font-size: 1rem;
+
     cursor: pointer;
-    filter: brightness(1.2) saturate(160%);
+
+    transition: filter .3s ease, transform .1s ease;
 }
 
-form button:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
+button:is(:hover, :focus-visible) {
+    filter: brightness(1.4);
 
-form button:active {
-    background-color: var(--primary-dark-color);
-    transform: scale(.98);
-    transition: .1s ease;
-}
-
-form button[type="reset"] {
-    background-color: var(--button-reset-backgroun-color);
-    transition: filter .3s ease;
-}
-
-form button[type="reset"]:focus-visible {
-    outline: 2px solid var(--button-reset-backgroun-color-dark);
-}
-
-form button[type="reset"]:active {
-    background-color: var(--button-reset-backgroun-color-dark);
-    filter: brightness(1);
-}
-
-.res {
-    width: 100%;
-}
-
-.res span {
-    display: block;
-    padding: 8px;
-    border-radius: 5px;
-
-    color: var(--result-font-color);
-    background-color: var(--result-background-color);
-}
-
-@media screen and (max-width: 692px) {
-    form {
-        order: -1;
+    &:focus-visible {
+        outline: 2px solid var(--black-default);
+        outline-offset: 1px;
     }
+
+    &:active {
+        transform: scale(.95);
+    }
+}
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Tooltip */
+.tooltip::after {
+    content: attr(data-tooltip);
+    
+    position: absolute;
+    left: 50%;
+    bottom: 90%;
+    
+    padding: 8px 12px;
+    border-radius: 10px;
+
+    white-space: nowrap;
+    
+    background: #111;
+    color: white;
+    opacity: 0;
+    
+    pointer-events: none;
+    
+    transform: translateX(-50%);
+    transition: .3s;
+}
+
+/* Mostrar no hover */
+.tooltip:hover::after {
+    opacity: 1;
+    bottom: 130%;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--white-default);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        var(--primary-color),
+        var(--tetiary-color)
+    );
+    border-radius: 999px;
+    border: 3px solid var(--white-default);
 }

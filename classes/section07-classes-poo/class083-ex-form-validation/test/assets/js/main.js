@@ -22,7 +22,7 @@
 
 (function myScope() {
 
-        //* VALIDATE CPF OBJECT
+    //* VALIDATE CPF OBJECT
     class ValidateCpf {
         constructor(cpfInserted) {
             Object.defineProperty(this, 'cpf', {
@@ -41,9 +41,7 @@
             return trueCpf === this.cpf
         }
 
-        isSequence() {
-            return this.cpf[0].repeat(11) === this.cpf
-        }
+        isSequence() { return this.cpf[0].repeat(11) === this.cpf }
 
         getTrueCpf() {
             const halfCpf = this.cpf.slice(0, -2)

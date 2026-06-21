@@ -12,62 +12,58 @@
 <body>
     <main>
         <header>
-            <h1>Tabela IMC</h1>
+            <h1>Formulário de Cadastro</h1>
         </header>
 
         <section>
-            <div class="imc-list">
-                <h3>IMC</h3>
-                <ul>
-                    <li>Menos do que 18,5</li>
-                    <li>Entre 18,5 e 24,9</li>
-                    <li>Entre 25 e 29,9</li>
-                    <li>Entre 30 e 34,9</li>
-                    <li>Entre 35 e 39,9</li>
-                    <li>Mais do que 40</li>
-                </ul>
-            </div>
-
-            <div class="imc-list-result">
-                <h3>Resultado</h3>
-                <ul>
-                    <li>Abaixo do peso</li>
-                    <li>Eutrófico</li>
-                    <li>Sobrepeso</li>
-                    <li>Obesidade grau 1</li>
-                    <li>Obesidade grau 2</li>
-                    <li>Obesidade grau 3</li>
-                </ul>
-            </div>
+            <ul>
+                <li>Nenhum campo pode estar vazio</li>
+                <li>Usuário só poderá conter letras e/ou números</li>
+                <li><abbr class="tooltip" data-tooltip="Texto">Usuário</abbr> deverá ter entre 3 e 12 caracteres</li>
+                <li><abbr class="tooltip" data-tooltip="Senha">Senha</abbr> precisa ter entre 6 e 12 caracteres</li>
+            </ul>
         </section>
 
-        <form action="" method="get" autocomplete="off">
-            <h2>Calcule seu IMC</h2>
-
-            <p>
-                <label for="iweight">Peso:</label>
-                <input type="number" name="weight" id="iweight" required autofocus placeholder="ex: 80" min="0">
+        <form action="#" method="post">
+            <p class="name-area">
+                <label for="nome">Nome</label>
+                <input type="text" name="name" id="nome" class="validar">
             </p>
 
-            <p>
-                <label for="iheight">Altura</label>
-                <input type="number" name="height" id="iheight" required step="0.01" placeholder="ex: 1,75" min="1" max="4">
+            <p class="surname-area">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" name="surname" id="sobrenome" class="validar">
+            </p>
+
+            <p class="cpf-area">
+                <label for="cpf">CPF</label>
+                <input type="text" name="cpf" id="cpf" class="validar cpf">
+            </p>
+
+            <p class="username-area">
+                <label for="usuario">Usuário</label>
+                <input type="text" name="username" id="usuario" class="validar usuario">
+            </p>
+
+            <p class="password-area">
+                <label for="senha">Senha</label>
+                <input type="password" name="password" id="senha" class="validar">
+            </p>
+
+            <p class="repeat-password-area">
+                <label for="repetir-senha">Repetir senha</label>
+                <input type="password" name="repeat-password" id="repetir-senha" class="validar">
             </p>
 
             <p>
                 <button type="submit">Enviar</button>
             </p>
 
-            <p>
-                <button type="reset">Limpar</button>
-            </p>
-
-            <div class="res">
-                
-            </div>
         </form>
-    </main>
 
+    </main>
+    
+    <script src="assets/js/validate-cpf.js"></script> <!--* Arquivo que contém o objeto que valida o cpf -->
     <script src="./assets/js/main.js"></script>
 </body>
 
