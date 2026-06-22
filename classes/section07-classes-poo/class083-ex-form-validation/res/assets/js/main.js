@@ -24,13 +24,13 @@
     class ValidaFormulario {
         constructor() {
             this.formumlario = document.querySelector('form')
-            this.eventos()
+            this.eventos() // Carrega os eventos logo de cara quando classe for instanciada
         }
 
         // Método que agrupa todos os eventos
         eventos() {
             this.formumlario.addEventListener('submit', e => { // Arrow function para não perder o contexto do this -> vai apontar para a instância
-                this.handleSubmit(e) // Método que captura o evento
+                this.handleSubmit(e) // Método que captura o evento submit
             })
         }
 
@@ -40,7 +40,7 @@
             const camposValidos = this.campoSaoValidos()
             const senhasValidas = this.senhasSaoValidas()
 
-            if (camposValidos && senhasValidas) { // Caso os campos retornem true, o formulário é enviado
+            if (camposValidos && senhasValidas) { // Caso ambos os campos retornem true, o formulário é enviado
                 alert('Formulário enviado!')
                 this.formumlario.submit()
             }
