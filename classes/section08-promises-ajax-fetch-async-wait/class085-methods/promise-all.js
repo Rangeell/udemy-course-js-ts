@@ -1,4 +1,4 @@
-//* promise.all
+//* Promise.all()
 
 // Promise da aula anterior
 function esperaAi(msg, tempo) {

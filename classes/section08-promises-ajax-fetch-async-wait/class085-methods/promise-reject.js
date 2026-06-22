@@ -1,4 +1,4 @@
-//* promise.all
+//* Promise.reject()
 
 function rand(min, max) {
     min *= 1000

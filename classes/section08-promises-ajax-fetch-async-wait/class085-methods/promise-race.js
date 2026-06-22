@@ -1,4 +1,4 @@
-//* promise.all
+//* Promise.race()
 
 function rand(min, max) {
     min *= 1000
