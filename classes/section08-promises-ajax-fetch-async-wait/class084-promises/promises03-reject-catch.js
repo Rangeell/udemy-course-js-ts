@@ -20,13 +20,16 @@ function esperaAi(msg, tempo) {
 }
 
 esperaAi('Conexão com o BD', rand(1, 3))
-    .then(resposta => { // O then só sera executado quando a promessa for resolvida
-        console.log(resposta)
-        return esperaAi('Buscando dados na BASE', rand(1, 3))
-    })
+    // O then só será executado quando a promessa for resolvida
+    // "resposta" é o argumento que vêm do parâmetro "msg" da função "esperaAi" acima
     .then(resposta => {
         console.log(resposta)
-        return esperaAi(123, rand(1, 3))
+        // "Conexão com o BD" é a "resposta"
+        return esperaAi('Buscando dados na BASE', rand(1, 3)) // Retorna outra promise de dentro desse .then()
+    })
+    .then(resposta => { // Captura o resolve da promise retornada no .then() anterior
+        console.log(resposta)
+        return esperaAi(123, rand(1, 3)) // Simulando erro
     })
     .then(resposta => {
         console.log(resposta)
@@ -34,7 +37,7 @@ esperaAi('Conexão com o BD', rand(1, 3))
         console.log('Exibe dados na tela.')
     })
     .catch(error => { // Recebe o parâmetro do reject
-        console.log('Erro:', error)
+        console.log(error)
     })
 
 console.log('Isso aqui será exibido antes de qualquer promise.')
