@@ -36,7 +36,7 @@ async function executa() {
     // Código é pausado até que o valor seja retornado/resolvido ou rejeitado
 
     try {
-        const fase1 = esperaAi('Fase 1', 1000) // Guarda valor em uma variável, sem .then()
+        const fase1 = esperaAi('Fase 1', 1000) // Guarda valor em uma variável, sem .then()w
         console.log(fase1)
 
         setTimeout(function(){
