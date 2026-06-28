@@ -1,4 +1,4 @@
-//* Usando XMLHttpRequest -> o que faz AJAX
+//* Usando XMLHttpRequest -> o que vai fazer o AJAX
 // Modo com async / await - try / catch
 
 const request = obj => {

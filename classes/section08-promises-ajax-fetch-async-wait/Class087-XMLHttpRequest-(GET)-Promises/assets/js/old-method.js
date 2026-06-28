@@ -1,4 +1,4 @@
-//* Usando XMLHttpRequest -> o que faz AJAX
+//* Usando XMLHttpRequest -> o que vai fazer o AJAX
 // Modo antigo
 
 const request = obj => {
@@ -7,7 +7,6 @@ const request = obj => {
 
     // Abre requisão
     xhr.open(obj.method, obj.url, true)
-
 
     // Envia requisão. Como é um métogo GET, enviamos valor null ou vazio
     xhr.send()

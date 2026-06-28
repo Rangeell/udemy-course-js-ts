@@ -1,4 +1,4 @@
-//* Usando XMLHttpRequest -> o que faz AJAX
+//* Usando XMLHttpRequest -> o que vai fazer o AJAX
 // Modo com then / catch
 
 const request = obj => {
@@ -38,7 +38,8 @@ function carregaPagina(el) {
         url: href
     }
 
-    request(ObjectConfig).then(response => { // Usamos then
+    request(ObjectConfig)
+    .then(response => { // Usamos then
         carregaResultado(response)
     }).catch(error => console.log(error))
 }
