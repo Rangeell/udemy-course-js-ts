@@ -14,9 +14,12 @@ document.addEventListener('click', e => {
 function carregaPagina(el) {
     const href = el.getAttribute('href')
 
-    fetch(href)
-        .then(response => {
-            if (response.status !== 200) throw new Error(`Deu ruim -> ${response.statusText}: ${response.status}`)
+    fetch(href) // Retornar uma promise pro padrão
+        .then(response => { // Com o .then() pegamos o valor da promise
+            
+            //* throw dentro do .then(), faz o código ir diretamente para o .catch()
+            if (response.status !== 200) throw new Error(`Deu ruim -> ${response.statusText}: ${response.status}`) 
+            
             // Não esqueça do return
             return response.text() // Precisa converter o retorno do fetch para o formato desejado, mas retorna outra promise -> precisa de outro .then()
         })
