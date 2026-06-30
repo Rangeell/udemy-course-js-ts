@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "gera": "node node_modules/webpack/bin/webpack.js -w"
+    "dev": "node node_modules/webpack/bin/webpack.js -w"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
     "@babel/cli": "^8.0.1",
     "@babel/core": "^8.0.1",
