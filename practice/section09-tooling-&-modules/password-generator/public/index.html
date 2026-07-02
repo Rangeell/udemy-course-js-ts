@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senha | Practice from Setion 09</title>
+
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Gerador de Senha</h1>
+        </header>
+
+        <section>
+            <div class="result">Selecione as opções</div>
+            
+            <form action="#" method="get">
+                <p>
+                    <label for="length">Quantidade de caracter</label>
+                    <input type="number" name="length" id="length" max="50" min="3" value="20">
+                </p>
+
+                <p>
+                    <label for="number">Adicionar números</label>
+                    <input type="checkbox" name="number" id="number">
+                </p>
+                
+                <p>
+                    <label for="uppercase">Adicionar maúsculas</label>
+                    <input type="checkbox" name="uppercase" id="uppercase">
+                </p>
+                
+                <p>
+                    <label for="lowercase">Adicionar minúsculas</label>
+                    <input type="checkbox" name="lowercase" id="lowercase">
+                </p>
+                
+                <p>
+                    <label for="symbol">Adicionar símbolos</label>
+                    <input type="checkbox" name="symbol" id="symbol">
+                </p>
+
+                <button>Gerar</button>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="./assets/js/bundle.js"></script>
+</body>
+
+</html>
