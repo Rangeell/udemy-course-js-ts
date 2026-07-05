@@ -1,5 +1,5 @@
 {
-  "name": "class112",
+  "name": "class114",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,10 +10,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.2"
+  },
   "devDependencies": {
     "nodemon": "^3.1.14"
-  },
-  "dependencies": {
-    "express": "^5.2.1"
   }
 }
