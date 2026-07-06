@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
         <button>Enviar</button>
         </form>
-        `) // Atributo name -> vai para o método post como a chave do nosso objeto
+        `) // Atributo name -> vai para o método post como a chave do nosso objeto no corpo da requisição
 })
 
 app.get('/testes/:idUsuarios?/:parametro?', (req, res) => {
@@ -20,7 +20,7 @@ app.get('/testes/:idUsuarios?/:parametro?', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-    console.log(req.body) // Acessa os dados enviados no corpo da requisição (geralmente via formulários POST)
+    console.log(req.body) // Acessa os dados enviados no corpo da requisição (geralmente via formulários POST e métodos PUT)
     res.send(`O que você me enviou foi: ${req.body.nome}`)
 })
 
