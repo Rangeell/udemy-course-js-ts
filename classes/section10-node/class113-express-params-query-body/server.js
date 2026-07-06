@@ -14,8 +14,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/testes/:idUsuarios?/:parametro?', (req, res) => {
-    console.log(req.query) // Acessa as query strings -> ex: /profiles/?chave1=valor1&chave2=valor2 ... etc
     console.log(req.params) // "Partes" que vêm na rota da URL -> ex: profiles/3
+    console.log(req.query) // Acessa as query strings -> ex: /profiles/?chave1=valor1&chave2=valor2 ... etc
     res.send('Oi')
 })
 
