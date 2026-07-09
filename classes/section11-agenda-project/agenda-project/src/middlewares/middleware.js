@@ -1,5 +1,6 @@
 module.exports.middlewareGlobal = (req, res, next) => {
-    res.locals.umaVariavelLocal = 'Este é o valor da variável local.' // Disponível em todas as páginas
+    res.locals.errors = req.flash('errors') // Disponível em todas as páginas
+    res.locals.success = req.flash('success')
     next()
 }
 
@@ -11,7 +12,7 @@ module.exports.checkCsrfError = ((err, req, res, next) => {
     if (err) {
         return res.render('404') // Se ocorrer o erro, renderizamos a página de erro
     }
-    next() 
+    next()
 })
 
 module.exports.csrfMiddleware = (req, res, next) => {
