@@ -18,6 +18,24 @@ class Login {
         this.user = null
     }
 
+    async login() {
+        this.valida()
+        if (this.errors.length > 0) return
+        this.user = await LoginModel.findOne({ email: this.body.email })
+
+        if (!this.user) {
+            this.errors.push('Usuário ou senha inválidos.') // Verifica se o user não existe
+            return
+        }
+
+        if (!bcryptjs.compareSync(this.body.password, this.user.password)) { // Compara senha enviada com a senha do BD
+
+            this.errors.push('Senha inválida')
+            this.user = null // Garantindo que ele seja null se não passar
+            return
+        }
+    }
+
     async register() { // Tudo que ele retorna, também é uma promise
         this.valida()
         if (this.errors.length > 0) return // Se o array não estiver vazio, cai fora -> verifica os dados puros enviados no formulário
@@ -28,11 +46,8 @@ class Login {
 
         const salt = bcryptjs.genSaltSync() // Gera caracteres aleátorios para tornar a hash mais segura
         this.body.password = bcryptjs.hashSync(this.body.password, salt) // Faz o hash com a senha e o salt
-        try {
-            this.user = await LoginModel.create(this.body) // Salva o usuário na BD
-        } catch (e) {
-            console.log(e)
-        }
+
+        this.user = await LoginModel.create(this.body) // Salva o usuário na BD
     }
 
     valida() { // Faz a validação dos campos
@@ -50,8 +65,8 @@ class Login {
     // Método que varre o banco procurando se o e-mail já está cadastrado
     async userExists() {
         // Verifica se há UM registro na BD que seja idêntico ao e-mail enviado
-        const user = await LoginModel.findOne({ email: this.body.email }) // Retorna o usuário ou null (falsy)
-        if (user) this.errors.push('Usuário já cadastrado') // Se o usuário já existir, push erro
+        this.user = await LoginModel.findOne({ email: this.body.email }) // Retorna o usuário ou null (falsy)
+        if (this.user) this.errors.push('Usuário já cadastrado') // Se o usuário já existir, push erro
     }
 
     cleanUp() {
