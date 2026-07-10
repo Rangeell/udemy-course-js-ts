@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
+const bcryptjs = require('bcryptjs')
 
 // Schema -> esquema/modelagem dos nossos dados
 const LoginSchema = new mongoose.Schema({ // Chamamos o construtor do mongoose e usamos o método Schema, onde vamos mandar um objeto com a configuração dos dados que queremos (Schema)
@@ -19,8 +20,14 @@ class Login {
 
     async register() { // Tudo que ele retorna, também é uma promise
         this.valida()
-        if (this.errors.length > 0) return // Se o array não estiver vazio, cai fora
+        if (this.errors.length > 0) return // Se o array não estiver vazio, cai fora -> verifica os dados puros enviados no formulário
 
+        await this.userExists()
+
+        if (this.errors.length > 0) return // Checamos mais uma vez com os dados do BD (se o usuário já existe)
+
+        const salt = bcryptjs.genSaltSync() // Gera caracteres aleátorios para tornar a hash mais segura
+        this.body.password = bcryptjs.hashSync(this.body.password, salt) // Faz o hash com a senha e o salt
         try {
             this.user = await LoginModel.create(this.body) // Salva o usuário na BD
         } catch (e) {
@@ -38,6 +45,13 @@ class Login {
         if (this.body.password.length < 3 || this.body.password.length > 50) {
             this.errors.push('A senha precisa ter entre 3 e 50 caracteres')
         }
+    }
+
+    // Método que varre o banco procurando se o e-mail já está cadastrado
+    async userExists() {
+        // Verifica se há UM registro na BD que seja idêntico ao e-mail enviado
+        const user = await LoginModel.findOne({ email: this.body.email }) // Retorna o usuário ou null (falsy)
+        if (user) this.errors.push('Usuário já cadastrado') // Se o usuário já existir, push erro
     }
 
     cleanUp() {

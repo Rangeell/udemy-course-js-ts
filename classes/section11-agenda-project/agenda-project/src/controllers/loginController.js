@@ -14,7 +14,7 @@ module.exports.register = async (req, res) => {
             req.session.save(function () { // Primeiro salvamos a sessão
                 return res.redirect('/login/index') // Volta a página para onde o usuário veio e interrompe a função
             })
-            return 
+            return
         }
 
         req.flash('success', 'Seu usuário foi criado com sucesso')
