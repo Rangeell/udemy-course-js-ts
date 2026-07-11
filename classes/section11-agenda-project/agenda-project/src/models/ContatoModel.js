@@ -19,14 +19,6 @@ function Contato(body) { // Variando de class para constructor function
     this.contato = null
 }
 
-// Não está atrelado ao prototype, ou seja, não precisamos instanciar para usar essa função (estática)
-Contato.buscaPorId = async function (id) {
-    if (typeof id !== 'string') return
-
-    const user = await ContatoModel.findById(id)
-    return user
-}
-
 Contato.prototype.register = async function () { // Mexe com BD, logo, retorna promise
     this.valida()
 
@@ -72,6 +64,30 @@ Contato.prototype.edit = async function (id) {
 
     // Encontra por id e atualiza os dados do que der match
     this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true }) // new: true faz retornar os dados atualizados
+}
+
+//  Métodos estáticos
+
+// Não está atrelado ao prototype, ou seja, não precisamos instanciar para usar essa função (estática)
+Contato.buscaPorId = async function (id) {
+    if (typeof id !== 'string') return
+
+    const contato = await ContatoModel.findById(id)
+    return contato
+}
+
+// Queremos que eles fiquem ordenados na ordem em que foram criados de maneira decrescente
+Contato.buscaContatos = async function () {
+    const contatos = await ContatoModel.find()
+        .sort({ criadoEm: -1 }) // Qual campo queremos que ordene? -> criadoEm -> 1 para crescente e -1 para decrescente
+    return contatos
+}
+
+Contato.delete = async function (id) {
+    if (typeof id !== 'string') return
+
+    const contato = await ContatoModel.findOneAndDelete({ _id: id })
+    return contato
 }
 
 module.exports = Contato

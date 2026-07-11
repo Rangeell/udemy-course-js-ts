@@ -58,3 +58,20 @@ module.exports.edit = async (req, res) => {
         res.render('404')
     }
 }
+
+module.exports.delete = async (req, res) => {
+    try {
+        if (!req.params.id) return res.render('404') // Se não for recebido um parâmetro com id
+    
+        const contato = await Contato.delete(req.params.id)
+        if (!contato) return res.render('404') // Se o contato não existir
+    
+        req.flash('success', 'Contato apagado com sucesso!')
+        req.session.save(() => res.redirect(`/`)) // Importante salvar a sessão antes de redirecionar para garantir que ela foi salva
+
+    } catch (e) {
+        console.error(e);
+        res.render('404');
+    }
+
+}
