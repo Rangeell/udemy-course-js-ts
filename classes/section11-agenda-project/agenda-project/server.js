@@ -47,7 +47,7 @@ app.use(routes)
 
 //  Dizemos ao Express que usaremos o EJS para renderizar as páginas
 app.set('views', path.resolve(__dirname, 'src', 'views')) // Caminho absoluto da nossa pasta de views
-app.set('view engine', 'ejs') //Avisamos que usaremos ejs como engine para renderizar os nossos views 
+app.set('view engine', 'ejs') // Avisamos que usaremos ejs como engine para renderizar os nossos views 
 
 app.on('Pronto', () => { // Capturando o sinal/evento emitido na linha 11 -> Garante que o servido só inicie após a conexão com a base de dados estiver pronta
 
