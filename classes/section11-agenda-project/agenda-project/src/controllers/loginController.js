@@ -43,6 +43,7 @@ module.exports.login = async (req, res) => {
 
         req.flash('success', 'Login realizado!')
         req.session.user = login.user // Salvamos o usuário completo na sessão do servidor (identificamos o navegador como sendo navegador do usuário)
+        
         req.session.save(function () { // Primeiro salvamos a sessão
             return res.redirect('/login/index') // Volta a página para onde o usuário veio e interrompe a função
         })
