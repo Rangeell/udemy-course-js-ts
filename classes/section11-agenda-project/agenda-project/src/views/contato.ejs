@@ -1,0 +1,51 @@
+<%- include('includes/head') %>
+    <%- include('includes/nav') %>
+        <!-- <h1>Hello, world!</h1> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-8 my-3">
+
+                    <h1 class="text-center">Contato</h1>
+                    <p class="text-center lead">Crie ou edite seu contato abaixo</p>
+
+                    <%- include('includes/messages') %>
+                    
+                    <% if (contato._id){ %> <!-- Se o contato existir, vamos postar na rota edit -->
+                        <form action="/contato/edit/<%= contato._id %>" method="post">
+                    <% } else { %>
+                        <form action="/contato/register" method="post"> <!-- Se não, vamos criá-lo -->
+                    <% } %>
+                    
+                        <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+
+                        <div class="form-group">
+                            <label for="exampleInputName">Nome</label>
+                            <input value="<%= contato.nome %>" type="text" class="form-control" name="nome" id="exampleInputName">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exampleInputName">Sobrenome</label>
+                            <input value="<%= contato.sobrenome %>" type="text" class="form-control" name="sobrenome" id="exampleInputName">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exampleInputName">E-mail</label>
+                            <input value="<%= contato.email %>" type="email" class="form-control" name="email" id="exampleInputName">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exampleInputName">Telefone</label>
+                            <input value="<%= contato.telefone %>" type="tel" class="form-control" name="telefone" id="exampleInputName">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+
+                </div>
+
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+        <%- include('includes/footer') %>
