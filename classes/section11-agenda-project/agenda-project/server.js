@@ -20,7 +20,7 @@ const helmet = require('helmet') // Recomendação do Express para deixar a noss
 const csrf = require('csurf') // Faz com que todos os formulários tenham um crsf token. O que garante que nenhum site/app externo consiga postar coisas para dentro de nossa aplicação
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware') // Nossos Middleware global e de csrf Error-> Atribuição via desestruturação -> são funções que são executadas em cadeia no meio das rotas
 
-app.use(helmet())
+app.use(helmet({ contentSecurityPolicy: false, }))
 app.use(express.urlencoded({ extended: true })) // Middleware global -> Permite que postemos formulários para dentro de nossa aplicação
 app.use(express.json()) // 
 app.use(express.static(path.resolve(__dirname, 'public'))) // Middle global -> Avisa ao Express que a pasta 'public' contém os arquivos estáticos do site e permite acessá-los diretamente
