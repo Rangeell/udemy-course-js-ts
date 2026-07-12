@@ -16,7 +16,7 @@ const session = require('express-session') // Apenas isso já salva a sessão na
 const MongoStore = require('connect-mongo')(session) // De cara já mandadmos (incomum) a sessão
 const flash = require('connect-flash') // Flash Massages (menssagens "auto-destrutivas") -> Feedback para o usuário -> sem session, não funcionam
 const routes = require('./routes') // Rotas da nossa aplicação (home, contato, página inicial) caem aqui
-const helmet = require('helmet') // Recomendação do Express para deixar a nossa aplicação mais segura
+const helmet = require('helmet') // Recomendação do Express para deixar a nossa aplicação mais segura -> middleware global de segurança
 const csrf = require('csurf') // Faz com que todos os formulários tenham um crsf token. O que garante que nenhum site/app externo consiga postar coisas para dentro de nossa aplicação
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware') // Nossos Middleware global e de csrf Error-> Atribuição via desestruturação -> são funções que são executadas em cadeia no meio das rotas
 
