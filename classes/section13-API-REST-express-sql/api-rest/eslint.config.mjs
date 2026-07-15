@@ -27,6 +27,7 @@ export default [
       'no-console': 'off',                  // Permite usar o console.log para testes
       'no-unused-vars': 'warn',             // Avisa sobre variáveis não usadas (linha amarela)
       'class-methods-use-this': 'off',      // Desativa a regra de métodos de classe
+      'import/first': 'off',
     },
   },
   // Ignora o próprio arquivo de configuração para evitar que o linter tente se validar e gere erros falsos

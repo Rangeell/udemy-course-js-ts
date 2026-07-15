@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
+import './src/database'; // Executa a conexão com o banco de dados automaticamente
 import express from 'express';
 import homeRoutes from './src/routes/homeRoutes';
 
