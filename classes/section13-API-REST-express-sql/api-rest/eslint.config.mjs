@@ -28,6 +28,7 @@ export default [
       'no-unused-vars': 'warn',             // Avisa sobre variáveis não usadas (linha amarela)
       'class-methods-use-this': 'off',      // Desativa a regra de métodos de classe
       'import/first': 'off',
+      'no-param-reassign': 'off',
     },
   },
   // Ignora o próprio arquivo de configuração para evitar que o linter tente se validar e gere erros falsos

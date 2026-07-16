@@ -1,8 +1,11 @@
+// Arquivo onde fazemos a conexão com a base de dados
+
 import Sequelize from 'sequelize';
 import databaseConfig from '../config/database'; // Nosso arquivo de configurações
 import Aluno from '../models/AlunoModel'; // Nosso model Alunos
+import User from '../models/UserModel';
 
-const models = [Aluno]; // Array contendo todos os nossos models
+const models = [Aluno, User]; // Array contendo todos os nossos models
 
 const connection = new Sequelize(databaseConfig); // Mandamos as configurações da nossa BD dentro do Sequelize()
 
