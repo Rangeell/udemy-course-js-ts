@@ -1,5 +1,5 @@
 // Precisamos usar commonjs nesse arquivos
-require('dotenv').config();
+require('dotenv').config(); // Injeta as variáveis do arquivo .env na memória do Node
 
 module.exports = {
   dialect: 'mariadb',
