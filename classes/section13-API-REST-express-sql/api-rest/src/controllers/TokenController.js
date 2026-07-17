@@ -8,14 +8,9 @@ class TokenController {
       const { email = '', password = '' } = req.body;
 
       if (!email || !password) {
-      if (!email || !password) {
-        return res.status(401).json({
         return res.status(401).json({
           errors: ['Credencias inválidas!'],
-          errors: ['Credencias inválidas!'],
         });
-        });
-      }
       }
 
       const user = await User.findOne({ where: { email } });
