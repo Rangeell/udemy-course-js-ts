@@ -2,7 +2,9 @@
 
 import Sequelize from 'sequelize';
 import databaseConfig from '../config/database'; // Nosso arquivo de configurações
-import Aluno from '../models/AlunoModel'; // Nosso model Alunos
+
+// Nossos models
+import Aluno from '../models/AlunoModel';
 import User from '../models/UserModel';
 
 const models = [Aluno, User]; // Array contendo todos os nossos models

@@ -51,7 +51,7 @@ export default class User extends Model { // Model que importamos de dentro do s
       { sequelize }); // Nesse objeto basta o sequelize
 
     this.addHook('beforeSave', async user => { // bcrypt retorna uma promise
-      if (user) {
+      if (user.password) {
         user.password_hash = await bcrypt.hash(user.password, 8);
       }
     });

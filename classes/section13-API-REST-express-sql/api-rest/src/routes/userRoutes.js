@@ -4,13 +4,18 @@ import userController from '../controllers/UserController'; // Não importamos c
 const router = new Router();
 
 router.post('/', userController.store);
-// Não é comum usar ".index" em rotas de criação. É comumente utilizado ".store" ou ".crete"
-// Não precisamos colocar '/users', pois já esta vindo o arquivo 'app.js'
+router.get('/', userController.index);
+router.get('/:id', userController.show);
+router.put('/:id', userController.update);
+router.delete('/:id', userController.delete);
 
 export default router;
 
 /*
-"Regra" do mercado:
+Não é comum usar ".index" em rotas de criação. É comumente utilizado ".store" ou ".crete"
+Não precisamos colocar '/users', pois já esta vindo o arquivo 'app.js'
+
+*"Regra" do mercado:
 
   É comum usar até no máximo 5 métodos por controller (não é obrigatório, mas é o comum do mercado)
 
