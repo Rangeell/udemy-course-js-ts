@@ -58,4 +58,8 @@ export default class User extends Model { // Model que importamos de dentro do s
 
     return this;
   }
+
+  passwordIsValid(password) {
+    return bcrypt.compare(password, this.password_hash);
+  }
 }
