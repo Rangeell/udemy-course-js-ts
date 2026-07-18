@@ -7,6 +7,7 @@ import homeRoutes from './src/routes/homeRoutes';
 import userRoutes from './src/routes/userRoutes';
 import tokenRoutes from './src/routes/tokenRoutes';
 import alunoRoutes from './src/routes/alunoRoutes';
+import photoRoutes from './src/routes/photoRoutes';
 
 class App {
   constructor() {
@@ -25,6 +26,7 @@ class App {
     this.app.use('/users/', userRoutes); // Tudo que for '/users' vai ser tratado pelo arquivo de rotas do usuário
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/alunos/', alunoRoutes);
+    this.app.use('/photos/', photoRoutes);
   }
 }
 
