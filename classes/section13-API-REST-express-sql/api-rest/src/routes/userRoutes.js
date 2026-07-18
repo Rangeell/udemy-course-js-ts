@@ -4,11 +4,14 @@ import loginRequired from '../middlewares/loginRequired'; // middleware que vali
 
 const router = new Router();
 
+//! Rotas removidas (não vamos usar)
+//// router.get('/', loginRequired, userController.index);
+//// router.get('/:id', userController.show);
+
+// Não enviamos o id na URL, pois agora podemos usar o id do Token
 router.post('/', userController.store);
-router.get('/', loginRequired, userController.index);
-router.get('/:id', userController.show);
-router.put('/:id', userController.update);
-router.delete('/:id', userController.delete);
+router.put('/', loginRequired, userController.update);
+router.delete('/', loginRequired, userController.delete);
 
 export default router;
 

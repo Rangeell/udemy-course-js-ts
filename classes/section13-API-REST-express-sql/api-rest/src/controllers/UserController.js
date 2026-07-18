@@ -8,7 +8,9 @@ class UserController {
   async store(req, res) {
     try {
       const novoUser = await User.create(req.body);
-      return res.json({ novoUser });
+      const { id, nome, email } = novoUser;
+
+      return res.json({ id, nome, email });
 
     } catch (e) {
       return res.status(400).json({
@@ -19,7 +21,7 @@ class UserController {
 
   async index(req, res) {
     try {
-      const users = await User.findAll();
+      const users = await User.findAll({ attributes: ['id', 'nome', 'email'] });
       return res.json(users);
 
     } catch (e) {
@@ -31,7 +33,9 @@ class UserController {
   async show(req, res) {
     try {
       const user = await User.findByPk(req.params.id);
-      res.json(user);
+      const { id, nome, email } = user;
+
+      res.json({ id, nome, email });
 
     } catch (e) {
       console.error('Deu erro no Controller:', e);
@@ -43,13 +47,7 @@ class UserController {
 
   async update(req, res) {
     try {
-      if (!req.params.id) {
-        return res.status(400).json({
-          errors: ['ID não enviado!'],
-        });
-      }
-
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.userId);
 
       if (!user) {
         return res.status(400).json({
@@ -58,7 +56,9 @@ class UserController {
       }
 
       const novosDados = await user.update(req.body);
-      return res.json(novosDados);
+      const { id, nome, email } = novosDados;
+
+      return res.json({ id, nome, email });
 
     } catch (e) {
       console.log(e);
@@ -70,13 +70,7 @@ class UserController {
 
   async delete(req, res) {
     try {
-      if (!req.params.id) {
-        res.status(400).json({
-          errors: ['ID não enviado!'],
-        });
-      }
-
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.userId);
 
       if (!user) {
         return res.status(400).json({
@@ -85,9 +79,7 @@ class UserController {
       }
 
       await user.destroy();
-      return res.json({
-        Usuário_deletado: [user],
-      });
+      return res.json('Usuário deletado!');
 
     } catch (e) {
       console.error(e);
