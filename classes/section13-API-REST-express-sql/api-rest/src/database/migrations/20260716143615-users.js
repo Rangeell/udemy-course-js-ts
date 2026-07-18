@@ -1,7 +1,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('users', { // Alunos no plural
+    await queryInterface.createTable('users', { // Users no plural
       id: {
         type: Sequelize.INTEGER, // Tipo do campo -> campo do tipo número inteiro
         allowNull: false, // Não permite que o campo fique nulo
