@@ -1,4 +1,4 @@
-// Arquivo onde fazemos a conexão com a base de dados
+// Arquivo onde fazemos a conexão com a base de dados e centralizamos todos o models
 
 import Sequelize from 'sequelize';
 import databaseConfig from '../config/database'; // Nosso arquivo de configurações
