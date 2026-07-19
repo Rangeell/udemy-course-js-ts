@@ -18,14 +18,20 @@ class PhotoController {
         });
       }
 
-      const { originalname, filename } = req.file;
-      const { aluno_id } = req.body;
-      console.log(aluno_id)
-      console.log(req.body)
+      try {
+        const { originalname, filename } = req.file;
+        const { aluno_id } = req.body;
+        const foto = await Photo.create({ originalname, filename, aluno_id });
 
-      const foto = await Photo.create({ originalname, filename, aluno_id });
+        return res.json(foto);
 
-      return res.json(foto);
+      } catch (e) {
+        console.error(`Deu erro no PhotoController: ${e.message}`);
+        return res.status(400).json({
+          errors: ['Aluno inexistente!'],
+        });
+      }
+
     });
   }
 }

@@ -78,4 +78,8 @@ export default class Aluno extends Model { // Model que importamos de dentro do 
 
     return this;
   }
+
+  static associate(models) { // Relação aluno para foto
+    this.hasMany(models.Photo, { foreignKey: 'aluno_id' });
+  }
 }
