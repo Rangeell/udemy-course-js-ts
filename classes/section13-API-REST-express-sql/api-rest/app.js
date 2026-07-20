@@ -2,6 +2,7 @@ import 'dotenv/config'; // Injeta as variáveis do arquivo .env na memória do N
 
 import './src/database'; // Executa a conexão com o banco de dados automaticamente
 import express from 'express';
+import { resolve } from 'path';
 
 import homeRoutes from './src/routes/homeRoutes';
 import userRoutes from './src/routes/userRoutes';
@@ -19,6 +20,7 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   routes() {
