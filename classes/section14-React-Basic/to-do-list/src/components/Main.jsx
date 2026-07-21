@@ -11,11 +11,27 @@ import './Main.css';
 export default class Main extends Component {
   state = { // Todas as chaves que estiverem aqui, serão o estado do nosso componente
     novaTarefa: '', // Toda vez que o estado mudar, a mudança vai ser refletida no render()
-    tarefas: [
-      'Fazer café',
-      'Beber água',
-      'Estudar',
-    ],
+    tarefas: [],
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { tarefas } = this.state;
+    let { novaTarefa } = this.state; // Tarefa adicionada no input
+    novaTarefa = novaTarefa.trim();
+
+    if (novaTarefa === '') return;
+    if (tarefas.includes(novaTarefa)) return;
+
+    // Cria um novo array mantendo as tarefas antigas
+    const novasTarefas = [...tarefas];
+
+    // Atualiza o estado da aplicação e limpa o campo de texto
+    this.setState({
+      novaTarefa: '', // Reseta o valor do input
+      // Cria um novo array mantendo as tarefas antigas e adicionando a nova
+      tarefas: [...novasTarefas, novaTarefa],
+    });
   };
 
   handleChange = (e) => { // Método que atualiza o estado
@@ -31,7 +47,7 @@ export default class Main extends Component {
       <div className="main">
         <h1>Lista de Tarefas</h1>
 
-        <form action="#" method="post" className="form">
+        <form action="#" className="form" onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleChange} // Chama nosso método ao capturar o evento
             type="text"
@@ -46,10 +62,10 @@ export default class Main extends Component {
           {tarefas.map((tarefa, i) => ( // map que retonar um (algo renderizado), como se fosse return () implícito
             <li key={i}>
               {tarefa}
-              <div className="icons">
+              <span className="icons">
                 <FaEdit className="edit" />
                 <FaWindowClose className="delete" />
-              </div>
+              </span>
             </li>
           ))}
         </ul>
