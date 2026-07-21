@@ -43,7 +43,7 @@ export default class Main extends Component {
         </form>
 
         <ul className="tarefas">
-          {tarefas.map((tarefa, i) => ( // map que retonar um (algo renderizado), como se fosse return ()
+          {tarefas.map((tarefa, i) => ( // map que retonar um (algo renderizado), como se fosse return () implícito
             <li key={i}>
               {tarefa}
               <div className="icons">
