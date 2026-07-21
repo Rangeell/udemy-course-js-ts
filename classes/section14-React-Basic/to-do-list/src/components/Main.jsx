@@ -16,8 +16,10 @@ export default class Main extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
     const { tarefas } = this.state;
     let { novaTarefa } = this.state; // Tarefa adicionada no input
+
     novaTarefa = novaTarefa.trim();
 
     if (novaTarefa === '') return;
@@ -40,6 +42,21 @@ export default class Main extends Component {
     });
   };
 
+  handleEdit = (e, index) => {
+  };
+
+  handleDelete = (e, index) => {
+    const { tarefas } = this.state;
+    const novasTarefas = [...tarefas]; // Copia o array para respeitar a imutabilidade
+
+    novasTarefas.splice(index, 1); // Remove 1 item no índice especificado
+
+
+    this.setState({
+      tarefas: novasTarefas,
+    });
+  };
+
   render() {
     const { novaTarefa, tarefas } = this.state;
 
@@ -59,13 +76,24 @@ export default class Main extends Component {
         </form>
 
         <ul className="tarefas">
-          {tarefas.map((tarefa, i) => ( // map que retonar um (algo renderizado), como se fosse return () implícito
-            <li key={i}>
+          {tarefas.map((tarefa, index) => ( // map que retonar um (algo renderizado), como se fosse return () implícito
+
+            <li key={index}>
               {tarefa}
+
               <span className="icons">
-                <FaEdit className="edit" />
-                <FaWindowClose className="delete" />
+
+                <FaEdit
+                  onClick={(e) => this.handleEdit(e, index)}
+                  className="edit"
+                />
+
+                <FaWindowClose
+                  onClick={(e) => this.handleDelete(e, index)}
+                  className="delete"
+                />
               </span>
+
             </li>
           ))}
         </ul>
