@@ -12,12 +12,13 @@ export default class Main extends Component {
   state = { // Todas as chaves que estiverem aqui, serão o estado do nosso componente
     novaTarefa: '', // Toda vez que o estado mudar, a mudança vai ser refletida no render()
     tarefas: [],
+    index: -1,
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { tarefas } = this.state;
+    const { tarefas, index } = this.state;
     let { novaTarefa } = this.state; // Tarefa adicionada no input
 
     novaTarefa = novaTarefa.trim();
@@ -28,12 +29,21 @@ export default class Main extends Component {
     // Cria um novo array mantendo as tarefas antigas
     const novasTarefas = [...tarefas];
 
-    // Atualiza o estado da aplicação e limpa o campo de texto
-    this.setState({
-      novaTarefa: '', // Reseta o valor do input
-      // Cria um novo array mantendo as tarefas antigas e adicionando a nova
-      tarefas: [...novasTarefas, novaTarefa],
-    });
+    if (index === -1) { // Significa que não estamos editando uma tarefa
+
+      // Atualiza o estado da aplicação e limpa o campo de texto
+      this.setState({
+        novaTarefa: '', // Reseta o valor do input
+        tarefas: [...novasTarefas, novaTarefa], // Cria um novo array mantendo as tarefas antigas e adicionando a nova
+      });
+    } else {
+      novasTarefas[index] = novaTarefa; // Recebe o texto do input (index veio da alteração do estado em handleEdit)
+
+      this.setState({
+        tarefas: [...novasTarefas],
+        index: -1, // Seta o index de volta para -1 (volta ao modo criação)
+      });
+    }
   };
 
   handleChange = (e) => { // Método que atualiza o estado
@@ -43,6 +53,12 @@ export default class Main extends Component {
   };
 
   handleEdit = (e, index) => {
+    const { tarefas } = this.state;
+
+    this.setState({
+      index, // Seta o estado index com o index recebido
+      novaTarefa: tarefas[index], // Faz com o que o input receba a tarefa com index recebido
+    });
   };
 
   handleDelete = (e, index) => {
@@ -50,7 +66,6 @@ export default class Main extends Component {
     const novasTarefas = [...tarefas]; // Copia o array para respeitar a imutabilidade
 
     novasTarefas.splice(index, 1); // Remove 1 item no índice especificado
-
 
     this.setState({
       tarefas: novasTarefas,

@@ -5,7 +5,7 @@ import appConfig from '../config/appConfig';
 
 export default class Photo extends Model { // Model que importamos de dentro do sequelize
   static init(sequelize) {
-    super.init( // Chamamos o init() do Model que extendemos
+    super.init( // Chamamos o init() do Model que estendemos
       {
         originalname: {
           type: Sequelize.STRING,
