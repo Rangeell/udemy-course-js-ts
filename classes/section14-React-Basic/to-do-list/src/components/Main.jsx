@@ -15,6 +15,24 @@ export default class Main extends Component {
     index: -1,
   };
 
+  componentDidMount() { // Executa uma vez quando o componente é montado
+    const tarefas = JSON.parse(localStorage.getItem('tarefas'));
+
+    if (!tarefas) return;
+
+    this.setState({ // Atualiza o estado
+      tarefas, // Tarefa recebe o valor de tarefas do localStorage
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) { // Executa quando o componente sofre alteração
+    const { tarefas } = this.state;
+
+    if (tarefas !== prevState.tarefas) { // Só salva se as tarefas mudarem (forem diferente do estado inicial)
+      localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    }
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
 
