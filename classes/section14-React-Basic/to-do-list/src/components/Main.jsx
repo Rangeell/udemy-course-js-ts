@@ -1,5 +1,5 @@
 import { Component } from "react";
-import './Main.css'
+import './Main.css';
 
 export default class Main extends Component {
   state = { // Todas as chaves que estirem aqui, serão o estado do nosso componente
@@ -8,12 +8,12 @@ export default class Main extends Component {
 
   handleChange = (e) => {
     this.setState({
-      novaTarefa: e.target.value
-    })
-  }
+      novaTarefa: e.target.value,
+    });
+  };
 
   render() {
-    // const { novaTarefa } = this.state
+    const { novaTarefa } = this.state;
 
     return (
       <div className="main">
