@@ -1,10 +1,6 @@
 import { Component } from "react"; // Importando o Componente do React (Para podermos usar o State)
-
-// Form
-import { FaPlus } from 'react-icons/fa'; // É tratado como um componente do React
-
-// Tarefas
-import { FaEdit, FaWindowClose } from 'react-icons/fa';
+import Form from "./Form"; // Carrega o index da pasta automaticamnte
+import Tarefas from "./Tasks";
 
 import './Main.css';
 
@@ -60,6 +56,7 @@ export default class Main extends Component {
       this.setState({
         tarefas: [...novasTarefas],
         index: -1, // Seta o index de volta para -1 (volta ao modo criação)
+        novaTarefa: '',
       });
     }
   };
@@ -97,39 +94,18 @@ export default class Main extends Component {
       <div className="main">
         <h1>Lista de Tarefas</h1>
 
-        <form action="#" className="form" onSubmit={this.handleSubmit}>
-          <input
-            onChange={this.handleChange} // Chama nosso método ao capturar o evento
-            type="text"
-            value={novaTarefa}
-          />
-          <button type="submit">
-            <FaPlus />
-          </button>
-        </form>
+        <Form // "Função" que exportamos do './Form' -> chamada da função
+          handleChange={this.handleChange} // props que passamos para o componente -> propriedades do objeto
+          handleSubmit={this.handleSubmit}
+          novaTarefa={novaTarefa}
+        />
 
-        <ul className="tarefas">
-          {tarefas.map((tarefa, index) => ( // map que retonar um (algo renderizado), como se fosse return () implícito
+        <Tarefas
+          tarefas={tarefas}
+          handleEdit={this.handleEdit}
+          handleDelete={this.handleDelete}
+        />
 
-            <li key={index}>
-              {tarefa}
-
-              <span className="icons">
-
-                <FaEdit
-                  onClick={(e) => this.handleEdit(e, index)}
-                  className="edit"
-                />
-
-                <FaWindowClose
-                  onClick={(e) => this.handleDelete(e, index)}
-                  className="delete"
-                />
-              </span>
-
-            </li>
-          ))}
-        </ul>
       </div>
     );
   }
