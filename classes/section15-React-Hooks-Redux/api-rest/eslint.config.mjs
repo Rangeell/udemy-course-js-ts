@@ -29,7 +29,7 @@ export default [
       'class-methods-use-this': 'off',      // Desativa a regra de métodos de classe
       'import/first': 'off',
       'no-param-reassign': 'off',
-      "camelcase": "off"
+      'camelcase': 'off',
     },
   },
   // Ignora o próprio arquivo de configuração para evitar que o linter tente se validar e gere erros falsos
