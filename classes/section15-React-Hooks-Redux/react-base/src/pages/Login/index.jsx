@@ -7,8 +7,8 @@ export default function Login() { // Nome do componente -> Login
       <Title>Login
         <small>Oi</small>
       </Title>
-
       <Paragrafo>Lorem ipsum dolor sit amet.</Paragrafo>
+      <button type='button'>Enviar</button>
     </ Container>
   );
 }

@@ -1,10 +1,12 @@
-import styed, { createGlobalStyle, styled } from 'styled-components';
+import { createGlobalStyle, styled } from 'styled-components';
+import { primaryColor, primaryDarkColor, whiteDefault } from '../config/colors';
 
 export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    outline: none;
+    border: 0;
+    outline: 0;
     box-sizing: border-box;
     text-decoration: none;
     appearance: none;
@@ -21,11 +23,25 @@ export default createGlobalStyle`
     height: 100dvh;
 
     font-family: sans-serif;
-    background-color: grey;
+
+    background-color: ${primaryDarkColor};
+    color: ${primaryColor};
   }
 
   button {
+    padding: .6rem 1.2rem;
+    border-radius: 4px;
+
+    font-weight: 700;
+
+    background-color: ${primaryColor};
+    color: ${whiteDefault};
+
     cursor: pointer;
+  }
+
+  a {
+    color: ${primaryColor};
   }
 `;
 
