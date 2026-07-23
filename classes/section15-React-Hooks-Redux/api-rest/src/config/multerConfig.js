@@ -4,8 +4,6 @@ import multer from 'multer';
 // Função para gerar um número aleatório entre 10000 e 20000
 const random = () => Math.floor(Math.random() * 10000 + 10000);
 
-const oi = 20
-
 export default {
   fileFilter: (req, file, cb) => {
     if (file.mimetype !== 'image/png' && file.mimetype !== 'image/jpeg') {

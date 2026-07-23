@@ -12,8 +12,6 @@ class PhotoController {
   store(req, res) {
     return upload(req, res, async (err) => { // Essa estrutura é do próprio multer -> Executa o upload manualmente para capturar possíveis erros
 
-      const oi = 20
-
       if (err) { // Se houver algo dentro do parâmetro "err"
         return res.status(400).json({
           errors: [err.code || err.message],
