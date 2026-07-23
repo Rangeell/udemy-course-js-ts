@@ -1,0 +1,29 @@
+# https://editorconfig.org/ -> Site oficial da especificação do EditorConfig
+
+# top-most EditorConfig file -> Indica que este é o arquivo EditorConfig principal.
+# O EditorConfig não continuará procurando outros arquivos em pastas superiores.
+root = true
+
+# Aplica as configurações abaixo para todos os arquivos do projeto.
+[*]
+
+# Define que a indentação será feita com espaços (space) em vez de tabulações (tabs).
+indent_style = space
+
+# Cada nível de indentação utilizará 2 espaços.
+indent_size = 2
+
+# Define o caractere de quebra de linha como LF (Line Feed).
+# É o padrão utilizado em Linux, macOS e na maioria dos projetos Git.
+end_of_line = lf
+
+# Define a codificação dos arquivos como UTF-8.
+# Garante suporte a caracteres especiais (acentos, símbolos, emojis etc.).
+charset = utf-8
+
+# Remove automaticamente espaços em branco no final de cada linha ao salvar o arquivo.
+trim_trailing_whitespace = true
+
+# Garante que todo arquivo termine com uma linha em branco (quebra de linha final).
+# Essa é uma convenção adotada por diversas ferramentas e sistemas de controle de versão.
+insert_final_newline = true

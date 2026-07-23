@@ -21,7 +21,6 @@ export default defineConfig([
       'semi': ['warn', 'always'], // Obriga usar ponto e vírgula
       'comma-dangle': ['error', 'always-multiline'], // Obriga a vírgula no final de objetos/arrays multilinhas
       'no-unused-vars': 'warn', // Avisa sobre variáveis não usadas (linha amarela)
-
     },
   },
 ]);

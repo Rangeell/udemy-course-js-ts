@@ -1,6 +1,6 @@
 import 'dotenv/config'; // Injeta as variáveis do arquivo .env na memória do Node
-
 import './database'; // Executa a conexão com o banco de dados automaticamente
+
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -19,8 +19,8 @@ const whiteList = [ // Lista de origens que podem utilizar a nossa API REST
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whiteList.indexOf(origin) !== -1 || !origin) { // Se for undefined (origin não existe) ou estiver dentro da whiteList, permite acesso
-      callback(null, true); // true permite que a origen seja atendida
+    if (whiteList.indexOf(origin) !== -1 || !origin) { // Se for undefined (origin não existe) ou estiver dentro da whiteList, permite acesso à origem
+      callback(null, true); // true permite que a origin seja atendida
     } else {
       callback(new Error('Not allowed by CORS'));
     }

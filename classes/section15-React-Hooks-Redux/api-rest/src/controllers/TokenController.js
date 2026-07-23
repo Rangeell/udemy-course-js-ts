@@ -31,7 +31,7 @@ class TokenController {
       const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET,
         { expiresIn: process.env.TOKEN_EXPIRATIONS });
 
-      return res.json({ token, user: {nome, id, email} }); // Destructuting
+      return res.json({ token, user: { nome, id, email } }); // Destructuting
 
     } catch (e) {
       res.status(400).json({
@@ -39,7 +39,6 @@ class TokenController {
       });
     }
   }
-
 }
 
 export default new TokenController();
