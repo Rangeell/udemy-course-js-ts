@@ -50,7 +50,8 @@ export const Container = styled.section`
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 5px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, .1));
 
+  color: ${primaryDarkColor};
   background: #ffff;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, .1));
 `;
