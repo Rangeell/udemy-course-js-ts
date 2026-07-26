@@ -1,5 +1,6 @@
 import { createGlobalStyle, styled } from 'styled-components';
-import { primaryColor, primaryDarkColor, whiteDefault } from '../config/colors';
+import * as colors from '../config/colors';
+import 'react-toastify/ReactToastify.css';
 
 export default createGlobalStyle`
   * {
@@ -24,8 +25,18 @@ export default createGlobalStyle`
 
     font-family: sans-serif;
 
-    background-color: ${primaryDarkColor};
-    color: ${primaryColor};
+    background-color: ${colors.primaryDarkColor};
+    color: ${colors.primaryColor};
+  }
+
+  body .Toastify__toast-container .Toastify__toast--success {
+    background-color: ${colors.sucessColor};
+    color: ${colors.whiteDefault};
+  }
+
+  body .Toastify__toast-container .Toastify__toast--error {
+    background-color: ${colors.errorColor};
+    color: ${colors.whiteDefault};
   }
 
   button {
@@ -34,14 +45,14 @@ export default createGlobalStyle`
 
     font-weight: 700;
 
-    background-color: ${primaryColor};
-    color: ${whiteDefault};
+    background-color: ${colors.primaryColor};
+    color: ${colors.whiteDefault};
 
     cursor: pointer;
   }
 
   a {
-    color: ${primaryColor};
+    color: ${colors.primaryColor};
   }
 `;
 
@@ -51,7 +62,7 @@ export const Container = styled.section`
   padding: 2rem;
   border-radius: 5px;
 
-  color: ${primaryDarkColor};
+  color: ${colors.primaryDarkColor};
   background: #ffff;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, .1));
 `;
