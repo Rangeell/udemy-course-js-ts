@@ -44,7 +44,7 @@ export default defineConfig([
       'react-hooks/exhaustive-deps': 'warn', // Avisa quando faltam dependências no useEffect
       semi: ['warn', 'always'], // Obriga usar ponto e vírgula
       quotes: ['warn', 'single'], // Obriga usar aspas simples
-      indent: ['error', 2], // Obriga indentação com 2 espaços
+      // indent: ['error', 2], // Obriga indentação com 2 espaços
       'comma-dangle': ['error', 'always-multiline'], // Obriga a vírgula no final de objetos/arrays multilinhas
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }], // Remove linhas em branco extras
     },
