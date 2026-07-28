@@ -6,14 +6,13 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
-  const botaoClicado = useSelector(state => state.botaoClicado);
+  const botaoClicado = useSelector(state => console.log(state));
 
   return (
     <Nav>
       <Link to="/" target=''>
         <FaHome size={24} />
       </Link>
-¢
       <Link to="/login">
         <FaSignInAlt size={24} />
       </Link>
@@ -22,7 +21,7 @@ export default function Header() {
         <FaUserAlt size={24} />
       </Link>
 
-      <p style={{ color: 'blue' }}>
+      <p style={{ color: 'black' }}>
         {botaoClicado ? 'Clicado!' : 'Não clicado!'}
       </p>
     </Nav >
