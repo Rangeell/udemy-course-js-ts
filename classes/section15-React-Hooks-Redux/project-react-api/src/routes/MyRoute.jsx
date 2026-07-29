@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Navigate, useLocation } from 'react-router-dom';
 
 export default function MyRoute({ element, isClosed = false }) {
-  const isLoggeIn = true; // Esse valor vai estar presente dentro do estado do Redux (estado global)
+  const isLoggeIn = false; // Esse valor vai estar presente dentro do estado do Redux (estado global)
   const location = useLocation(); // Obtém a rota atual
 
   if (isClosed && !isLoggeIn) { // A rota é fechada e o usuário não está logado?

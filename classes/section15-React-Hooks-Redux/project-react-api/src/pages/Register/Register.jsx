@@ -1,10 +1,10 @@
 import { Container } from '../../styles/GlobalStyles';
 
-export default function Login() { // Nome do componente -> Login
+export default function Register() { // Nome do componente -> Login
 
   return (
     <Container>
-      <h1>Login</h1>
+      <h1>Register</h1>
     </ Container>
   );
 }
