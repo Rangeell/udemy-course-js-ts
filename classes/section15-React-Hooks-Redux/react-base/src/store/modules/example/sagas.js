@@ -9,8 +9,8 @@ import * as types from '../types';
 
 const requisição = () => new Promise((resolve, reject) => {
   setTimeout(() => {
-    reject();
-  }, 2000);
+    resolve();
+  }, 600);
 });
 
 function* exampleRequest() {
