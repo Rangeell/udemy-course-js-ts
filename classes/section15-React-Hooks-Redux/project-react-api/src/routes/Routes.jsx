@@ -15,7 +15,7 @@ export default function AppRoutes() {
     <Routes> {/* Garante que apenas uma rota seja renderizada por vez */}
 
       {/* Define o caminho (`path`) e qual componente deve ser exibido. */}
-      <Route path='/' element={
+      <Route path='/' element={ // Rota pública: Listagem de alunos na raiz */
         <MyRoute
           isClosed={false}
           element={<Alunos />}
@@ -23,6 +23,7 @@ export default function AppRoutes() {
       }
       />
 
+      {/* Rotas fechadas: Exigem usuário logado */}
       <Route path='/aluno/:id/edit' element={
         <MyRoute
           isClosed={true}
@@ -47,6 +48,7 @@ export default function AppRoutes() {
       }
       />
 
+      {/* Rotas públicas: Cadastro e Login */}
       <Route path='/login/' element={
         <MyRoute
           isClosed={false}
@@ -63,6 +65,7 @@ export default function AppRoutes() {
       }
       />
 
+      {/* Fallback 404 */}
       <Route path='*' element={<Page404 />} />
     </Routes>
   );

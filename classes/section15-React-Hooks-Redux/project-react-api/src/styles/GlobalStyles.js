@@ -57,7 +57,7 @@ export default createGlobalStyle`
 `;
 
 export const Container = styled.section`
-  max-width: 360px;
+  max-width: 480px;
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 5px;
