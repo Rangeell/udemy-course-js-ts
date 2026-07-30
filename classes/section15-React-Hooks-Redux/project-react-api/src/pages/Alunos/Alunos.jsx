@@ -38,6 +38,7 @@ export default function Alunos() { // Nome do componente -> Alunos
                 <FaUserCircle size={36} />
               )}
             </ProfilePicture>
+
             <span>{aluno.nome}</span>
             <span>{aluno.email}</span>
 
