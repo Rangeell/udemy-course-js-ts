@@ -9,7 +9,7 @@ const router = new Router();
 //// router.get('/:id', userController.show);
 
 // Não enviamos o id na URL, pois agora podemos usar o id do Token
-// router.post('/', userController.store);
+router.post('/', userController.store);
 router.put('/', loginRequired, userController.update);
 router.delete('/', loginRequired, userController.delete);
 

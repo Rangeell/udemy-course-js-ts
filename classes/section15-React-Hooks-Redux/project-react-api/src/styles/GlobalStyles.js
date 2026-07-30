@@ -49,6 +49,12 @@ export default createGlobalStyle`
     color: ${colors.whiteDefault};
 
     cursor: pointer;
+
+    transition: filter .3s ease;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
   }
 
   a {
