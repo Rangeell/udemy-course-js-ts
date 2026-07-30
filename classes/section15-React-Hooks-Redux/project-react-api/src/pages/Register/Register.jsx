@@ -16,25 +16,25 @@ export default function Register() { // Nome do componente -> Register
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let formErros = false;
+    let formErrors = false;
 
     // Validações
     if (nome.length < 3 || nome.length > 255) {
-      formErros = true;
+      formErrors = true;
       toast.error('Nome deve ter entre 3 e 255 caracteres!');
     }
 
     if (!isEmail(email)) {
-      formErros = true;
+      formErrors = true;
       toast.error('E-mail inválido!');
     }
 
     if (password.length < 3 || password.length > 255) {
-      formErros = true;
+      formErrors = true;
       toast.error('Senha deve ter entre 3 e 255 caracteres!');
     }
 
-    if (formErros) return;
+    if (formErrors) return;
 
     try {
       await axios.post('/users/', {
@@ -58,7 +58,7 @@ export default function Register() { // Nome do componente -> Register
 
   return (
     <Container>
-      <h1>Crie sua conta!</h1>
+      <h1>Crie sua conta</h1>
 
       <Form onSubmit={handleSubmit}>
 
@@ -69,7 +69,7 @@ export default function Register() { // Nome do componente -> Register
             name="nome"
             id="iNome"
             value={nome}
-            placeholder='Seu nome.'
+            placeholder='Seu nome'
 
             // Executamos a função "onChange" diretamente no input por ser muito simples
             // Ao digitar no input, o valor da variável "nome" vai ser setado e o "value" do input vai ser atualizado
@@ -83,7 +83,7 @@ export default function Register() { // Nome do componente -> Register
             name="email"
             id="iEmail"
             value={email}
-            placeholder='Seu e-mail.'
+            placeholder='Seu e-mail'
             autoComplete='email'
 
             // Executamos a função "onChange" diretamente no input por ser muito simples
@@ -98,7 +98,7 @@ export default function Register() { // Nome do componente -> Register
             name="password"
             id="iSenha"
             value={password}
-            placeholder='Sua senha.'
+            placeholder='Sua senha'
             autoComplete='off'
 
             // Executamos a função "onChange" diretamente no input por ser muito simples

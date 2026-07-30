@@ -4,9 +4,9 @@
 
 import { all } from 'redux-saga/effects';
 
-import example from './example/sagas';
+import auth from './auth/sagas';
 
 export function* rootSaga() {
   // Array onde vamos colocar todos os nossos sagas
-  yield all([example]);
+  yield all([auth]);
 }

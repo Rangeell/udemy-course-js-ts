@@ -10,9 +10,9 @@ console.log(localStorage);
 export default reducers => {
   const persistedReducers = persistReducer(
     {
-      key: 'REACT-BASE', // Geralmente é nome do projeto
+      key: 'CONSUMO API', // Geralmente é nome do projeto
       storage,
-      whitelist: ['exampleReducer'], // Recebe os módulos do rootReducer que serão salvos
+      whitelist: ['auth'], // Recebe os módulos do rootReducer que serão salvos
     }, reducers);
 
     return persistedReducers;
