@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { get } from 'lodash';
 import { FaUserCircle, FaEdit, FaWindowClose } from 'react-icons/fa';
 
 import { Container } from '../../styles/GlobalStyles';
@@ -32,7 +31,7 @@ export default function Alunos() { // Nome do componente -> Alunos
           <div key={String(aluno.id)}> {/* Chave identificadora para cada aluno */}
 
             <ProfilePicture>
-              {get(aluno, 'Photos[0].url', false) ? (
+              {aluno.Photos?.[0]?.url ? ( // Optional Chaining
                 <img src={aluno.Photos[0].url} alt="Foto do aluno" />
               ) : (
                 <FaUserCircle size={36} />

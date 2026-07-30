@@ -36,10 +36,10 @@ class App {
 
   middlewares() {
     this.app.use(cors(corsOptions));
-    this.app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' }, }));
+    this.app.use(helmet());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-    this.app.use('/images', express.static(resolve(__dirname, '..', 'uploads', 'images')));
+    this.app.use('/images', helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }), express.static(resolve(__dirname, '..', 'uploads', 'images')));
   }
 
   routes() {
