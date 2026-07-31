@@ -13,7 +13,7 @@ export default function Login() { // Nome do componente -> Login
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     let formErrors = false;
@@ -45,7 +45,7 @@ export default function Login() { // Nome do componente -> Login
             name="email"
             id="iEmail"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)} // Seta o valor da variável email
             placeholder='Seu E-mail'
             autoComplete='email'
           />
@@ -58,7 +58,7 @@ export default function Login() { // Nome do componente -> Login
             name="password"
             id="iPassword"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)} // Seta o valor da variável password
             placeholder='Sua senha'
             autoComplete='off'
           />
@@ -68,4 +68,5 @@ export default function Login() { // Nome do componente -> Login
       </Form>
     </ Container>
   );
+
 }

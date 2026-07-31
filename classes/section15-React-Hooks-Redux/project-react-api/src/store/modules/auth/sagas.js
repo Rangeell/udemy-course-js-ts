@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import * as actions from './actions';
 import * as types from '../types';
 
-function* loginRequest({ payload }) { // Payload são os dados que vão vir da action
+function* loginRequest({ payload }) { // Payload são os dados que vão vir da action -> destructuring assingment
   yield console.log('SAGA', payload);
 }
 
