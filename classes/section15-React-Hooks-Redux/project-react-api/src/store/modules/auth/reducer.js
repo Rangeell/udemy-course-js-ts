@@ -10,9 +10,18 @@ const initialState = { // Estado inicial
 // O Reducer: recebe o estado atual e a ação disparada, retornando um NOVO estado
 export default function (state = initialState, action) { // Temos que obrigatóriamente retornar o estado atual ou um novo estado
   switch (action.type) {
-    case types.LOGIN_REQUEST: {
-      console.log('REDUCER', action.payload); // Payload vem de dentro da action
-      return state;
+    case types.LOGIN_SUCESS: {
+      const newState = { ...state };
+      newState.isLoggedIn = true;
+      newState.token = action.payload.token;
+      newState.user = action.payload.user;
+
+      return newState;
+    }
+
+    case types.LOGIN_FAILURE: {
+      const newState = { ...initialState };
+      return newState;
     }
 
     default: {

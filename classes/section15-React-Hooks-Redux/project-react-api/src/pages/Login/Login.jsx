@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
@@ -9,6 +10,9 @@ import * as actions from '../../store/modules/auth/actions';
 
 export default function Login() { // Nome do componente -> Login
   const dispatch = useDispatch(); // Nosso disparador de ações
+  const location = useLocation();
+
+  const prevPath = location.state?.prevPath ?? '/'; // Obtém o caminho atual, se não existir, retorna a home
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,7 +34,7 @@ export default function Login() { // Nome do componente -> Login
 
     if (formErrors) return;
 
-    dispatch(actions.loginRequest({ email, password })); // email e password são o payload
+    dispatch(actions.loginRequest({ email, password, prevPath })); // email password e prevPath são o payload que vamos enviar para o saga
   };
 
   return (
