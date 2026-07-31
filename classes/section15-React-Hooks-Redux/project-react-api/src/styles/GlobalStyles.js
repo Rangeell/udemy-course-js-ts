@@ -70,5 +70,5 @@ export const Container = styled.section`
 
   color: ${colors.primaryDarkColor};
   background: #ffff;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, .1));
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 `;

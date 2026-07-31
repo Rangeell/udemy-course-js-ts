@@ -13,6 +13,7 @@ export default function (state = initialState, action) { // Temos que obrigatór
     case types.LOGIN_SUCESS: {
       const newState = { ...state };
       newState.isLoggedIn = true;
+      newState.isLoading = false; // Remove o componente assim que o login é bem sucedido
       newState.token = action.payload.token;
       newState.user = action.payload.user;
 
@@ -21,6 +22,12 @@ export default function (state = initialState, action) { // Temos que obrigatór
 
     case types.LOGIN_FAILURE: {
       const newState = { ...initialState };
+      return newState;
+    }
+
+    case types.LOGIN_REQUEST: {
+      const newState = { ...state };
+      newState.isLoading = true;
       return newState;
     }
 

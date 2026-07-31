@@ -2,17 +2,20 @@ import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styles';
 import * as actions from '../../store/modules/auth/actions';
+import Loading from '../../components/Loading/Loading';
 
 export default function Login() { // Nome do componente -> Login
   const dispatch = useDispatch(); // Nosso disparador de ações
   const location = useLocation();
 
   const prevPath = location.state?.prevPath ?? '/'; // Obtém o caminho atual, se não existir, retorna a home
+
+  const isLoading = useSelector(state => state.auth.isLoading); // Buscamos dos dados do reducer
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,6 +42,7 @@ export default function Login() { // Nome do componente -> Login
 
   return (
     <Container>
+      <Loading isLoading={isLoading} />
       <h1>Login</h1>
 
       <Form onSubmit={handleSubmit}>

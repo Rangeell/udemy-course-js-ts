@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styles';
 import axios from '../../services/axios';
+import Loading from '../../components/Loading/Loading';
 
 export default function Register() { // Nome do componente -> Register
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ export default function Register() { // Nome do componente -> Register
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -36,14 +38,16 @@ export default function Register() { // Nome do componente -> Register
 
     if (formErrors) return;
 
+    setIsLoading(true);
     try {
+
       await axios.post('/users/', {
         nome,
         password,
         email,
       });
-
       toast.success('Você fez seu cadastros!');
+      setIsLoading(false);
       navigate('/login');
 
     } catch (e) {
@@ -53,11 +57,14 @@ export default function Register() { // Nome do componente -> Register
       errors.forEach(error => {
         toast.error(error);
       });
+
+      setIsLoading(false);
     }
   }
 
   return (
     <Container>
+      <Loading isLoading={isLoading} />
       <h1>Crie sua conta</h1>
 
       <Form onSubmit={handleSubmit}>
