@@ -8,17 +8,24 @@ const TaskList = ({ allTasks, onDelete }) => {
             <header>
                 <h2>{allTasks.length === 0 ? 'No tasks' : `In progress tasks (${allTasks.length})`}</h2>
             </header>
-            
-            <ul>
-                {allTasks.map((task) => (
-                    <li key={task.id}>
-                        {task.task}
-                        <button onClick={() => onDelete(task.id)} className={styles.deleteButton}>
-                            <Trash2 className={styles.trashIcon} />
-                        </button>
-                    </li>
-                ))}
-            </ul>
+
+            {allTasks.length === 0 ? (null) : (
+                <ul>
+                    {allTasks.map((task) => (
+                        <li key={task.id}>
+                            <button className={styles.checkedButton}></button>
+                            
+                            <div className={styles.task}>
+                                {task.task}
+                            </div>
+
+                            <button onClick={() => onDelete(task.id)} className={styles.deleteButton}>
+                                <Trash2 className={styles.trashIcon} />
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </section>
     );
 };

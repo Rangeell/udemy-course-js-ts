@@ -15,7 +15,7 @@
     transition: filter .3s ease;
 }
 
-.form:focus-within {
+.form:is(:focus-within, :hover) {
     filter: brightness(1.5);
 }
 

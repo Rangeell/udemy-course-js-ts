@@ -38,7 +38,7 @@
 
 /* Header area */
 .inProgessTasks header {
-    height: 3rem;
+    height: 2.2rem;
     
     background-color: #27272a83;
     backdrop-filter: blur(5px) saturate(160%);
@@ -62,18 +62,40 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: .5rem;
 
     width: 60%;
 
-    padding: .3rem .8rem;
+    padding: .3rem .5rem;
     border-radius: var(--borderRadius);
 
     background-color: var(--borderColor);
 }
 
+.inProgessTasks .task {
+    flex: 1;
+
+    overflow-x: auto;
+}
+
+.inProgessTasks .task::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
 /* Button & icons area */
 .deleteButton {
     background-color: inherit;
+}
+
+.checkedButton {
+    width: 1.2rem;
+    aspect-ratio: 1/1;
+    
+    border: 1px solid var(--textSecundaryColor);
+    border-radius: var(--borderRadius);
+
+    background-color: var(--claudeObsidian);
 }
 
 .trashIcon {

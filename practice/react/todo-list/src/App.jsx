@@ -4,14 +4,17 @@ import { useEffect, useState } from 'react';
 import Header from './components/Header/Header.jsx';
 import Form from './components/Form/Form.jsx';
 import TaskList from './components/TaskList/TaskList.jsx';
+import CompletedTaskList from './components/CompletedTaskList/CompletedTaskList.jsx';
 
 const App = () => {
   const [taskText, setTaskText] = useState('');
   const [allTasks, setAllTasks] = useState([]);
+  const [completedTaskList, setCompletedTaskList] = useState([]);
 
   useEffect(() => {
     console.log('All tasks:', allTasks);
-  }, [allTasks]);
+    console.log('Completed tasks:', completedTaskList);
+  }, [allTasks, completedTaskList]);
 
   const generateId = (allTasks) => {
     return allTasks.length > 0 ? Math.max(...allTasks.map(task => task.id)) + 1 : 1;
@@ -48,6 +51,7 @@ const App = () => {
           allTasks={allTasks}
           onDelete={deleteTask}
         />
+        <CompletedTaskList />
       </main>
     </>
   );

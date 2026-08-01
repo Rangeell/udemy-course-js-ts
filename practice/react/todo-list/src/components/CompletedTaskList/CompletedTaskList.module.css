@@ -1,0 +1,25 @@
+/* Section area */
+.completedTasks {
+    width: 90%;
+    max-width: var(--maxWidth);
+    max-height: 300px;
+
+    padding-bottom: .6rem;
+    border-radius: var(--borderRadius);
+
+    text-align: center;
+
+    background-color: var(--claudeCharcoal);
+
+    overflow-y: auto;
+}
+
+.completedTasks header {
+    height: 2.2rem;
+    
+    background-color: #27272a83;
+    backdrop-filter: blur(5px) saturate(160%);
+    
+    position: sticky;
+    top: 0;
+}
