@@ -1,7 +1,8 @@
 /* Section area */
-.section {
+.inProgessTasks {
     width: 90%;
     max-width: var(--maxWidth);
+    max-height: 300px;
 
     padding-bottom: .6rem;
     border-radius: var(--borderRadius);
@@ -9,9 +10,45 @@
     text-align: center;
 
     background-color: var(--claudeCharcoal);
+
+    overflow-y: auto;
 }
 
-.section ul {
+/* Section ScrollBar area */
+.inProgessTasks::-webkit-scrollbar {
+    width: 1rem;
+}
+
+.inProgessTasks::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    
+    background-color: inherit;
+}
+
+.inProgessTasks::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    border: 5px solid var(--claudeCharcoal);
+    
+    background-color: var(--mainColor);
+}
+
+.inProgessTasks::-webkit-scrollbar-thumb:hover {
+    background-color: #f39933;
+}
+
+/* Header area */
+.inProgessTasks header {
+    height: 3rem;
+    
+    background-color: #27272a83;
+    backdrop-filter: blur(5px) saturate(160%);
+    
+    position: sticky;
+    top: 0;
+}
+
+/* List area */
+.inProgessTasks ul {
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -21,7 +58,7 @@
     margin-top: 1rem;
 }
 
-.section li {
+.inProgessTasks li {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,6 +71,7 @@
     background-color: var(--borderColor);
 }
 
+/* Button & icons area */
 .deleteButton {
     background-color: inherit;
 }

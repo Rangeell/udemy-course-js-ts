@@ -2,15 +2,18 @@ import { Trash2 } from 'lucide-react';
 
 import styles from './TaskList.module.css';
 
-const TaskList = ({ allTasks }) => {
+const TaskList = ({ allTasks, onDelete }) => {
     return (
-        <section className={styles.section}>
-            <h2>{allTasks.length === 0 ? 'No have tasks' : 'In progress tasks'}</h2>
+        <section className={styles.inProgessTasks}>
+            <header>
+                <h2>{allTasks.length === 0 ? 'No tasks' : `In progress tasks (${allTasks.length})`}</h2>
+            </header>
+            
             <ul>
-                {allTasks.map(task => (
+                {allTasks.map((task) => (
                     <li key={task.id}>
                         {task.task}
-                        <button className={styles.deleteButton}>
+                        <button onClick={() => onDelete(task.id)} className={styles.deleteButton}>
                             <Trash2 className={styles.trashIcon} />
                         </button>
                     </li>

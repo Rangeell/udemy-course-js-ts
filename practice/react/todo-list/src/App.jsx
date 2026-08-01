@@ -18,7 +18,6 @@ const App = () => {
   };
 
   const addTask = (newTask) => {
-
     setAllTasks(
       [...allTasks,
       {
@@ -27,8 +26,12 @@ const App = () => {
       },
       ],
     );
-    
+
     setTaskText('');
+  };
+
+  const deleteTask = (taskId) => {
+    setAllTasks(allTasks.filter(task => task.id !== taskId)); // Mantém todas as tarefas cujo ID seja diferente do ID deletado
   };
 
   return (
@@ -41,7 +44,10 @@ const App = () => {
           setTaskText={setTaskText}
           onAddTask={addTask}
         />
-        <TaskList allTasks={allTasks} />
+        <TaskList
+          allTasks={allTasks}
+          onDelete={deleteTask}
+        />
       </main>
     </>
   );

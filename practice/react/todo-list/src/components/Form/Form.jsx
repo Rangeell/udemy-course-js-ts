@@ -39,7 +39,7 @@ const Form = ({ taskText, setTaskText, onAddTask, allTasks }) => {
                 />
             </p>
 
-            <button type="submit"> <Plus className={styles.plusIcon} /> </button>
+            <button type="submit"> <Plus /> </button>
         </form>
     );
 };
