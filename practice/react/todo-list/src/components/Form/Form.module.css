@@ -11,6 +11,12 @@
     border-radius: 999px;
 
     background-color: var(--claudeCharcoal);
+
+    transition: filter .3s ease;
+}
+
+.form:focus-within {
+    filter: brightness(1.5);
 }
 
 .form p {
@@ -22,7 +28,7 @@
 .form input {
     width: 100%;
     height: 100%;
-    
+
     border-radius: 10px;
 
     font-size: 1rem;
@@ -44,7 +50,7 @@
     width: 2.5rem;
     aspect-ratio: 1/1;
     border-radius: 10px;
-    
+
     background-color: inherit;
     color: var(--textPrimaryColor);
 }
