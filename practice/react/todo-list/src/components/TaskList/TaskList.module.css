@@ -1,0 +1,43 @@
+/* Section area */
+.section {
+    width: 90%;
+    max-width: var(--maxWidth);
+
+    padding-bottom: .6rem;
+    border-radius: var(--borderRadius);
+
+    text-align: center;
+
+    background-color: var(--claudeCharcoal);
+}
+
+.section ul {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 1rem;
+}
+
+.section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 60%;
+
+    padding: .3rem .8rem;
+    border-radius: var(--borderRadius);
+
+    background-color: var(--borderColor);
+}
+
+.deleteButton {
+    background-color: inherit;
+}
+
+.trashIcon {
+    color: var(--dangerColor);
+}
