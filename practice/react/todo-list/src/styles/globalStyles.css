@@ -1,0 +1,44 @@
+:root {
+    /* Colors */
+    --mainColor: #D97706;
+
+    --claudeObsidian: #18181B;
+    --claudeCharcoal: #27272A;
+
+    --modalColor: #27272A;
+    --borderColor: #3F3F46;
+
+    --textPrimaryColor: #F4F4F5;
+    --textSecundaryColor: #A1A1AA;
+
+    --sucessColor: #22C55E;
+    --dangerColor: #c81414;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    list-style-position: inside;
+}
+
+/* Body / HTML */
+
+html {
+    font-size: 1rem;
+}
+
+body {
+    width: 100%;
+    height: 100dvh;
+ 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    background-color: var(--claudeObsidian);
+    color: var(--textPrimaryColor);
+}

@@ -5,7 +5,7 @@ import './task.css';
 export default function Tarefas({ tarefas, handleEdit, handleDelete }) { // Desestruturação do objeto props
   return (
     <ul className="tarefas">
-      {tarefas.map((tarefa, index) => ( // map que retona um (algo renderizado), como se fosse return () implícito
+      {tarefas.map((tarefa, index) => ( // map que retorna um (algo renderizado), como se fosse return () implícito
 
         <li key={index}>
           {tarefa}
