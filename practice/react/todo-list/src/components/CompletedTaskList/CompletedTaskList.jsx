@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import styles from './CompletedTaskList.module.css';
 
 const CompletedTaskList = () => {
