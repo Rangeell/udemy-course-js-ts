@@ -9,12 +9,10 @@ import CompletedTaskList from './components/CompletedTaskList/CompletedTaskList.
 const App = () => {
   const [taskText, setTaskText] = useState('');
   const [allTasks, setAllTasks] = useState([]);
-  const [completedTaskList, setCompletedTaskList] = useState([]);
 
   useEffect(() => {
     console.log('All tasks:', allTasks);
-    console.log('Completed tasks:', completedTaskList);
-  }, [allTasks, completedTaskList]);
+  }, [allTasks]);
 
   const generateId = (allTasks) => {
     return allTasks.length > 0 ? Math.max(...allTasks.map(task => task.id)) + 1 : 1;
@@ -26,11 +24,21 @@ const App = () => {
       {
         id: generateId(allTasks),
         task: newTask,
+        completed: false,
       },
       ],
     );
 
     setTaskText('');
+  };
+
+  const toggleCompleTask = (taskId) => {
+    setAllTasks(allTasks.map(task => {
+      if (task.id === taskId) {
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    }));
   };
 
   const deleteTask = (taskId) => {
@@ -48,10 +56,15 @@ const App = () => {
           onAddTask={addTask}
         />
         <TaskList
-          allTasks={allTasks}
-          onDelete={deleteTask}
+          allTasks={allTasks.filter(task => !task.completed)}
+          onDeleteTask={deleteTask}
+          onCompleteTask={toggleCompleTask}
         />
-        <CompletedTaskList />
+        <CompletedTaskList
+          completedTasks={allTasks.filter(task => task.completed)}
+          onDeleteTask={deleteTask}
+          onCompleteTask={toggleCompleTask}
+        />
       </main>
     </>
   );

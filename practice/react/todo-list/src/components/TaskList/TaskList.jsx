@@ -2,7 +2,7 @@ import { Trash2 } from 'lucide-react';
 
 import styles from './TaskList.module.css';
 
-const TaskList = ({ allTasks, onDelete }) => {
+const TaskList = ({ allTasks, onDeleteTask, onCompleteTask }) => {
     return (
         <section className={styles.inProgessTasks}>
             <header>
@@ -13,13 +13,19 @@ const TaskList = ({ allTasks, onDelete }) => {
                 <ul>
                     {allTasks.map((task) => (
                         <li key={task.id}>
-                            <button className={styles.checkedButton}></button>
-                            
+                            <button
+                                onClick={() => onCompleteTask(task.id)}
+                                className={styles.checkedButton}>
+                            </button>
+
                             <div className={styles.task}>
                                 {task.task}
                             </div>
 
-                            <button onClick={() => onDelete(task.id)} className={styles.deleteButton}>
+                            <button
+                                onClick={() => onDeleteTask(task.id)}
+                                className={styles.deleteButton}>
+
                                 <Trash2 className={styles.trashIcon} />
                             </button>
                         </li>

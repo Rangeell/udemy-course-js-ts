@@ -14,6 +14,7 @@
     overflow-y: auto;
 }
 
+/* Header area */
 .completedTasks header {
     height: 2.2rem;
     
@@ -22,4 +23,64 @@
     
     position: sticky;
     top: 0;
+}
+
+/* Task list area */
+.completedTasks ul {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 1rem;
+}
+
+.completedTasks li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+
+    width: 60%;
+
+    padding: .3rem .5rem;
+    border-radius: var(--borderRadius);
+
+    background-color: var(--borderColor);
+}
+
+.completedTasks .task {
+    flex: 1;
+
+    overflow-x: auto;
+}
+
+.task::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* Buttons area */
+.deleteButton {
+    background-color: inherit;
+}
+
+.checkedButton {
+    width: 1.8rem;
+    aspect-ratio: 1/1;
+    
+    border: 1px solid var(--textSecundaryColor);
+    border-radius: var(--borderRadius);
+
+    background-color: var(--claudeObsidian);
+}
+
+/* Icons area */
+.checkIcon {
+    color: var(--textSecundaryColor);
+}
+
+.trashIcon {
+    color: var(--dangerColor);
 }

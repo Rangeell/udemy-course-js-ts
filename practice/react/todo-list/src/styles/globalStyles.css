@@ -62,3 +62,33 @@ main {
 button {
     cursor: pointer;
 }
+
+/* scrollBar area */
+::-webkit-scrollbar {
+    width: 1rem;
+
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 1rem;
+
+    background-color: inherit;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    border: 5px solid var(--claudeObsidian);
+
+    background-color: var(--mainColor);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    border: 5px solid var(--claudeCharcoal);
+
+    background-color: var(--mainColor);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #f39933;
+}
