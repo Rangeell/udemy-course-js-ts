@@ -10,8 +10,10 @@ const App = () => {
     console.log('All tasks:', allTasks);
   }, [allTasks]);
 
-  const addTask = () => {
-    setAllTasks([...allTasks, taskText]);
+  const addTask = (newTask) => {
+
+    setAllTasks([...allTasks,  newTask]);
+    setTaskText('');
   };
 
   return (

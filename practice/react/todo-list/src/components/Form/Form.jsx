@@ -1,15 +1,24 @@
-import { use, useState } from 'react';
 import styles from './Form.module.css';
 
 const Form = ({ taskText, setTaskText, onAddTask, allTasks }) => {
 
+    const formatString = (string) => {
+        if (!string) return;
+
+        const cleanString = string.trim().toLowerCase();
+
+        return cleanString.charAt(0).toUpperCase() + cleanString.slice(1);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        if (!taskText) return;
-        if(allTasks.includes(taskText)) return;
 
-        onAddTask();
+        const newTask = formatString(taskText);
+
+        if (!newTask) return;
+        if (allTasks.includes(newTask)) return;
+
+        onAddTask(newTask);
     };
 
     return (
