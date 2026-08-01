@@ -9,6 +9,7 @@ const CompletedTaskList = ({ completedTasks, onDeleteTask, onCompleteTask }) => 
             <header>
                 <h2>{completedTasks.length === 0 ? 'No task completed' : `Completed tasks (${completedTasks.length})`}</h2>
             </header>
+            
             {completedTasks.length === 0 ? (null) : (
                 <ul>
                     {completedTasks.map(task => (
