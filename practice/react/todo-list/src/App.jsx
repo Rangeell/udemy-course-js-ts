@@ -33,11 +33,12 @@ const App = () => {
   };
 
   const toggleCompleTask = (taskId) => {
-    setAllTasks(allTasks.map(task => {
-      if (task.id === taskId) {
-        return { ...task, completed: !task.completed };
+    setAllTasks(allTasks.map(task => { // Atualiza o estado 'allTasks' usando a versão modificada da lista
+      if (task.id === taskId) { // Se for a tarefa procurada, cria um novo objeto copiado (...task)
+        return { ...task, completed: !task.completed }; // e inverte o valor da propriedade 'completed' (true vira false, e vice-versa)
       }
-      return task;
+
+      return task; // Se não for a tarefa procurada, retorna ela sem nenhuma alteração
     }));
   };
 

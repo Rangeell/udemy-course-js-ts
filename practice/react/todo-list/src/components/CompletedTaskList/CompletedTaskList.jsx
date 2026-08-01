@@ -1,4 +1,5 @@
 import { Trash2, Check } from 'lucide-react';
+
 import styles from './CompletedTaskList.module.css';
 
 const CompletedTaskList = ({ completedTasks, onDeleteTask, onCompleteTask }) => {

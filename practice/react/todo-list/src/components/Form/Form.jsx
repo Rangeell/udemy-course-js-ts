@@ -1,4 +1,5 @@
 import { Plus } from 'lucide-react';
+
 import styles from './Form.module.css';
 
 const Form = ({ taskText, setTaskText, onAddTask, allTasks }) => {
@@ -38,7 +39,6 @@ const Form = ({ taskText, setTaskText, onAddTask, allTasks }) => {
                     onChange={e => setTaskText(e.target.value)}
                 />
             </p>
-
             <button type="submit"> <Plus /> </button>
         </form>
     );
