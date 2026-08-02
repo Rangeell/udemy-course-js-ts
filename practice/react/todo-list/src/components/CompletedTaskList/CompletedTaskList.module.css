@@ -53,6 +53,7 @@
 .completedTasks .task {
     flex: 1;
 
+    text-decoration: line-through;
     overflow-x: auto;
 }
 

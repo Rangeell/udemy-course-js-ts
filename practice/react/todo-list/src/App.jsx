@@ -57,7 +57,7 @@ const App = () => {
           onAddTask={addTask}
         />
         <TaskList
-          allTasks={allTasks.filter(task => !task.completed)}
+          uncompletedTasks={allTasks.filter(task => !task.completed)}
           onDeleteTask={deleteTask}
           onCompleteTask={toggleCompleTask}
         />
