@@ -29,3 +29,10 @@ export function loginFailure(payload) {
     payload,
   };
 }
+
+export function registerRequest(payload) {
+  return {
+    type: types.REGISTER_REQUEST, // Tipo da action que estamos disparando para o redux ouvir
+    payload,
+  };
+}

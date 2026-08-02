@@ -1,20 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styles';
-import axios from '../../services/axios';
 import Loading from '../../components/Loading/Loading';
+import * as actions from '../../store/modules/auth/actions';
 
 export default function Register() { // Nome do componente -> Register
+  const id = useSelector(state => state.auth.user.id);
+  const nomeStored = useSelector(state => state.auth.user.nome);
+  const emailStorage = useSelector(state => state.auth.user.email);
+  const isLoading = useSelector(state => state.auth.isLoading);
+
   const navigate = useNavigate();
+  const dispath = useDispatch();
 
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (!id) return; // Usuário não está logado
+
+    setNome(nomeStored);
+    setEmail(emailStorage);
+  },
+    [emailStorage, id, nomeStored]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -31,41 +45,20 @@ export default function Register() { // Nome do componente -> Register
       toast.error('E-mail inválido!');
     }
 
-    if (password.length < 3 || password.length > 255) {
+    if (!id && (password.length < 6 || password.length > 255)) {
       formErrors = true;
       toast.error('Senha deve ter entre 3 e 255 caracteres!');
     }
 
     if (formErrors) return;
 
-    setIsLoading(true);
-    try {
-
-      await axios.post('/users/', {
-        nome,
-        password,
-        email,
-      });
-      toast.success('Você fez seu cadastros!');
-      setIsLoading(false);
-      navigate('/login');
-
-    } catch (e) {
-      // Se não existir e.response ou e.response.data, retorna [], se existir, retorna e.response.data.errors -> criamos no backend
-      const errors = e.response?.data?.errors ?? []; // Optional Chaining
-
-      errors.forEach(error => {
-        toast.error(error);
-      });
-
-      setIsLoading(false);
-    }
+    dispath(actions.registerRequest({ nome, email, password, id })); // Envia para o saga
   }
 
   return (
     <Container>
       <Loading isLoading={isLoading} />
-      <h1>Crie sua conta</h1>
+      <h1>{id ? 'Editar dados' : 'Crie sua conta'}</h1>
 
       <Form onSubmit={handleSubmit}>
 
@@ -113,7 +106,7 @@ export default function Register() { // Nome do componente -> Register
             onChange={e => setPassword(e.target.value)} />
         </p>
 
-        <button type='submit'>Criar minha conta</button>
+        <button type='submit'>{id ? 'Salvar alterações' : 'Criar conta'}</button>
 
       </Form>
     </ Container>

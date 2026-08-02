@@ -10,6 +10,7 @@ import axios from '../../../services/axios';
 
 function* loginRequest({ payload }) { // Payload são os dados que vão vir da action -> destructuring assingment
   try {
+
     // Não executamos o axios.post, apenas passamos a referência
     const response = yield call(axios.post, '/tokens', payload); // axios.post, url, dados
 
@@ -29,14 +30,19 @@ function persistRehydrate({ payload }) {
   const token = payload?.auth.token ?? '';
 
   if (!token) return;
-    
+
   axios.defaults.headers.Authorization = `Bearer ${token}`;
+}
+
+function registerRequest({ payload }) {
+  const { id, nome, email, password } = payload;
 }
 
 // Passamos a ação que vamos escutar aqui no saga
 export default all([
   takeLatest(types.LOGIN_REQUEST, loginRequest),
   takeLatest(types.PERSIST_REHYDRATE, persistRehydrate),
+  takeLatest(types.REGISTER_REQUEST, registerRequest),
 ]);
 
 /*

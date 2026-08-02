@@ -13,7 +13,7 @@ export default function Login() { // Nome do componente -> Login
   const dispatch = useDispatch(); // Nosso disparador de ações
   const location = useLocation();
 
-  const prevPath = location.state?.prevPath ?? '/'; // Obtém o caminho atual, se não existir, retorna a home
+  const prevPath = location.state?.prevPath ?? '/'; // Obtém o caminho , se não existir, retorna a home
 
   const isLoading = useSelector(state => state.auth.isLoading); // Buscamos dos dados do reducer
 

@@ -47,6 +47,7 @@ export default defineConfig([
       // indent: ['error', 2], // Obriga indentação com 2 espaços
       'comma-dangle': ['error', 'always-multiline'], // Obriga a vírgula no final de objetos/arrays multilinhas
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }], // Remove linhas em branco extras
+      'react-hooks/set-state-in-effect': 'off',
     },
   },
 ]);
