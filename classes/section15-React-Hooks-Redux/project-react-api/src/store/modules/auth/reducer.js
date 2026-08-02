@@ -5,12 +5,13 @@ const initialState = { // Estado inicial
   token: false, // Seu token
   user: {}, // Dados do usuário
   isLoading: false, // Para controle de feedback visual de carregamento
+  registerCreated: false,
 };
 
 // O Reducer: recebe o estado atual e a ação disparada, retornando um NOVO estado
 export default function (state = initialState, action) { // Temos que obrigatóriamente retornar o estado atual ou um novo estado
   switch (action.type) {
-    case types.LOGIN_SUCESS: {
+    case types.LOGIN_SUCCESS: {
       const newState = { ...state };
       newState.isLoggedIn = true;
       newState.isLoading = false; // Remove o componente assim que o login é bem sucedido
@@ -28,6 +29,37 @@ export default function (state = initialState, action) { // Temos que obrigatór
     case types.LOGIN_REQUEST: {
       const newState = { ...state };
       newState.isLoading = true;
+      return newState;
+    }
+
+    case types.REGISTER_UPDATED_SUCCESS: {
+      const newState = { ...state };
+      newState.user.nome = action.payload.nome;
+      newState.user.email = action.payload.email;
+
+      newState.isLoading = false;
+      newState.registerCreated = false;
+      return newState;
+    }
+
+    case types.REGISTER_CREATED_SUCCESS: {
+      const newState = { ...state };
+      newState.isLoading = false;
+      newState.registerCreated = true;
+      return newState;
+    }
+
+    case types.REGISTER_FAILURE: {
+      const newState = { ...state };
+      newState.isLoading = false;
+      newState.registerCreated = true;
+      return newState;
+    }
+
+    case types.REGISTER_REQUEST: {
+      const newState = { ...state };
+      newState.isLoading = true;
+      newState.registerCreated = false;
       return newState;
     }
 

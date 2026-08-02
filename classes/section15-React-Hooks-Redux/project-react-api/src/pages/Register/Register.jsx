@@ -14,6 +14,7 @@ export default function Register() { // Nome do componente -> Register
   const nomeStored = useSelector(state => state.auth.user.nome);
   const emailStorage = useSelector(state => state.auth.user.email);
   const isLoading = useSelector(state => state.auth.isLoading);
+  const registerCreated = useSelector(state => state.auth.registerCreated);
 
   const navigate = useNavigate();
   const dispath = useDispatch();
@@ -21,6 +22,12 @@ export default function Register() { // Nome do componente -> Register
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if (registerCreated) {
+      navigate('/login'); // Redireciona para login ao criar uma conta
+    }
+  }, [registerCreated, navigate]);
 
   useEffect(() => {
     if (!id) return; // Usuário não está logado

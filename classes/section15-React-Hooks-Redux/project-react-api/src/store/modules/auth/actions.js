@@ -16,9 +16,9 @@ export function loginRequest(payload) { // Vamos receber o payload como um objet
   };
 }
 
-export function loginSucess(payload) {
+export function loginSuccess(payload) {
   return {
-    type: types.LOGIN_SUCESS, // Tipo da action que estamos disparando para o redux ouvir
+    type: types.LOGIN_SUCCESS, // Tipo da action que estamos disparando para o redux ouvir
     payload,
   };
 }
@@ -33,6 +33,27 @@ export function loginFailure(payload) {
 export function registerRequest(payload) {
   return {
     type: types.REGISTER_REQUEST, // Tipo da action que estamos disparando para o redux ouvir
+    payload,
+  };
+}
+
+export function registerFailure(payload) {
+  return {
+    type: types.REGISTER_FAILURE, // Tipo da action que estamos disparando para o redux ouvir
+    payload,
+  };
+}
+
+export function registerUpdatedSuccess(payload) {
+  return {
+    type: types.REGISTER_UPDATED_SUCCESS, // Tipo da action que estamos disparando para o redux ouvir
+    payload,
+  };
+}
+
+export function registerCreatedSuccess(payload) {
+  return {
+    type: types.REGISTER_CREATED_SUCCESS, // Tipo da action que estamos disparando para o redux ouvir
     payload,
   };
 }

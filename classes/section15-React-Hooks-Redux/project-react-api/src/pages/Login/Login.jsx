@@ -1,5 +1,5 @@
-import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,13 +12,20 @@ import Loading from '../../components/Loading/Loading';
 export default function Login() { // Nome do componente -> Login
   const dispatch = useDispatch(); // Nosso disparador de ações
   const location = useLocation();
+  const navigate = useNavigate();
 
   const prevPath = location.state?.prevPath ?? '/'; // Obtém o caminho , se não existir, retorna a home
-
   const isLoading = useSelector(state => state.auth.isLoading); // Buscamos dos dados do reducer
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate(prevPath); // Redireciona para a página anterior ao fazer login
+    }
+  }, [isLoggedIn, navigate, prevPath]);
 
   const handleSubmit = e => {
     e.preventDefault();
