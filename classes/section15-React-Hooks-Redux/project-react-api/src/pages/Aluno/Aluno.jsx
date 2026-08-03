@@ -1,10 +1,12 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { isEmail, isInt, isFloat } from 'validator';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import { FaEdit, FaUserCircle } from 'react-icons/fa';
 
 import { Container } from '../../styles/GlobalStyles';
+import { ProfilePicture, Title } from '../Aluno/styles';
 import { Form } from './styles';
 import Loading from '../../components/Loading/Loading';
 import axios from '../../services/axios';
@@ -21,6 +23,7 @@ export default function Aluno() { // Nome do componente -> Login
   const [idade, setIdade] = useState('');
   const [peso, setPeso] = useState('');
   const [altura, setAltura] = useState('');
+  const [foto, setFoto] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => { // Preenche os dados do formulário de acordo com o id do usuário
@@ -31,8 +34,11 @@ export default function Aluno() { // Nome do componente -> Login
         setIsLoading(true);
         const { data } = await axios.get(`/alunos/${id}`);
         const aluno = data.aluno;
-        const photo = data?.Photos?.[0]?.url ?? '';
+        console.log(data.aluno);
+        const Photo = data?.aluno?.Photos?.[0]?.url ?? '';
+        console.log(Photo);
 
+        setFoto(Photo);
         setNome(aluno.nome);
         setSobrenome(aluno.sobrenome);
         setEmail(aluno.email);
@@ -127,7 +133,22 @@ export default function Aluno() { // Nome do componente -> Login
   return (
     <Container>
       <Loading isLoading={isLoading} />
-      <h1>{id ? 'Editar aluno' : 'Novo aluno'}</h1>
+      <Title>
+        <h1>{id ? 'Editar aluno' : 'Novo aluno'}</h1>
+      </Title>
+
+      {id && (
+        <ProfilePicture>
+          {foto ? (
+            <img src={foto} alt={nome} />
+          ) : (
+            <FaUserCircle size={180} />
+          )}
+          <Link to={`/fotos/${id}`}>
+            <FaEdit size={24} />
+          </Link>
+        </ProfilePicture>
+      )}
 
       <Form onSubmit={handleSubmit}>
         <input
