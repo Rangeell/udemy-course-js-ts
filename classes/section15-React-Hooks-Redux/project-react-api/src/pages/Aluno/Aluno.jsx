@@ -34,9 +34,7 @@ export default function Aluno() { // Nome do componente -> Login
         setIsLoading(true);
         const { data } = await axios.get(`/alunos/${id}`);
         const aluno = data.aluno;
-        console.log(data.aluno);
         const Photo = data?.aluno?.Photos?.[0]?.url ?? '';
-        console.log(Photo);
 
         setFoto(Photo);
         setNome(aluno.nome);
@@ -46,16 +44,15 @@ export default function Aluno() { // Nome do componente -> Login
         setPeso(aluno.peso);
         setAltura(aluno.altura);
 
-        setIsLoading(false);
-
       } catch (err) {
-        setIsLoading(false);
 
         const status = err.response?.status ?? 0;
         const errors = err.response?.data?.errors ?? [];
 
         if (status === 400) errors.map(error => toast.error(error));
         navigate('/');
+      } finally {
+        setIsLoading(false);
       }
     }
 
