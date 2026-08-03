@@ -2,16 +2,18 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { isEmail, isInt, isFloat } from 'validator';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styles';
 import Loading from '../../components/Loading/Loading';
 import axios from '../../services/axios';
-import { GiConsoleController } from 'react-icons/gi';
+import * as actions from '../../store/modules/auth/actions';
 
 export default function Aluno() { // Nome do componente -> Login
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispath = useDispatch();
 
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
@@ -44,9 +46,9 @@ export default function Aluno() { // Nome do componente -> Login
         setIsLoading(false);
 
         const status = err.response?.status ?? 0;
-        const errors = err.response?.data?.errors;
+        const errors = err.response?.data?.errors ?? [];
 
-        if (status === 400) errors.forEach(error => toast.error(error));
+        if (status === 400) errors.map(error => toast.error(error));
         navigate('/');
       }
     }
@@ -54,7 +56,7 @@ export default function Aluno() { // Nome do componente -> Login
     getData();
   }, [id]);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     let formErrors = false;
 
@@ -86,6 +88,39 @@ export default function Aluno() { // Nome do componente -> Login
     if (!isFloat(String(altura))) {
       toast.error('Altura inválida!');
       formErrors = true;
+    }
+
+    if (formErrors) return;
+
+    try {
+      setIsLoading(true);
+      if (id) {
+        // Editando aluno
+
+        await axios.put(`/alunos/${id}`, { nome, sobrenome, email, idade, peso, altura });
+        toast.success('Alterações salvas!');
+      } else {
+        // Criando aluno
+
+        const { data } = await axios.post('/alunos', { nome, sobrenome, email, idade, peso, altura });
+        toast.success('Aluno(a) criado(a) com suceeso!');
+        navigate(`/aluno/${data.id}/edit`);
+      }
+
+      setIsLoading(false);
+    } catch (err) {
+      const status = err.response?.status ?? 0;
+      const data = err.response?.data?.errors ?? {};
+      const errors = data?.errors ?? [];
+
+      if (errors.length > 0) {
+        errors.map(error => toast.error(error));
+      } else {
+        toast.error('Erro desconhecido.');
+      }
+
+      // Ou o token do user expirou ou ele está tentando fazer algo malicioso
+      if (status === 401) dispath(actions.loginFailure());
     }
   };
 
