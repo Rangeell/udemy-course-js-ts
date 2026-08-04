@@ -6,6 +6,7 @@ import './styles/global.css';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Menu from './components/Menu/Menu';
+import Post from './components/Post/Post';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -13,7 +14,9 @@ createRoot(document.getElementById('root')!).render(
       <Menu />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='about' element={<About />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/posts/:id' element={<Post   />} /> {/* Rota mais específica */}
+        <Route path='/posts' element={<Post   />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
