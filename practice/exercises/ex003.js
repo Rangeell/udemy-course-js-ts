@@ -13,19 +13,19 @@ Regras / Requisitos:
 */
 
 const invertObject = function (obj) {
-    if (typeof obj !== 'object' || obj == null || Array.isArray(obj)) {
+    if (typeof obj !== 'object' || obj === null || Array.isArray(obj)) {
         throw new TypeError('O argumento para a função deve ser um objeto!')
-    }
-    if (Object.keys(obj).length === 0) return {}
+    };
+    if (Object.keys(obj).length === 0) return {};
 
     const newObject = Object.entries(obj).reduce((acc, v) => {
-        acc[v[1]] = v[0]
+        acc[v[1]] = v[0];
 
-        return acc
-    }, {})
+        return acc;
+    }, {});
 
-    return newObject
-}
+    return newObject;
+};
 
 console.log(invertObject({}));
 
