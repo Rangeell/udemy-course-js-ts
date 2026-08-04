@@ -20,13 +20,12 @@ export default defineConfig([
     },
     rules: {
       // 2. Regras estritas de estilo inspiradas no Airbnb:
-      semi: ["warn", "always"], // Obriga usar ponto e vírgula
-      quotes: ["warn", "single"], // Obriga usar aspas simples
+      "no-unused-vars": 'warn',// Avisa sobre variáveis não usadas (linha amarela)
       "comma-dangle": ["error", "always-multiline"], // Obriga a vírgula no final de objetos/arrays multilinhas
       "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0 }], // Remove linhas em branco extras
+      semi: ["warn", "always"], // Obriga usar ponto e vírgula
+      quotes: ["warn", "single"], // Obriga usar aspas simples
 
-      // 3. Suas exceções para as aulas do professor Otávio:
-      "no-unused-vars": "warn", // Avisa sobre variáveis não usadas (linha amarela)
     }
   },
 ])
