@@ -21,7 +21,7 @@ const Redirect = () => {
             };
 
         }, 1000);
-    }, [time]);
+    });
 
     return (
         <div>

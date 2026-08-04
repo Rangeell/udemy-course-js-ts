@@ -9,6 +9,7 @@ import About from './components/About/About';
 import Menu from './components/Menu/Menu';
 import Post from './components/Post/Post';
 import Redirect from './components/Redirect/Redirect';
+import NotFound from './components/NotFound/NotFound';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/posts/:id' element={<Post />} /> {/* Rota mais específica */}
         <Route path='/posts' element={<Post />} />
         <Route path='/redirect' element={<Redirect />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
