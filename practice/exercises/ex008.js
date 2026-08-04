@@ -3,7 +3,7 @@ Exercises 008 — Count Vowels
 
 Difficulty: 🟢 Easy
 
-Enunciado
+📝 Enunciado
     Dada uma string, conte quantas vogais ela possui e retorne essa quantidade.
 
     Considere como vogais apenas: a, e, i, o, u
@@ -12,10 +12,10 @@ Enunciado
 
     O objetivo deste exercício é praticar percorrer strings, realizar comparações condicionais e manter um contador.
 
-Objetivo
+🎯 Objetivo
     Implementar uma função que receba uma string e retorne a quantidade de vogais existentes nela.
 
-Regras
+📋 Regras
     1. A função sempre receberá uma string.
     
     2. Considere como vogais:
