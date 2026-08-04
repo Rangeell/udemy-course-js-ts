@@ -1,5 +1,5 @@
 /*
-Exercise 002 — Reverse a String
+Exercise 007 — Reverse a String
 
 Difficulty: 🟢 Easy
 
