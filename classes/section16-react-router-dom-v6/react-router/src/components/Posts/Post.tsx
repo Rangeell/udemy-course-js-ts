@@ -1,6 +1,6 @@
-import { useParams, useSearchParams } from 'react-router-dom';
+import { Outlet, useParams, useSearchParams } from 'react-router-dom';
 
-const Post = () => {
+const Posts = () => {
     const params = useParams();
     const { id } = params;
     const [qs] = useSearchParams();
@@ -8,8 +8,9 @@ const Post = () => {
     return (
         <div>
             <h1>Posts {id ? `Params: ${id}` : 'Geral'} {`QS: ${qs}`}</h1>
+            <Outlet />
         </div>
     );
 };
 
-export default Post;
+export default Posts;
