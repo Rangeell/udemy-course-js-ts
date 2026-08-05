@@ -61,6 +61,7 @@ main {
 
 button {
     cursor: pointer;
+    background-color: inherit;
 }
 
 /* scrollBar area */

@@ -1,0 +1,29 @@
+@keyframes fadeIn {
+    from {
+        filter: blur(10px) brightness(1.5);
+    }
+
+    to {
+        filter: blur(0px) brightness(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        filter: blur(10px);
+    }
+
+    to {
+        filter: blur(0px);
+    }
+}
+
+@keyframes fadeOut2 {
+    from {
+        filter: blur(10px);
+    }
+
+    to {
+        filter: blur(0px);
+    }
+}

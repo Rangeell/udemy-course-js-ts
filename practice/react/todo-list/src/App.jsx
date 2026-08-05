@@ -9,10 +9,13 @@ import CompletedTasks from './components/Tasks/CompletedTasks/CompletedTasks.jsx
 const App = () => {
   const [taskText, setTaskText] = useState('');
   const [allTasks, setAllTasks] = useState([]);
+  const [inEditMode, setEditMode] = useState(false);
 
   useEffect(() => {
     console.log('All tasks:', allTasks);
-  }, [allTasks]);
+    console.log('In edit mode:', inEditMode);
+
+  }, [allTasks, inEditMode]);
 
   const generateId = (allTasks) => {
     return allTasks.length > 0 ? Math.max(...allTasks.map(task => task.id)) + 1 : 1;
@@ -43,7 +46,26 @@ const App = () => {
   };
 
   const deleteTask = (taskId) => {
-    setAllTasks(allTasks.filter(task => task.id !== taskId)); // Mantém todas as tarefas cujo ID seja diferente do ID deletado
+    setAllTasks(prevTasks => { 
+      // Garante o estado mais recente e permite verificar se o novo array ficou vazio para resetting automático do inEditMode
+      const updatedTasks = prevTasks.filter((task) => task.id !== taskId); // Mantém todas as tarefas cujo ID seja diferente do ID deletado
+
+      // Se o array resultante estiver vazio, desativa o editMode
+      if (updatedTasks.length === 0) {
+        setEditMode(false);
+      }
+
+      return updatedTasks;
+    });
+  };
+
+  const deleteAllTasks = () => {
+    setAllTasks([]);
+    setEditMode(false);
+  };
+
+  const handleEdit = () => {
+    setEditMode(!inEditMode);
   };
 
   return (
@@ -58,13 +80,20 @@ const App = () => {
         />
         <UncompletedTasks
           uncompletedTasks={allTasks.filter(task => !task.completed)}
+          inEditMode={inEditMode}
+
           onDeleteTask={deleteTask}
           onCompleteTask={toggleCompleTask}
+          onEdit={handleEdit}
+          onDeleteAll={deleteAllTasks}
         />
         <CompletedTasks
           completedTasks={allTasks.filter(task => task.completed)}
+          inEditMode={inEditMode}
+
           onDeleteTask={deleteTask}
           onCompleteTask={toggleCompleTask}
+          onEdit={handleEdit}
         />
       </main>
     </>

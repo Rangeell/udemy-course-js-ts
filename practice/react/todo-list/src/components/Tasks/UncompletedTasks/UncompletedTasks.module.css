@@ -1,3 +1,5 @@
+@import url('../../../styles/animations.css');
+
 /* Section area */
 .inProgessTasks {
     width: 90%;
@@ -16,7 +18,12 @@
 
 /* Header area */
 .inProgessTasks header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     height: 2.2rem;
+    padding: 1.5rem 1rem;
 
     background-color: #27272a83;
     backdrop-filter: blur(5px) saturate(160%);
@@ -62,8 +69,40 @@
 }
 
 /* Buttons area */
-.deleteButton {
-    background-color: inherit;
+.editButton {
+    width: 3rem;
+    height: 2rem;
+    border-radius: var(--borderRadius);
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    color: var(--textPrimaryColor);
+    background-color: var(--mainColor);
+
+    transition: all .3s ease-in-out;
+    animation: fadeIn .3s ease-in-out;
+}
+
+.editButtonActive {
+    width: 2rem;
+    border-radius: 50%;
+
+    animation: fadeOut .4s ease-in-out;
+}
+
+.deleteAllBtn {
+    padding: .5rem 1rem;
+    border-radius: var(--borderRadius);
+    
+    font-size: 1rem;
+    font-weight: bold;
+
+    color: var(--dangerColor);
+    background-color: var(--claudeObsidian);
+
+    transition: all .3s ease-in-out;
+    animation: fadeIn .3s ease-in-out;
 }
 
 .checkedButton {
@@ -74,6 +113,14 @@
     border-radius: var(--borderRadius);
 
     background-color: var(--claudeObsidian);
+}
+
+.buttonHidden {
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all .3s ease-in-out;
+    animation: fadeOut2 .4s ease-in-out;
 }
 
 /* Icons area */

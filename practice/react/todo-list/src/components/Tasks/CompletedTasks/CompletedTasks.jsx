@@ -2,8 +2,7 @@ import { Trash2, Check } from 'lucide-react';
 
 import styles from './CompletedTasks.module.css';
 
-const CompletedTasks = ({ completedTasks, onDeleteTask, onCompleteTask }) => {
-
+const CompletedTasks = ({ completedTasks, onDeleteTask, onCompleteTask}) => {
     return (
         <section className={styles.completedTasks}>
             <header>
