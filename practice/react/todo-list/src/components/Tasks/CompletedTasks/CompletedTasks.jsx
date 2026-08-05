@@ -1,8 +1,8 @@
 import { Trash2, Check } from 'lucide-react';
 
-import styles from './CompletedTaskList.module.css';
+import styles from './CompletedTasks.module.css';
 
-const CompletedTaskList = ({ completedTasks, onDeleteTask, onCompleteTask }) => {
+const CompletedTasks = ({ completedTasks, onDeleteTask, onCompleteTask }) => {
 
     return (
         <section className={styles.completedTasks}>
@@ -39,4 +39,4 @@ const CompletedTaskList = ({ completedTasks, onDeleteTask, onCompleteTask }) => 
     );
 };
 
-export default CompletedTaskList;
+export default CompletedTasks;

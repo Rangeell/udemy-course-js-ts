@@ -1,8 +1,8 @@
 import { Trash2 } from 'lucide-react';
 
-import styles from './TaskList.module.css';
+import styles from './UncompletedTasks.module.css';
 
-const TaskList = ({ uncompletedTasks, onDeleteTask, onCompleteTask }) => {
+const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onCompleteTask }) => {
     return (
         <section className={styles.inProgessTasks}>
             <header>
@@ -36,4 +36,4 @@ const TaskList = ({ uncompletedTasks, onDeleteTask, onCompleteTask }) => {
     );
 };
 
-export default TaskList;
+export default UncompletedTasks;

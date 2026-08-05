@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 // My components
 import Header from './components/Header/Header.jsx';
 import Form from './components/Form/Form.jsx';
-import TaskList from './components/TaskList/TaskList.jsx';
-import CompletedTaskList from './components/CompletedTaskList/CompletedTaskList.jsx';
+import UncompletedTasks from './components/Tasks/UncompletedTasks/UncompletedTasks.jsx';
+import CompletedTasks from './components/Tasks/CompletedTasks/CompletedTasks.jsx';
 
 const App = () => {
   const [taskText, setTaskText] = useState('');
@@ -56,12 +56,12 @@ const App = () => {
           setTaskText={setTaskText}
           onAddTask={addTask}
         />
-        <TaskList
+        <UncompletedTasks
           uncompletedTasks={allTasks.filter(task => !task.completed)}
           onDeleteTask={deleteTask}
           onCompleteTask={toggleCompleTask}
         />
-        <CompletedTaskList
+        <CompletedTasks
           completedTasks={allTasks.filter(task => task.completed)}
           onDeleteTask={deleteTask}
           onCompleteTask={toggleCompleTask}
