@@ -1,4 +1,4 @@
-/* Variables area */
+/* VARIABLES AREA */
 :root {
     /* Colors */
     --mainColor: #D97706;
@@ -20,7 +20,7 @@
     --borderRadius: 5px;
 }
 
-/* Reset area */
+/* RESET AREA */
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +32,7 @@
     list-style-position: inside;
 }
 
-/* Body & HTML area */
+/* BODY & HTML AREA */
 html {
     font-size: 1rem;
 }
@@ -47,7 +47,7 @@ body {
     color: var(--textPrimaryColor);
 }
 
-/* Main area */
+/* MAIN AREA */
 main {
     display: grid;
     grid-template: 60px repeat(2, max-content) / 1fr;
@@ -64,7 +64,7 @@ button {
     background-color: inherit;
 }
 
-/* scrollBar area */
+/* SCROLL BAR AREA */
 ::-webkit-scrollbar {
     width: 1rem;
 
@@ -76,13 +76,6 @@ button {
     background-color: inherit;
 }
 
-body::-webkit-scrollbar-thumb {
-    border-radius: 1rem;
-    border: 5px solid var(--claudeObsidian);
-
-    background-color: var(--mainColor);
-}
-
 ::-webkit-scrollbar-thumb {
     border-radius: 1rem;
     border: 5px solid var(--claudeCharcoal);
@@ -92,4 +85,11 @@ body::-webkit-scrollbar-thumb {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: #f39933;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    border: 5px solid var(--claudeObsidian);
+
+    background-color: var(--mainColor);
 }

@@ -1,4 +1,4 @@
-/* Section area */
+/* SECTION AREA */
 .completedTasks {
     width: 90%;
     max-width: var(--maxWidth);
@@ -14,7 +14,7 @@
     overflow-y: auto;
 }
 
-/* Header area */
+/* HEADER AREA */
 .completedTasks header {
     height: 2.2rem;
     
@@ -25,7 +25,7 @@
     top: 0;
 }
 
-/* Task list area */
+/* TASK LIST AREA */
 .completedTasks ul {
     display: flex;
     flex-flow: column;
@@ -62,11 +62,7 @@
     height: 0;
 }
 
-/* Buttons area */
-.deleteButton {
-    background-color: inherit;
-}
-
+/* BUTTONS AREA */
 .checkedButton {
     width: 1.8rem;
     aspect-ratio: 1/1;
@@ -77,7 +73,7 @@
     background-color: var(--claudeObsidian);
 }
 
-/* Icons area */
+/* ICONS AREA */
 .checkIcon {
     color: var(--textSecundaryColor);
 }

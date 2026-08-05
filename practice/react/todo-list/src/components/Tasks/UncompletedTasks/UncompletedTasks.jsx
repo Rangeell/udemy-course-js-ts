@@ -12,8 +12,8 @@ const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onCompl
     ].filter(Boolean).join(' '); // Retorna um array sem valores booleanos e converte em strings separadas por espaço
 
     const deleteAllButtonClasses = [
-        styles.deleteAllBtn, // Classe padrão
-        (hasNoTask || !inEditMode) && styles.buttonHidden, // Adiciona classe, caso não haja tarefas
+        styles.deleteAllButton, // Classe padrão
+        (hasNoTask || !inEditMode) && styles.buttonHidden, // Esconde o botão, caso não haja tarefas e não esteja no "editMode"
     ].filter(Boolean).join(' '); // Retorna um array sem valores booleanos e o converte em strings separadas por espaço
 
     return (
