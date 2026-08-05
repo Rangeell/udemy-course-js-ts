@@ -11,10 +11,10 @@ const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onCompl
         hasNoTask && styles.buttonHidden, // Adiciona classe, caso não haja tarefas
     ].filter(Boolean).join(' '); // Retorna um array sem valores booleanos e converte em strings separadas por espaço
 
-    const deleteAllBtnClasses = [
+    const deleteAllButtonClasses = [
         styles.deleteAllBtn, // Classe padrão
-        hasNoTask && styles.buttonHidden, // Adiciona classe, caso não haja tarefas
-    ].filter(Boolean).join(' '); // Retorna um array sem valores booleanos e converte em strings separadas por espaço
+        (hasNoTask || !inEditMode) && styles.buttonHidden, // Adiciona classe, caso não haja tarefas
+    ].filter(Boolean).join(' '); // Retorna um array sem valores booleanos e o converte em strings separadas por espaço
 
     return (
         <section className={styles.inProgessTasks}>
@@ -29,7 +29,7 @@ const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onCompl
 
                 <button
                     onClick={onDeleteAll}
-                    className={deleteAllBtnClasses}>
+                    className={deleteAllButtonClasses}>
                     Delete All
                 </button>
             </header>
