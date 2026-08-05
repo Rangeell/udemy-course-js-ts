@@ -13,7 +13,9 @@ const Redirect = () => {
             setTime(prevTime => prevTime - 1); // Subtrai -1  do valor mais recente da variável 'time'
 
             if (time <= 0) {
-                navigate('/');
+                navigate('/about', {
+                    state: `This is the state: ${Math.random()}`,
+                });
             }
 
             return () => {

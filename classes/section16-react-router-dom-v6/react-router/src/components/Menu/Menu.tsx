@@ -10,7 +10,7 @@ const Menu = () => {
                 </li>
 
                 <li>
-                    <Link to='/about'>About</Link>
+                    <Link to='/about' state={'This state from ABOUT'}>About</Link>
                 </li>
 
                 <li>
