@@ -7,6 +7,17 @@ Não canso de ouvir a Maria:
 "Jooooooooooãoooooooo, o café tá prontinho aqui. Veeemm"!
 `;
 
+const files = [
+    'Atenção.jpg',
+    'FOTO.jpg',
+    'Meu gatinho.jpg',
+    'Meu gatinho.JPG',
+    'Meu gatinho.JPEG',
+    'Marido.png',
+    'lista de compras.txt',
+]
+
 module.exports = {
-    text
+    text,
+    files,
 }
