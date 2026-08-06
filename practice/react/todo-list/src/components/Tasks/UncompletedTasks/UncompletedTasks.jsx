@@ -1,3 +1,5 @@
+// TODO: Adicionar input com o valor da task atual para editar e alterar o estado "allTasks"
+
 import { Check, Trash2 } from 'lucide-react';
 
 import styles from './UncompletedTasks.module.css';
