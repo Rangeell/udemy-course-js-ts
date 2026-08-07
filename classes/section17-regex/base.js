@@ -19,8 +19,11 @@ const files = [
 
 const html = `<p>Olá mundo</p> <p>Olá de novo</p>`;
 
+const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ atenção abcdefghijklmnopqrstuvwxyz @; 0123456789 ¡';
+
 module.exports = {
     text,
     files,
     html,
+    alfabeto,
 }
