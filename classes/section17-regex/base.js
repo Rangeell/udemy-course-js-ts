@@ -28,6 +28,11 @@ Os CPFs são:
     963.987.321.00
 `;
 
+const cpf2 = `254.224.877-45
+215.978.456-12
+047.258.369-96
+963.987.32a.00`;
+
 const ips = `
 OS Ips são:
     0.0.0.0
@@ -46,5 +51,6 @@ module.exports = {
     html,
     alfabeto,
     cpfs,
+    cpf2,
     ips
 }
