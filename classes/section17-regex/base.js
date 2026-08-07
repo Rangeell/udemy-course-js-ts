@@ -21,9 +21,30 @@ const html = `<p>Olá mundo</p> <p>Olá de novo</p>`;
 
 const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ atenção abcdefghijklmnopqrstuvwxyz @; 0123456789 ¡';
 
+const cpfs = `
+Os CPFs são:
+    543.224.877-45 215.978.456-12 047.258.369-96
+
+    963.987.321.00
+`;
+
+const ips = `
+OS Ips são:
+    0.0.0.0
+
+    192.168.0.25
+
+            10.10.5.12  
+
+    255.255.255
+    256.255.255
+`;
+
 module.exports = {
     text,
     files,
     html,
     alfabeto,
+    cpfs,
+    ips
 }
