@@ -1,0 +1,21 @@
+# Dependências
+node_modules/
+
+# Logs do NPM / YARN
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Saída de compilação do TypeScript
+dist/
+build/
+
+# Variáveis de ambiente / Configurações locais
+.env
+.env.local
+
+# Arquivos de IDE e Sistema Operacional
+.vscode/*
+!.vscode/settings.json
+.DS_Store
+Thumbs.db
