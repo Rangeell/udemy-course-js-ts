@@ -2,7 +2,7 @@
 
 @keyframes fadeIn {
     from {
-        filter: blur(10px) brightness(1.5);
+        filter: blur(10px) brightness(var(--brightness));
     }
 
     to {

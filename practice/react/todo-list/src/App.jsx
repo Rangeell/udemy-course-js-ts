@@ -65,6 +65,10 @@ const App = () => {
     setEditMode(false);
   };
 
+  const deleteSelectedTasks = () => {
+    console.log('Oi');
+  };
+
   const handleEditMode = () => {
     setEditMode(!inEditMode);
   };
@@ -86,6 +90,7 @@ const App = () => {
         <Form
           taskText={taskText}
           allTasks={allTasks}
+
           setTaskText={setTaskText}
           onAddTask={addTask}
         />
@@ -93,11 +98,14 @@ const App = () => {
           uncompletedTasks={allTasks.filter(task => !task.completed)}
           inEditMode={inEditMode}
 
-          onDeleteTask={deleteTask}
           onCompleteTask={toggleCompleTask}
+          
           onEdit={handleEditMode}
-          onDeleteAll={deleteAllTasks}
           onUpdate={handleUpdate}
+          
+          onDeleteTask={deleteTask}
+          onDeleteAll={deleteAllTasks}
+          onDeleteSelected={deleteSelectedTasks}
         />
         <CompletedTasks
           completedTasks={allTasks.filter(task => task.completed)}

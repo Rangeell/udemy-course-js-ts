@@ -70,12 +70,18 @@
 input {
     padding: .2rem 0;
     border-radius: var(--borderRadius);
-    
+
     text-align: center;
     font-size: inherit;
 
     color: var(--textPrimaryColor);
     background-color: var(--claudeObsidian);
+
+    transition: all .3s ease;
+
+    &:is(:hover, :focus) {
+        filter: brightness(var(--brightness));
+    }
 }
 
 .task::-webkit-scrollbar {
@@ -96,20 +102,30 @@ input {
     background-color: var(--mainColor);
 
     transition: all .3s ease-in-out;
-    animation: fadeIn .3s ease-in-out;
+    animation: fadeOut .3s ease-in-out;
+
+    &:is(:hover, :focus-visible) {
+        filter: brightness(var(--brightness));
+    }
+
+    &:focus-visible {
+        transition: none;
+        outline: 3px solid var(--borderColor);
+        outline-offset: 4px;
+    }
 }
 
 .editButtonActive {
     width: 2rem;
     border-radius: 50%;
 
-    animation: fadeOut .4s ease-in-out;
+    animation: fadeIn .3s ease-in-out;
 }
 
 .deleteAllButton {
     padding: .5rem 1rem;
     border-radius: var(--borderRadius);
-    
+
     font-size: 1rem;
     font-weight: bold;
 
@@ -117,10 +133,29 @@ input {
     background-color: var(--claudeObsidian);
 
     transition: all .3s ease-in-out;
-    animation: fadeIn .3s ease-in-out;
+    animation: fadeIn .4s ease-in-out;
+
+    &:is(:hover, :focus-visible) {
+        filter: brightness(var(--brightness));
+    }
+
+    &:focus-visible {
+        transition: none;
+        outline: 3px solid var(--borderColor);
+        outline-offset: 4px;
+    }
 }
 
-.checkedButton {
+.deleteButton {
+    animation: fadeIn .3s ease-in-out;
+
+    &:focus-visible {
+        outline: 3px solid var(--claudeObsidian);
+        outline-offset: 2px;
+    }
+}
+
+.checkButton {
     width: 1.8rem;
     aspect-ratio: 1/1;
 
@@ -128,6 +163,10 @@ input {
     border-radius: var(--borderRadius);
 
     background-color: var(--claudeObsidian);
+
+    &:is(:hover, :focus-visible) {
+        filter: brightness(var(--brightness));
+    }
 }
 
 .buttonHidden {
@@ -135,7 +174,7 @@ input {
     pointer-events: none;
 
     transition: all .3s ease-in-out;
-    animation: fadeOut2 .4s ease-in-out;
+    animation: fadeOut2 .3s ease-in-out;
 }
 
 /* ICONS AREA */
