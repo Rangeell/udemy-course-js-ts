@@ -1,3 +1,5 @@
+/* TODO: Adicionar animação no input ao entrar no edit mode */
+
 @import url('../../../styles/animations.css');
 
 /* SECTION AREA */
@@ -35,7 +37,7 @@
 /* TASK LIST AREA */
 .inProgessTasks ul {
     display: flex;
-    flex-flow: column-reverse wrap;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
     gap: 1rem;
@@ -54,6 +56,8 @@
     padding: .3rem .5rem;
     border-radius: var(--borderRadius);
 
+    font-size: 1rem;
+
     background-color: var(--borderColor);
 }
 
@@ -61,6 +65,17 @@
     flex: 1;
 
     overflow-x: auto;
+}
+
+input {
+    padding: .2rem 0;
+    border-radius: var(--borderRadius);
+    
+    text-align: center;
+    font-size: inherit;
+
+    color: var(--textPrimaryColor);
+    background-color: var(--claudeObsidian);
 }
 
 .task::-webkit-scrollbar {

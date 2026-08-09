@@ -1,10 +1,10 @@
-// TODO: Adicionar input com o valor da task atual para editar e alterar o estado "allTasks"
+// TODO: Adicionar animação no input ao entrar no edit mode
 
 import { Check, Trash2 } from 'lucide-react';
 
 import styles from './UncompletedTasks.module.css';
 
-const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onCompleteTask, inEditMode, onEdit }) => {
+const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onCompleteTask, inEditMode, onEdit, onUpdate }) => {
     const hasNoTask = uncompletedTasks.length === 0;
 
     const editButtonClasses = [
@@ -17,6 +17,11 @@ const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onCompl
         styles.deleteAllButton, // Classe padrão
         (hasNoTask || !inEditMode) && styles.buttonHidden, // Esconde o botão, caso não haja tarefas e não esteja no "editMode"
     ].filter(Boolean).join(' '); // Retorna um array sem valores booleanos e o converte em strings separadas por espaço
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onEdit();
+    };
 
     return (
         <section className={styles.inProgessTasks}>
@@ -36,7 +41,7 @@ const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onCompl
                 </button>
             </header>
 
-            {!hasNoTask && (
+            {!hasNoTask && ( // Se não houver tarefa, não chega na segunda operação (renderizar)
                 <ul>
                     {uncompletedTasks.map((task) => (
                         <li key={task.id}>
@@ -45,9 +50,18 @@ const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onCompl
                                 className={styles.checkedButton}>
                             </button>
 
-                            <div className={styles.task}>
-                                {task.task}
-                            </div>
+                            {inEditMode ?
+                                <form action="#" method="post" onSubmit={handleSubmit}>
+                                    <input type="text"
+                                        value={task.task}
+                                        onChange={e => onUpdate(task.id, e.target.value)}
+                                        onFocus={e => { e.target.select(); }}
+                                    />
+                                </form>
+                                :
+                                <div className={styles.task}>
+                                    {task.task}
+                                </div>}
 
                             <button
                                 onClick={() => onDeleteTask(task.id)}

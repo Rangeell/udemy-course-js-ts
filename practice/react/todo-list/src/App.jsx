@@ -23,16 +23,17 @@ const App = () => {
 
   const addTask = (newTask) => {
     setAllTasks(
-      [...allTasks,
-      {
-        id: generateId(allTasks),
-        task: newTask,
-        completed: false,
-      },
-      ],
+      [
+        {
+          id: generateId(allTasks),
+          task: newTask,
+          completed: false,
+        },
+        ...allTasks],
     );
 
     setTaskText('');
+    setEditMode(false);
   };
 
   const toggleCompleTask = (taskId) => {
@@ -46,7 +47,7 @@ const App = () => {
   };
 
   const deleteTask = (taskId) => {
-    setAllTasks(prevTasks => { 
+    setAllTasks(prevTasks => {
       // Garante o estado mais recente e permite verificar se o novo array ficou vazio para resetting automático do inEditMode
       const updatedTasks = prevTasks.filter((task) => task.id !== taskId); // Mantém todas as tarefas cujo ID seja diferente do ID deletado
 
@@ -64,8 +65,18 @@ const App = () => {
     setEditMode(false);
   };
 
-  const handleEdit = () => {
+  const handleEditMode = () => {
     setEditMode(!inEditMode);
+  };
+
+  const handleUpdate = (taskId, taskText) => {
+    setAllTasks(allTasks.map(task => {
+      if (task.id === taskId) {
+        return { ...task, task: taskText };
+      }
+
+      return task;
+    }));
   };
 
   return (
@@ -84,8 +95,9 @@ const App = () => {
 
           onDeleteTask={deleteTask}
           onCompleteTask={toggleCompleTask}
-          onEdit={handleEdit}
+          onEdit={handleEditMode}
           onDeleteAll={deleteAllTasks}
+          onUpdate={handleUpdate}
         />
         <CompletedTasks
           completedTasks={allTasks.filter(task => task.completed)}
@@ -93,7 +105,6 @@ const App = () => {
 
           onDeleteTask={deleteTask}
           onCompleteTask={toggleCompleTask}
-          onEdit={handleEdit}
         />
       </main>
     </>
