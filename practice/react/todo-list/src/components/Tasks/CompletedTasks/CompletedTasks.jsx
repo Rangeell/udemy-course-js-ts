@@ -2,7 +2,7 @@ import { Trash2, Check } from 'lucide-react';
 
 import styles from './CompletedTasks.module.css';
 
-const CompletedTasks = ({ completedTasks, onDeleteTask, onCompleteTask}) => {
+const CompletedTasks = ({ completedTasks, onDelete, onCompleteTask}) => {
     return (
         <section className={styles.completedTasks}>
             <header>
@@ -21,11 +21,11 @@ const CompletedTasks = ({ completedTasks, onDeleteTask, onCompleteTask}) => {
                             </button>
 
                             <div className={styles.task}>
-                                {task.task}
+                                {task.name}
                             </div>
 
                             <button
-                                onClick={() => onDeleteTask(task.id)}
+                                onClick={() => onDelete(task.id)}
                                 className={styles.deleteButton}>
 
                                 <Trash2 className={styles.trashIcon} />

@@ -111,7 +111,7 @@ const App = () => {
           onEdit={handleEditMode}
           onUpdate={handleUpdate}
 
-          onDeleteTask={deleteTask}
+          onDelete={deleteTask}
           onDeleteAll={deleteAllTasks}
           onDeleteSelected={deleteSelectedTasks}
         />
