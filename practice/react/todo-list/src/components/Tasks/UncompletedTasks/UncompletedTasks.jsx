@@ -1,10 +1,12 @@
 // TODO: Adicionar animação no input ao entrar no edit mode
 
-import { Check, Indent, Trash2 } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 import styles from './UncompletedTasks.module.css';
+import TaskItem from '../TaskItem/TaskItem';
 
-const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onDeleteSelected, onCompleteTask, inEditMode, onEdit, onUpdate }) => {
+const UncompletedTasks = ({ uncompletedTasks, inEditMode, onDelete, onDeleteAll, onEdit, onUpdate, onCompleteTask }) => {
+
     const hasNoTask = uncompletedTasks.length === 0;
 
     const editButtonClasses = [
@@ -22,11 +24,6 @@ const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onDelet
         styles.deleteButton,
         !inEditMode && styles.buttonHidden,
     ].filter(Boolean).join(' ');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onEdit(); // Altera edit mode para false
-    };
 
     return (
         <section className={styles.inProgessTasks}>
@@ -49,33 +46,17 @@ const UncompletedTasks = ({ uncompletedTasks, onDeleteTask, onDeleteAll, onDelet
             {!hasNoTask && ( // Se não houver tarefa, não chega na segunda operação (renderizar)
                 <ul>
                     {uncompletedTasks.map((task) => (
-                        <li key={task.id}>
-                            <button
-                                onClick={() => onCompleteTask(task.id)}
-                                className={styles.checkButton}>
-                            </button>
+                        <TaskItem
+                            key={task.id}
+                            task={task}
+                            inEditMode={inEditMode}
+                            deleteButtonClasses={deleteButtonClasses}
 
-                            {inEditMode ?
-                                <form action="#" method="post" onSubmit={handleSubmit}>
-                                    <input type="text"
-                                        value={task.task}
-                                        onChange={e => onUpdate(task.id, e.target.value)}
-                                        onFocus={e => { e.target.select(); }}
-                                        name='task'
-                                        aria-label='Digite para atualizar a tarefa'
-                                    />
-                                </form>
-                                :
-                                <div className={styles.task}>
-                                    {task.task}
-                                </div>}
-
-                            <button
-                                onClick={() => onDeleteTask(task.id)}
-                                className={deleteButtonClasses}>
-                                <Trash2 className={styles.trashIcon} />
-                            </button>
-                        </li>
+                            onEdit={onEdit}
+                            onUpdate={onUpdate}
+                            onDelete={onDelete}
+                            onCompleteTask={onCompleteTask}
+                        />
                     ))}
                 </ul>
             )}

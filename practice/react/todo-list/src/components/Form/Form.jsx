@@ -1,16 +1,9 @@
 import { Plus } from 'lucide-react';
 
+import { formatString, isDuplicateTask } from '../../utils/taskHelpers';
 import styles from './Form.module.css';
 
 const Form = ({ taskText, setTaskText, onAddTask, allTasks }) => {
-
-    const formatString = (string) => {
-        if (!string) return;
-
-        const cleanString = string.trim().toLowerCase();
-
-        return cleanString.charAt(0).toUpperCase() + cleanString.slice(1);
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,8 +11,8 @@ const Form = ({ taskText, setTaskText, onAddTask, allTasks }) => {
         const el = e.target;
         const newTask = formatString(taskText);
 
-        if (!newTask) return;
-        if (allTasks.some(task => task.task === newTask)) return;
+        if (!newTask) return; // TODO: Enviar feedback de erro
+        if (isDuplicateTask(allTasks, newTask)) return console.warn('Essa tarefa já existe'); // TODO: Enviar feedback de erro
 
         onAddTask(newTask);
 

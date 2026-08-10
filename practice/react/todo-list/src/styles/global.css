@@ -18,9 +18,11 @@
     /* Effects */
     --brightness: 1.5;
 
-    /* Box sizes */
+    /* Box sizes */ 
     --maxWidth: 750px;
     --borderRadius: 5px;
+    --outline: 3px solid;
+    --outlineOffSet: 4px;
 }
 
 /* RESET AREA */

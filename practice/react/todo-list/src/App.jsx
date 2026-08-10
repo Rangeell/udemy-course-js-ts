@@ -1,3 +1,8 @@
+/*
+TODO: Criar modais de confirmação para exclusão de tarefas
+TODO: Criar mensagens de erros dinâmicas
+*/
+
 import { useEffect, useState } from 'react';
 
 // My components
@@ -5,6 +10,7 @@ import Header from './components/Header/Header.jsx';
 import Form from './components/Form/Form.jsx';
 import UncompletedTasks from './components/Tasks/UncompletedTasks/UncompletedTasks.jsx';
 import CompletedTasks from './components/Tasks/CompletedTasks/CompletedTasks.jsx';
+import { isDuplicateTask } from './utils/taskHelpers.js';
 
 const App = () => {
   const [taskText, setTaskText] = useState('');
@@ -26,7 +32,7 @@ const App = () => {
       [
         {
           id: generateId(allTasks),
-          task: newTask,
+          name: newTask,
           completed: false,
         },
         ...allTasks],
@@ -73,10 +79,12 @@ const App = () => {
     setEditMode(!inEditMode);
   };
 
-  const handleUpdate = (taskId, taskText) => {
+  const handleUpdate = (taskText, taskId) => { // TODO: Enviar uma mensagem de erro como feedback para o usuário
+    if (isDuplicateTask(allTasks, taskText, taskId)) return console.warn('Essa tarefa já existe!');
+
     setAllTasks(allTasks.map(task => {
       if (task.id === taskId) {
-        return { ...task, task: taskText };
+        return { ...task, name: taskText };
       }
 
       return task;
@@ -99,10 +107,10 @@ const App = () => {
           inEditMode={inEditMode}
 
           onCompleteTask={toggleCompleTask}
-          
+
           onEdit={handleEditMode}
           onUpdate={handleUpdate}
-          
+
           onDeleteTask={deleteTask}
           onDeleteAll={deleteAllTasks}
           onDeleteSelected={deleteSelectedTasks}
@@ -111,7 +119,7 @@ const App = () => {
           completedTasks={allTasks.filter(task => task.completed)}
           inEditMode={inEditMode}
 
-          onDeleteTask={deleteTask}
+          onDelete={deleteTask}
           onCompleteTask={toggleCompleTask}
         />
       </main>

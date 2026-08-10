@@ -101,7 +101,7 @@ input {
     color: var(--textPrimaryColor);
     background-color: var(--mainColor);
 
-    transition: all .3s ease-in-out;
+    transition: filter .3s ease-in-out;
     animation: fadeOut .3s ease-in-out;
 
     &:is(:hover, :focus-visible) {
@@ -109,9 +109,8 @@ input {
     }
 
     &:focus-visible {
-        transition: none;
-        outline: 3px solid var(--borderColor);
-        outline-offset: 4px;
+        outline: var(--outline) var(--borderColor);
+        outline-offset: var(--outlineOffSet);
     }
 }
 
@@ -132,17 +131,16 @@ input {
     color: var(--dangerColor);
     background-color: var(--claudeObsidian);
 
-    transition: all .3s ease-in-out;
+    transition: filter .5s ease-in-out;
     animation: fadeIn .4s ease-in-out;
 
     &:is(:hover, :focus-visible) {
-        filter: brightness(var(--brightness));
+        filter: brightness(1.2);
     }
 
     &:focus-visible {
-        transition: none;
-        outline: 3px solid var(--borderColor);
-        outline-offset: 4px;
+        outline: var(--outline) var(--borderColor);
+        outline-offset: var(--outlineOffSet);
     }
 }
 
@@ -150,8 +148,8 @@ input {
     animation: fadeIn .3s ease-in-out;
 
     &:focus-visible {
-        outline: 3px solid var(--claudeObsidian);
-        outline-offset: 2px;
+        outline: var(--outline) var(--claudeObsidian);
+        outline-offset: var(--outlineOffSet);
     }
 }
 
@@ -164,8 +162,15 @@ input {
 
     background-color: var(--claudeObsidian);
 
+    transition: filter .3s ease;
+
     &:is(:hover, :focus-visible) {
         filter: brightness(var(--brightness));
+    }
+
+    &:focus-visible {
+        outline: var(--outline) var(--claudeObsidian);
+        outline-offset: var(--outlineOffSet);
     }
 }
 
