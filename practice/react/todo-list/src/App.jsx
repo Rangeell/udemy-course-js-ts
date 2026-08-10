@@ -1,6 +1,9 @@
 /*
+TODO: Adicionar animação no input ao entrar no edit mode
+TODO: Criar função de deletar apenas tarefas selecionadas
 TODO: Criar modais de confirmação para exclusão de tarefas
-TODO: Criar mensagens de erros dinâmicas
+TODO: Migrar estilos exclusivos do componente TaskItem para o seu arquivo isolado
+TODO: Criar mensagens de erros dinâmicas -> provavelmente manipular um estado para setar true ou false
 */
 
 import { useEffect, useState } from 'react';
@@ -17,7 +20,7 @@ const App = () => {
   const [allTasks, setAllTasks] = useState([]);
   const [inEditMode, setEditMode] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => { // Testes
     console.log('All tasks:', allTasks);
     console.log('In edit mode:', inEditMode);
 
@@ -83,7 +86,7 @@ const App = () => {
     if (isDuplicateTask(allTasks, taskText, taskId)) return console.warn('Essa tarefa já existe!');
 
     setAllTasks(allTasks.map(task => {
-      if (task.id === taskId) {
+      if (taskId === task.id) {
         return { ...task, name: taskText };
       }
 

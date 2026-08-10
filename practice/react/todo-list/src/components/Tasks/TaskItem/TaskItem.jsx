@@ -1,11 +1,16 @@
 import { Trash2 } from 'lucide-react';
 
 import { formatString } from '../../../utils/taskHelpers';
-import styles from '../UncompletedTasks/UncompletedTasks.module.css';
+import styles from './TaskItem.module.css';
 import { useState } from 'react';
 
-const TaskItem = ({ task, onCompleteTask, inEditMode, onEdit, onDelete, onUpdate, deleteButtonClasses }) => {
+const TaskItem = ({ task, onCompleteTask, inEditMode, onEdit, onDelete, onUpdate}) => {
     const [taskText, setTaskText] = useState(task.name);
+
+    const deleteButtonClasses = [
+            styles.deleteButton,
+            !inEditMode && styles.buttonHidden,
+        ].filter(Boolean).join(' ');
 
     const handleSubmit = (e) => {
         e.preventDefault();

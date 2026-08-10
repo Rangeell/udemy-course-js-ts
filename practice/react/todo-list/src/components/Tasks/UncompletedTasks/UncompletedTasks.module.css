@@ -144,45 +144,10 @@ input {
     }
 }
 
-.deleteButton {
-    animation: fadeIn .3s ease-in-out;
-
-    &:focus-visible {
-        outline: var(--outline) var(--claudeObsidian);
-        outline-offset: var(--outlineOffSet);
-    }
-}
-
-.checkButton {
-    width: 1.8rem;
-    aspect-ratio: 1/1;
-
-    border: 1px solid var(--textSecundaryColor);
-    border-radius: var(--borderRadius);
-
-    background-color: var(--claudeObsidian);
-
-    transition: filter .3s ease;
-
-    &:is(:hover, :focus-visible) {
-        filter: brightness(var(--brightness));
-    }
-
-    &:focus-visible {
-        outline: var(--outline) var(--claudeObsidian);
-        outline-offset: var(--outlineOffSet);
-    }
-}
-
 .buttonHidden {
     opacity: 0;
     pointer-events: none;
 
     transition: all .3s ease-in-out;
     animation: fadeOut2 .3s ease-in-out;
-}
-
-/* ICONS AREA */
-.trashIcon {
-    color: var(--dangerColor);
 }

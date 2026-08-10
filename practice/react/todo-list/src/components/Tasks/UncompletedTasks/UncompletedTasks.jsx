@@ -1,5 +1,3 @@
-// TODO: Adicionar animação no input ao entrar no edit mode
-
 import { Check } from 'lucide-react';
 
 import styles from './UncompletedTasks.module.css';
@@ -19,11 +17,6 @@ const UncompletedTasks = ({ uncompletedTasks, inEditMode, onDelete, onDeleteAll,
         styles.deleteAllButton, // Classe padrão
         (hasNoTask || !inEditMode) && styles.buttonHidden, // Esconde o botão, caso não haja tarefas e não esteja no "editMode"
     ].filter(Boolean).join(' '); // Retorna um array sem valores booleanos e o converte em strings separadas por espaço
-
-    const deleteButtonClasses = [
-        styles.deleteButton,
-        !inEditMode && styles.buttonHidden,
-    ].filter(Boolean).join(' ');
 
     return (
         <section className={styles.inProgessTasks}>
@@ -50,7 +43,6 @@ const UncompletedTasks = ({ uncompletedTasks, inEditMode, onDelete, onDeleteAll,
                             key={task.id}
                             task={task}
                             inEditMode={inEditMode}
-                            deleteButtonClasses={deleteButtonClasses}
 
                             onEdit={onEdit}
                             onUpdate={onUpdate}
