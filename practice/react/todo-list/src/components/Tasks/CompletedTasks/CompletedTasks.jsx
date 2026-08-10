@@ -2,7 +2,7 @@ import { Trash2, Check } from 'lucide-react';
 
 import styles from './CompletedTasks.module.css';
 
-const CompletedTasks = ({ completedTasks, onDelete, onCompleteTask}) => {
+const CompletedTasks = ({ completedTasks, onDelete, onComplete}) => {
     return (
         <section className={styles.completedTasks}>
             <header>
@@ -14,7 +14,7 @@ const CompletedTasks = ({ completedTasks, onDelete, onCompleteTask}) => {
                     {completedTasks.map(task => (
                         <li key={task.id}>
                             <button
-                                onClick={() => onCompleteTask(task.id)}
+                                onClick={() => onComplete(task.id)}
                                 className={styles.checkedButton}>
 
                                 <Check size={22} className={styles.checkIcon} />

@@ -3,8 +3,24 @@ import { Check } from 'lucide-react';
 import styles from './UncompletedTasks.module.css';
 import TaskItem from '../TaskItem/TaskItem';
 
-const UncompletedTasks = ({ uncompletedTasks, inEditMode, onDelete, onDeleteAll, onEdit, onUpdate, onCompleteTask }) => {
+const UncompletedTasks = (
+    {
+        inEditMode,
+        selectedTasks,
+        uncompletedTasks,
 
+        onSelect,
+        onComplete,
+
+        onEdit,
+        onUpdate,
+
+        onDelete,
+        onDeleteAll,
+        onDeleteSelected,
+    }) => {
+
+    const hasSelectedTask = selectedTasks.length > 0;
     const hasNoTask = uncompletedTasks.length === 0;
 
     const editButtonClasses = [
@@ -30,9 +46,9 @@ const UncompletedTasks = ({ uncompletedTasks, inEditMode, onDelete, onDeleteAll,
                 <h2>{hasNoTask ? 'No tasks' : `In progress tasks (${uncompletedTasks.length})`}</h2>
 
                 <button
-                    onClick={onDeleteAll}
+                    onClick={hasSelectedTask ? onDeleteSelected : onDeleteAll}
                     className={deleteAllButtonClasses}>
-                    {inEditMode ? 'Delete All' : 'Delete All'}
+                    {hasSelectedTask ? `Delete Selected (${selectedTasks.length})` : 'Delete All'}
                 </button>
             </header>
 
@@ -44,10 +60,14 @@ const UncompletedTasks = ({ uncompletedTasks, inEditMode, onDelete, onDeleteAll,
                             task={task}
                             inEditMode={inEditMode}
 
+                            onSelect={onSelect}
+                            onComplete={onComplete}
+
                             onEdit={onEdit}
                             onUpdate={onUpdate}
+
                             onDelete={onDelete}
-                            onCompleteTask={onCompleteTask}
+                            onDeleteSelected={onDeleteSelected}
                         />
                     ))}
                 </ul>

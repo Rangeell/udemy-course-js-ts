@@ -1,3 +1,50 @@
+/* TODO: Adicionar animação no input ao entrar no edit mode */
+/* LIST AREA */
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+
+    width: 60%;
+
+    padding: .3rem .5rem;
+    border-radius: var(--borderRadius);
+
+    font-size: 1rem;
+
+    background-color: var(--borderColor);
+}
+
+input {
+    padding: .2rem 0;
+    border-radius: var(--borderRadius);
+
+    text-align: center;
+    font-size: inherit;
+
+    color: var(--textPrimaryColor);
+    background-color: var(--claudeObsidian);
+
+    transition: all .3s ease;
+
+    &:is(:hover, :focus) {
+        filter: brightness(var(--brightness));
+    }
+}
+
+/* TASK AREA */
+.task {
+    flex: 1;
+
+    overflow-x: auto;
+}
+
+.task::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
 /* BUTTONS AREA */
 .deleteButton {
     animation: fadeIn .3s ease-in-out;
@@ -17,7 +64,9 @@
 
     background-color: var(--claudeObsidian);
 
-    transition: filter .3s ease;
+    transition:
+        filter .3s ease,
+        border-radius .3s ease;
 
     &:is(:hover, :focus-visible) {
         filter: brightness(var(--brightness));
@@ -27,6 +76,20 @@
         outline: var(--outline) var(--claudeObsidian);
         outline-offset: var(--outlineOffSet);
     }
+}
+
+.seletecButton {
+    width: 1.8rem;
+    aspect-ratio: 1/1;
+
+    border: 1px solid var(--textSecundaryColor);
+    border-radius: 50%;
+
+    background-color: var(--claudeObsidian);
+}
+
+.seletecButtonActice {
+    background-color: var(--borderColor);
 }
 
 .buttonHidden {
@@ -41,3 +104,16 @@
 .trashIcon {
     color: var(--dangerColor);
 }
+
+.checkIcon {
+    color: var(--textPrimaryColor);
+    /* stroke-width: 0; */
+    stroke-dashoffset: -48;
+    stroke-dasharray: 48;
+    transition: all .3s ease-in-out;
+}
+
+.checkIconActive {
+    stroke-dashoffset: 0;
+}
+
