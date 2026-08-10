@@ -1,9 +1,7 @@
 /*
 TODO: Criar modais de feeback de sucesso
 TODO: Adicionar animação no input ao entrar no edit mode
-TODO: Criar função de deletar apenas tarefas selecionadas
 TODO: Criar modais de confirmação para exclusão de tarefas
-TODO: Migrar estilos exclusivos do componente TaskItem para o seu arquivo isolado
 TODO: Criar mensagens de erros dinâmicas -> provavelmente manipular um estado para setar true ou false
 */
 
@@ -94,8 +92,7 @@ const App = () => {
 
   const handleEditMode = () => {
     setEditMode(!inEditMode);
-
-    setAllTasks(allTasks.map(task => ({ ...task, selected: false }))); // <--- Reseta o estado de selação
+    setAllTasks(prevTask => prevTask.map(task => ({ ...task, selected: false }))); // <--- Reseta o estado de selação
   };
 
   const handleUpdate = (taskText, taskId) => { // TODO: Enviar uma mensagem de erro como feedback para o usuário
@@ -105,8 +102,9 @@ const App = () => {
       return false; // Se der erro, retorna false para tratar no momento da edição no TaskItem
     };
 
-    setAllTasks(allTasks.map(task => {
+    setAllTasks(prevTask => prevTask.map(task => {
       if (taskId === task.id) {
+        console.log(task);
         return { ...task, name: taskText };
       }
 

@@ -6,26 +6,24 @@ import { formatString } from '../../../utils/taskHelpers';
 
 const TaskItem = ({ task, inEditMode, onComplete, onSelect, onEdit, onUpdate, onDelete }) => {
     const [taskText, setTaskText] = useState(task.name);
-    const [isSelected, setIsSelected] = useState(false);
     const [prevInEditMode, setPrevInEditMode] = useState(inEditMode); // Guarda na memória o 'inEditMode' da renderização anterior
 
     // Se o status do modo de edição mudou (entrou ou saiu da edição)
     if (inEditMode !== prevInEditMode) {
         setPrevInEditMode(inEditMode); // Atualiza a memória para a próxima checagem
         setTaskText(task.name); // <--- Reseta qualquer rascunho e restaura o nome oficial da tarefa
-        setIsSelected(false); // <--- Reseta o estado de seleção
     }
 
     // CLASSES
     const checkButtonClasses = [
         styles.checkButton,
         inEditMode && styles.seletecButton,
-        isSelected && styles.seletecButtonActice,
+        task.selected && styles.seletecButtonActice,
     ].filter(Boolean).join(' ');
 
     const checkIconClasses = [
         styles.checkIcon,
-        isSelected && styles.checkIconActive,
+        task.selected && styles.checkIconActive,
     ].filter(Boolean).join(' ');
 
     const deleteButtonClasses = [
@@ -35,12 +33,7 @@ const TaskItem = ({ task, inEditMode, onComplete, onSelect, onEdit, onUpdate, on
 
     // FUNCTIONS
     const handleClick = () => {
-        handleToggleSelect();
         inEditMode ? onSelect(task.id) : onComplete(task.id);
-    };
-
-    const handleToggleSelect = () => {
-        setIsSelected(!isSelected);
     };
 
     const handleSubmit = (e) => {
@@ -53,9 +46,9 @@ const TaskItem = ({ task, inEditMode, onComplete, onSelect, onEdit, onUpdate, on
         };
 
         const updatedTask = formatString(taskText);
-        const sucess = onUpdate(updatedTask, task.id);
+        const success = onUpdate(updatedTask, task.id);
 
-        if (!sucess) { // TODO: Enviar uma mensagem de erro como feedback para o usuário
+        if (!success) { // TODO: Enviar uma mensagem de erro como feedback para o usuário
             return console.warn('Erro no modo edição(TaskItem): Essa tarefa já existe! ');
         }
 
@@ -68,7 +61,7 @@ const TaskItem = ({ task, inEditMode, onComplete, onSelect, onEdit, onUpdate, on
             <button
                 onClick={handleClick}
                 className={checkButtonClasses}>
-                <Check className={checkIconClasses}/>
+                <Check className={checkIconClasses} />
             </button>
 
             {inEditMode ?
