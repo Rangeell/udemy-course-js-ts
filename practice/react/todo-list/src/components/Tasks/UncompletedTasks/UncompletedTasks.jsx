@@ -37,19 +37,24 @@ const UncompletedTasks = (
     return (
         <section className={styles.inProgessTasks}>
             <header>
-                <button
-                    onClick={onEdit}
-                    className={editButtonClasses}>
-                    {inEditMode ? <Check /> : 'Edit'}
-                </button>
 
-                <h2>{hasNoTask ? 'No tasks' : `In progress tasks (${uncompletedTasks.length})`}</h2>
+                <h2>{hasNoTask ? 'No tasks yet' : `In progress tasks (${uncompletedTasks.length})`}</h2>
 
-                <button
-                    onClick={hasSelectedTask ? onDeleteSelected : onDeleteAll}
-                    className={deleteAllButtonClasses}>
-                    {hasSelectedTask ? `Delete Selected (${selectedTasks.length})` : 'Delete All'}
-                </button>
+                {!hasNoTask && (
+                    <nav>
+                        <button
+                            onClick={onEdit}
+                            className={editButtonClasses}>
+                            {inEditMode ? <Check /> : 'Edit'}
+                        </button>
+
+                        <button
+                            onClick={hasSelectedTask ? onDeleteSelected : onDeleteAll}
+                            className={deleteAllButtonClasses}>
+                            {hasSelectedTask ? `Delete Selected (${selectedTasks.length})` : 'Delete All'}
+                        </button>
+                    </nav>
+                )}
             </header>
 
             {!hasNoTask && ( // Se não houver tarefa, não chega na segunda operação (renderizar)

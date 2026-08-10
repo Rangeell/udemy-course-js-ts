@@ -19,17 +19,24 @@
 /* HEADER AREA */
 .inProgessTasks header {
     display: flex;
-    justify-content: space-between;
+    flex-flow: column wrap;
+    justify-content: center;
     align-items: center;
 
-    height: 2.2rem;
-    padding: 1.5rem 1rem;
+    padding: 0 .5rem;
 
     background-color: #27272a83;
     backdrop-filter: blur(5px) saturate(160%);
 
     position: sticky;
     top: 0;
+}
+
+.inProgessTasks nav {
+    display: flex;
+    justify-content: space-between;
+    
+    width: 100%;
 }
 
 /* TASK LIST AREA */
