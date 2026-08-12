@@ -6,6 +6,7 @@ Normalmente não queremos esse tipo no nosso código, pois pode afetar a integri
 Utilize "any" apenas em último caso
 */
 
+/* eslint-disable */
 function showMessage(msg: any) { //
   return msg;
 }
