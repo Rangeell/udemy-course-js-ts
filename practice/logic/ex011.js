@@ -65,7 +65,6 @@ function findFirstNegativeNumber(numbers) {
 };
 
 // * Examples
-
 const temperaturas = [12, 15, 8, -2, -5];
 console.log(findFirstNegativeNumber(temperaturas));
 /*
