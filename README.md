@@ -190,7 +190,7 @@ The structure may evolve as the course progresses and new projects or topics are
 * [x] React
 * [x] React Hooks
 * [x] Redux / Redux Saga
-* [] TypeScript
+* [ ] TypeScript
 * [x] Regular Expressions
 * [ ] SOLID Principles
 * [ ] Jest
