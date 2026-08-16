@@ -77,7 +77,6 @@ function findSecondLargest(numbers) {
         if (n < largest && n > secondLargest) {
             secondLargest = n;
         }
-
     }
 
     return secondLargest
