@@ -3,7 +3,7 @@
   "compilerOptions": {
     // File Layout
     "rootDir": "./src",
-    "outDir": "./dist", // Em qual pasta nós vamos disponibilizar os arquivos de compilação
+    "outDir": "./dist/assets/js", // Em qual pasta nós vamos disponibilizar os arquivos de compilação
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
@@ -31,6 +31,8 @@
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
     // Recommended Options
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
     "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
