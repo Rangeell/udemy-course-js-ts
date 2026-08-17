@@ -13,6 +13,7 @@ build/
 # Variáveis de ambiente / Configurações locais
 .env
 .env.local
+frontend/
 
 # Arquivos de IDE e Sistema Operacional
 .vscode/*

@@ -13,8 +13,11 @@ const config: webpack.Configuration = {
       {
         // Expressão regular para encontrar todos os arquivos que terminam com ".tsx" (x opcional)
         test: /\.tsx?$/,
-        use: 'ts-loader', // Para todos os arquivos que ele encontrar, ele vai usar o ts-loader
+        loader: 'ts-loader', // Para todos os arquivos que ele encontrar, ele vai usar o ts-loader
         exclude: /node_modules/, // Exclui a pasta node_modules na compilação
+        options: {
+          configFile: 'tsconfig.frontend.json',
+        },
       },
     ],
   },
@@ -23,7 +26,7 @@ const config: webpack.Configuration = {
   },
   output: {
     filename: 'bundle.js', // Nome do arquivo de saída
-    path: path.resolve(__dirname, 'dist', 'assets', 'js'), // Pasta de saída
+    path: path.resolve(__dirname, 'frontend', 'assets', 'js'), // Pasta de saída
   },
 
   devtool: 'source-map',
