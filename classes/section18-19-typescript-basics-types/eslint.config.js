@@ -13,5 +13,6 @@ export default defineConfig({
         semi: ['error', 'always'], // Obriga usar ponto e vírgula
         quotes: ['error', 'single'], // Obriga usar aspas simples
         'comma-dangle': ['error', 'always-multiline'], // Obriga a vírgula no final de objetos/arrays multilinhas
+        '@typescript-eslint/no-unused-vars': 'warn', // Transforma o erro de variável não usada em um aviso (amarelo)
     },
 });

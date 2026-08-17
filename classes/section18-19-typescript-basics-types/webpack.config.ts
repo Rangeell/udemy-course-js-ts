@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const config: webpack.Configuration = {
   mode: 'development',
-  entry: './src/class018-webpack/index.ts', // Arquivo de entrada para o TS no Webpack
+  entry: './src/class019-exercise/index.ts', // Arquivo de entrada para o TS no Webpack
   module: {
     rules: [
       {
