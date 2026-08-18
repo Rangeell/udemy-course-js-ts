@@ -2,27 +2,28 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    "rootDir": "./src",
-    "outDir": "./dist", // Em qual pasta nós vamos disponibilizar os arquivos de compilação
+    // "rootDir": "./src",
+    // "outDir": "./dist",
+
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
     "target": "esnext",
     "types": [],
-    "lib": [
-      "ESNext",
-      "DOM"
-    ], // Especifica o que vamos usar no projeto
     // For nodejs:
+    // "lib": ["esnext"],
     // "types": ["node"],
     // and npm install -D @types/node
-    // Other OutputsAbstract
+
+    // Other Outputs
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+
     // Style Options
     // "noImplicitReturns": true,
     // "noImplicitOverride": true,
@@ -30,8 +31,8 @@
     // "noUnusedParameters": true,
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
+
     // Recommended Options
-    // "allowImportingTsExtensions": true,
     "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
@@ -39,8 +40,5 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-  },
-  "include": [
-    "./src"
-  ]
+  }
 }
