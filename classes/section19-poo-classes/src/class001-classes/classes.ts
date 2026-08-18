@@ -43,7 +43,7 @@ export class Empresa {
   }
 
   // Como Empresa.colabores não pode ser acessado fora da classe, criamos um método para isso
-  addColab(colaborador: Colaborador): void { // Omitimos a modificador public
+  addColab(colaborador: Colaborador): void { // Omitimos o modificador public
     this.colaboradores.push(colaborador);
   }
 
