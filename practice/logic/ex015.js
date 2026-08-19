@@ -52,7 +52,29 @@ Difficulty: 🟢 Easy
 */
 
 function findMostFrequent(items) {
-   // Seu código aqui
+    const mapa = new Map()
+
+    for (const item of items) {
+        let count = 1
+
+        if (mapa.has(item)) {
+            mapa.set(item, count++)
+        }
+
+        mapa.set(item, count)
+    }
+
+    let mostFrequence = 1;
+    let mostFrequenceItem = null;
+
+    for (const [item, count] of mapa) {
+        if (count > mostFrequence) {
+            mostFrequenceItem = item
+            mostFrequence = count
+        }
+    }
+
+    return mostFrequenceItem
 }
 
 //* EXAMPLES
@@ -71,7 +93,7 @@ Deve retornar:
 */
 
 const numbers2 = [5, 5, 2, 2, 8];
-console.log(findMostFrequent(numbers));
+console.log(findMostFrequent(numbers2));
 /*
 Deve retornar:
     5
@@ -83,5 +105,3 @@ console.log(findMostFrequent(values));
 Deve retornar:
     "JS"
 */
-
-
