@@ -55,11 +55,11 @@ function findMostFrequent(items) {
     const mapa = new Map()
 
     for (const item of items) {
-        if (mapa.has(item)) {
-            let currentCount = mapa.get(item)
-            mapa.set(item, currentCount + 1)
+        if (mapa.has(item)) { // Se já existir no mapa
+            let currentCount = mapa.get(item) // Obtém o valor da contagem atual
+            mapa.set(item, currentCount + 1) // Atualiza o item com contagem + 1
         } else {
-            mapa.set(item, 1)
+            mapa.set(item, 1) // Estrutura padrão inicial
         }
     }
 
@@ -67,6 +67,7 @@ function findMostFrequent(items) {
     let mostFrequenceItem = null;
 
     for (const [item, count] of mapa) {
+        // Se a contagem do item atual obtida for maior que a maior frequência
         if (count > mostFrequence) {
             mostFrequenceItem = item
             mostFrequence = count
