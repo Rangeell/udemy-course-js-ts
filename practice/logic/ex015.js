@@ -55,16 +55,15 @@ function findMostFrequent(items) {
     const mapa = new Map()
 
     for (const item of items) {
-        let count = 1
-
         if (mapa.has(item)) {
-            mapa.set(item, count++)
+            let currentCount = mapa.get(item)
+            mapa.set(item, currentCount + 1)
+        } else {
+            mapa.set(item, 1)
         }
-
-        mapa.set(item, count)
     }
 
-    let mostFrequence = 1;
+    let mostFrequence = 0;
     let mostFrequenceItem = null;
 
     for (const [item, count] of mapa) {
@@ -104,4 +103,16 @@ console.log(findMostFrequent(values));
 /*
 Deve retornar:
     "JS"
+*/
+
+console.log(findMostFrequent([1, 2, 3, 4]))
+/*
+Deve retornar:
+    1
+*/
+
+console.log(findMostFrequent([1, 1, 2, 2, 3]))
+/*
+Deve retornar:
+    1
 */
