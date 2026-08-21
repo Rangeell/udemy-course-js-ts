@@ -46,12 +46,12 @@ export abstract class Personagem { // CLASSE ABSTRATA
     console.log(`${this.emoji} - ${this.nome} agora tem ${this.vida} de vida!`);
   }
 
-  // Método abstrato (constrato) que todos os personagem obrigatoriamentedevem implementar de forma específica
+  // Método abstrato (contrato) que todos os personagem obrigatoriamentedevem implementar de forma específica
   abstract bordao(): void
 }
 
 export class Guerreira extends Personagem { // CLASSE CONCRETA 1
-  protected emoji: string = '\u{1F9DD}'; // Inicializando atributo abstrato obrigatórip
+  protected emoji: string = '\u{1F9DD}'; // Inicializando atributo abstrato obrigatório
 
   // Implementando método abstrato obrigatório
   bordao(): void {
