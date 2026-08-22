@@ -16,7 +16,7 @@ RELAÇÕES:
         - Um carrinho de compras pode existir vazio, mas sua razão de ser e quase todas as suas operações básicas (inserir itens, calcular o total, verificar a quantidade) dependem diretamente da existência de produtos. Ele simplesmente não cumpre seu papel de forma adequada sem produtos agregados (ele existe sem os produtos, mas não funciona sem eles). Para funcionar corretamente, o Carrinho de Compras precisa agregar Produtos.
 */
 
-//* CLASSE QUE AGREGA PRODUTOS (Todo)
+//* TODO: CLASSE QUE AGREGA PRODUTOS
 export class CarrinhoDeCompras {
   private readonly produtos: Produto[] = []; //
 
@@ -36,7 +36,7 @@ export class CarrinhoDeCompras {
   }
 }
 
-//* CLASSE A SER AGREGADA (Parte)
+//* PARTE: CLASSE A SER AGREGADA
 export class Produto {
   constructor(public nome: string, public preco: number) { }
 }
