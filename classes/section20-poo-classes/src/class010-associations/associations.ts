@@ -6,6 +6,9 @@
 *Associações:
   - É o tipo de relação mais fraca que existe entre objetos
   - Podemos ligar um objeto a outro objeto, fazendo com que nenhum dos objetos dependam um do outro
+
+  *Dependency Invertion Principle
+    -
 */
 
 //* CLASSE CONCRETA 1 (ESCRITOR)
@@ -38,7 +41,7 @@ export class Escritor {
   }
 }
 
-//* CLASSE ABSTRATA -> CONTRATO / MOLDE
+//* CLASSE ABSTRATA -> CONTRATO / MOLDE -> DEPENDECY INVERTION
 export abstract class Ferramenta {
   constructor(private _nome: string) { }
 

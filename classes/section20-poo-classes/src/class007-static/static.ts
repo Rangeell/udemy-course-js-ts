@@ -32,7 +32,7 @@ export class Pessoa {
     console.log(Pessoa.idadePadrao, Pessoa.cpfPadrao);
   }
 
-  // Método que cria uma instância da própria classe
+  // Método que cria uma instância da própria classe (Factory Method)
   static criaPessoa(nome: string, sobrenome: string): Pessoa {
     return new Pessoa(nome, sobrenome, Pessoa.idadePadrao, Pessoa.cpfPadrao);
   }

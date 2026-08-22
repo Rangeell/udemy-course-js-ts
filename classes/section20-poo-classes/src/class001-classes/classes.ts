@@ -55,7 +55,7 @@ export class Empresa {
 }
 
 //* FORMA CURTA
-export class Colaborador { // A classe funciona como um molde para objetos e também serve como tipos (linha 32)
+export class Colaborador { // A classe funciona como um molde para objetos e também serve como tipos (linha 36)
   constructor(
     public readonly nome: string,
     public readonly sobrenome: string,
