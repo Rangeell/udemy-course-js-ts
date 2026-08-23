@@ -62,7 +62,7 @@ export class Guerreira extends Personagem {
 
 //* CLASSE CONCRETA 2
 export class Monstro extends Personagem {
-  protected emoji: string = '\u{1F9DF}'; // Inicializando atributo abstrato obrigatórip
+  protected emoji: string = '\u{1F9DF}'; // Inicializando atributo abstrato obrigatório
 
   // Implementando método abstrato obrigatório
   bordao(): void {

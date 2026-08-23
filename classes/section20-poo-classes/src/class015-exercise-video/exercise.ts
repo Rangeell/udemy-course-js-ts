@@ -25,7 +25,7 @@ export default class VideoPlayer implements VideoPlayerActions {
 
   initialEvents(): void {
     /*
-    Não podemos deixar de usar arrow function
+    Não podemos deixar de usar arrow function aqui
       - Precisamos manter o contexto do 'this' apontando para a Classe
       - Caso contrário, o 'this' seria o botão em si
     */
