@@ -1,10 +1,12 @@
 {
-  "name": "section19-poo-classes",
+  "name": "section18-typescript",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:frontend": "webpack -w",
+    "build:backend": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +15,12 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.8.1",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.67.0"
+    "ts-loader": "^9.6.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.67.0",
+    "webpack": "^5.109.2",
+    "webpack-cli": "^7.2.2"
   }
 }
