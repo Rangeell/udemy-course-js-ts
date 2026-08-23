@@ -1,3 +1,13 @@
+/*
+Type Alias com Classes:
+  ?- O que é?
+    - Type Alias em classes é uma forma de definir um tipo que pode ser usado para descrever a estrutura de uma classe, permitindo que outras classes implementem esse tipo.
+
+    - Normalmente, não usamos modificadores de acesso, pois são apenas definições de tipo
+
+    - Podemos implementar mais de um tipo em uma classe, basta usar a palavra `implements` e usar o operador &
+*/
+
 //* MODELO 1: Usando classes abstratas como tipo / molde
 export abstract class TipoPessoa {
   protected abstract nome: string
@@ -44,4 +54,4 @@ export class Pessoa2 implements TipoPessoa2 { // Usamos a palavra-chave "impleme
 }
 
 const pessoa2 = new Pessoa2('Breno', 'Rangel');
-console.log(pessoa2);
+console.log(pessoa2.nomeCompleto());
