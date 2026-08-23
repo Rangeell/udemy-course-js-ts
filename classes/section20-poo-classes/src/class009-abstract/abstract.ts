@@ -24,7 +24,7 @@ CLASSES, MÉTODOS E ATRIBUTOS ESTÁTICOS
 */
 
 // Simulando um jogo RPG simples
-export abstract class Personagem { // CLASSE ABSTRATA
+export abstract class Personagem { //* CLASSE ABSTRATA
   protected abstract emoji: string; // Atributo abstrato não inicializado
 
   constructor( // shorthand construtctor
@@ -50,7 +50,8 @@ export abstract class Personagem { // CLASSE ABSTRATA
   abstract bordao(): void
 }
 
-export class Guerreira extends Personagem { // CLASSE CONCRETA 1
+//* CLASSE CONCRETA 1
+export class Guerreira extends Personagem {
   protected emoji: string = '\u{1F9DD}'; // Inicializando atributo abstrato obrigatório
 
   // Implementando método abstrato obrigatório
@@ -59,7 +60,8 @@ export class Guerreira extends Personagem { // CLASSE CONCRETA 1
   }
 }
 
-export class Monstro extends Personagem { // CLASSE CONCRETA 2
+//* CLASSE CONCRETA 2
+export class Monstro extends Personagem {
   protected emoji: string = '\u{1F9DF}'; // Inicializando atributo abstrato obrigatórip
 
   // Implementando método abstrato obrigatório
