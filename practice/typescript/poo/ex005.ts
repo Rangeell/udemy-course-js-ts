@@ -78,9 +78,7 @@ class ShoppingCart {
     private product: Product[] = [];
     private _total: number = 0;
 
-    get total(): number {
-        return this._total;
-    }
+    get total(): number { return this._total; }
 
     add(...products: Product[]): void {
         for (const product of products) {
