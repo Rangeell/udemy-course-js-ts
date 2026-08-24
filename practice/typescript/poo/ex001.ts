@@ -59,7 +59,6 @@ export class Email {
     constructor(private email: string) { }
 
     isValid(): boolean {
-        // console.log(this.email.match(/((\w+.)?\w+)@(\w+.com(.br)?)/gi));
         const regexEmail = /^((\w+\.)?\w+)@(\w+(\.\D{2,})(\.br)?)$/i;
         return regexEmail.test(this.email);
     }
