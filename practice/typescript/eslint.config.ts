@@ -14,6 +14,7 @@ export default defineConfig([
       semi: ['error', 'always'],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
       'comma-dangle': ['error', 'always-multiline'],
+      'no-useless-assignment' : 'off',
     },
   },
 ]);
