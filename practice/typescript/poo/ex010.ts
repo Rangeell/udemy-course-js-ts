@@ -275,9 +275,9 @@ const duplicateEmail = new User(
 auth.register(duplicateEmail); // Deve lançar Error
 
 // Validação de e-mail:
-const invalidUser = new User(
-    'Usuario',
-    'email-invalido',
-    '12345678',
-);
+// const invalidUser = new User(
+//     'Usuario',
+//     'email-invalido',
+//     '12345678',
+// );
 // Deve lançar Error
