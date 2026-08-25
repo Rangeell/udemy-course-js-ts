@@ -97,7 +97,7 @@ class ShoppingCart {
     }
 }
 
-//* EXEMPLES
+//* EXAMPLES
 
 // CRIANDO PRODUTOS
 const keyboard = new Product('Keyboard', 200);

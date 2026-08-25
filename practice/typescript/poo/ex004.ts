@@ -101,7 +101,7 @@ class PushNotification implements Notification {
 
 const sendNotification = (obj: Notification, msg: string): string => obj.send(msg);
 
-//* EXEMPLES
+//* EXAMPLES
 
 const email = new EmailNotification('rangel@email.com');
 console.log(email.send('Sua compra foi aprovada!'));

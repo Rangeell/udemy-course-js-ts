@@ -108,7 +108,7 @@ class UserProfile {
     };
 }
 
-//* EXEMPLES
+//* EXAMPLES
 
 const user = new UserProfile(
     'Rangel',

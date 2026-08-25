@@ -64,7 +64,7 @@ export class Email {
     }
 }
 
-//* EXEMPLES
+//* EXAMPLES
 const email1 = new Email('rangel@gmail.com');
 console.log(email1.isValid());
 // true 

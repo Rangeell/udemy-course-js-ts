@@ -111,7 +111,7 @@ class Manager extends Employee {
     }
 }
 
-//* EXEMPLES
+//* EXAMPLES
 
 const developer = new Developer('Rangel', 5000);
 console.log(developer.calculateSalary()); // 5500

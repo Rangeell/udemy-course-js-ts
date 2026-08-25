@@ -78,7 +78,7 @@ export class PixPayment extends PaymentProcessor {
     }
 }
 
-//* EXEMPLES
+//* EXAMPLES
 
 const creditCard = new CreditCardPayment(100, '1234567812345678');
 console.log(creditCard.calculateFee()); // 5

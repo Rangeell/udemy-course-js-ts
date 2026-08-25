@@ -164,7 +164,7 @@ class Order {
     }
 }
 
-//* EXEMPLES
+//* EXAMPLES
 
 // Criando produtos
 const keyboard = new Product('Keyboard', 200);
@@ -195,7 +195,7 @@ console.log(order.items);
 
 //* CASO INVÁLIDOS
 // Produto inválido
-const product = new Product('TV', 0);
+// const product = new Product('TV', 0);
 // Deve lançar Error.
 
 // Quantidade inválida
