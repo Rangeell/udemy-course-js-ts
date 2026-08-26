@@ -52,8 +52,8 @@ export class CreditCardPayment extends PaymentProcessor {
 
         super(amount);
 
-        const carNumberRegex = /^\d{16}$/;
-        if (!carNumberRegex.test(cardNumber)) throw new Error('Número de cartão inválido!');
+        const cardNumberRegex = /^\d{16}$/;
+        if (!cardNumberRegex.test(cardNumber)) throw new Error('Número de cartão inválido!');
     }
 
     calculateFee(): number { return this.amount * 5 / 100; }
