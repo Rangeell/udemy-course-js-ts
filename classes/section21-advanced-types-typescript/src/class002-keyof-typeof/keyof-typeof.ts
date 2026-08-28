@@ -9,7 +9,7 @@ Operadores:
     Lê um tipo estruturado (como uma interface ou tipo do objeto) e retorna uma união das chaves desse tipo em formato de string literal.
 */
 
-//* PRIMEIRA SOLUÇÃO -> TYPE ALIAS E LITERAL TYPES
+//* PRIMEIRA SOLUÇÃO -> type alias e literal types
 type CoresObj = {
   vermelho: string,
   verde: string,
