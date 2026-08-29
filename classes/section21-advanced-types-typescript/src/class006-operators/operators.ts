@@ -36,9 +36,9 @@ const documento2: Documento2 = {
   // Não enviamos a data
 };
 
-console.log(documento.data?.toDateString() ?? 'Não existe dado.');
-console.log(undefined ?? '2-Não existe dado.'); // Retorna '2-Não existe dado.'
-console.log(null ?? '3-Não existe dado.'); // Retorna '3-Não existe dado.'
-console.log(false ?? '4-Não existe dado.'); // Retorna false, pois é considerado um valor booleano
-console.log(0 ?? '5-Não existe dado.'); // Retorna 0, pois é considerado um valor
-console.log('' ?? '6-Não existe dado.'); // Retorna string vazia, pois é considerado um valor
+console.log(documento2.data?.toDateString() ?? 'Não existe dado.');
+//? console.log(undefined ?? '2-Não existe dado.'); // Retorna '2-Não existe dado.'
+//? console.log(null ?? '3-Não existe dado.'); // Retorna '3-Não existe dado.'
+//? console.log(false ?? '4-Não existe dado.'); // Retorna false, pois é considerado um valor booleano
+//? console.log(0 ?? '5-Não existe dado.'); // Retorna 0, pois é considerado um valor
+//? console.log('' ?? '6-Não existe dado.'); // Retorna string vazia, pois é considerado um valor
