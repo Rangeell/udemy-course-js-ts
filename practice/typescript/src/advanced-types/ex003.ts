@@ -1,7 +1,7 @@
 /**
   Exercise 003 — Message Processor
  
-  Difficulty: 🟡 easy
+  Difficulty: 🟢 easy
  
 📝 Enunciado
   Você está trabalhando em um sistema que recebe diferentes tipos de mensagens.
