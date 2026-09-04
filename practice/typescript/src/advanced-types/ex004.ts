@@ -113,13 +113,14 @@
 type SmsNotification = { phone: string, message: string };
 type PushNotification = { deviceId: string, message: string };
 
-// Função utilitária para checar se o valor é um objeto
+// Função utilitária para checar se o dado é um objeto
 // Precisei usar Type Predicate, pois retornar um boolean genérico não garante que a tipagem do dado fora do escopo da função
 const isObject = (data: unknown): data is Record<PropertyKey, unknown> => { // Type Predicate
     return typeof data === 'object' && data !== null && !Array.isArray(data);
 };
 
-const isSmsNotification = (data: unknown): data is SmsNotification => {
+// Função utilitária para checar se o dado é um objeto do tipo SmsNotification
+const isSmsNotification = (data: unknown): data is SmsNotification => { // Type Predicate
     if (!isObject(data)) return false;
 
     return (
@@ -130,7 +131,8 @@ const isSmsNotification = (data: unknown): data is SmsNotification => {
     );
 };
 
-const isPushNotification = (data: unknown): data is PushNotification => {
+// Função utilitária para checar se o dado é um objeto do tipo PushNotification
+const isPushNotification = (data: unknown): data is PushNotification => { // Type Predicate
     if (!isObject(data)) return false;
 
     return (
