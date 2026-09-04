@@ -4,7 +4,6 @@ export class VotationOption<T> {
   constructor(public readonly optionName: T) { }
 
   get counter(): number { return this._counter; }
-
   incrementVote(): void { this._counter++; }
 }
 
