@@ -1,7 +1,7 @@
 /**
  * =========================================================================
- * DESAFIO 04: Tradutor de Status de Encomendas (Type-Safe Dictionary Getter)
- * DIFICULDADE: Média
+ * EXERCISE 009: Tradutor de Status de Encomendas (Type-Safe Dictionary Getter)
+ * DIFFICULTY: 🟡 Medium
  * FOCO: 'keyof', 'typeof' e Mapeamento Dinâmico de Objetos
  * =========================================================================
  * 
@@ -38,7 +38,7 @@ const STATUS_MAP = {
     EXT_PER: 'Extraviado ou perdido',
 } as const; // O 'as const' garante que o TS leia as propriedades como valores literais e não apenas strings genéricas
 
-// Escreva sua solução do Desafio 04 abaixo:
+// Escreva sua solução do EXERCISE 009 abaixo:
 
 interface UserProtocol { name: string; role: 'admin' | 'client' }
 
@@ -52,12 +52,12 @@ function getTranslateStatus(abbr: StatusAbbr, user: UserProtocol) {
 
 /**
  * =========================================================================
- * SUÍTE DE TESTES: Desafio 04 (Type-Safe Dictionary Getter)
+ * SUÍTE DE TESTES: EXERCISE 009 (Type-Safe Dictionary Getter)
  * =========================================================================
  * Copie e cole este bloco abaixo da sua implementação.
  */
 
-console.log('\n--- INICIANDO TESTES DO DESAFIO 04 ---\n');
+console.log('\n--- INICIANDO TESTES DO EXERCISE 009 ---\n');
 
 const admin = { name: 'Carlos', role: 'admin' as const };
 const cliente = { name: 'Mariana', role: 'client' as const };

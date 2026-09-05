@@ -1,7 +1,7 @@
 /**
  * =========================================================================
  * EXERCISE 008: Construtor de Consultas de Banco de Dados (Fluent Query Builder)
- * DIFICULTY: Medium/High
+ * DIFFICULTY: 🟠 Medium/High
  * FOCO: 'this' como Tipo de Retorno, Method Chaining e Polimorfismo
  * =========================================================================
  * 
@@ -77,12 +77,12 @@ export class QueryBuilder {
 
 /**
  * =========================================================================
- * SUÍTE DE TESTES: Desafio 03 (Fluent Query Builder)
+ * SUÍTE DE TESTES: Exercise 008 (Fluent Query Builder)
  * =========================================================================
  * Copie e cole este bloco abaixo da sua implementação de 'QueryBuilder'.
  */
 
-console.log('\n--- INICIANDO TESTES DO DESAFIO 03 ---\n');
+console.log('\n--- INICIANDO TESTES DO EXERCISE 008 ---\n');
 
 try {
     const queryCompleta = new QueryBuilder()

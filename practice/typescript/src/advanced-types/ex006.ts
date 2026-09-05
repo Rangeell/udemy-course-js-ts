@@ -1,6 +1,6 @@
 /**
- * Exercise 006 — Safe Nested Property Access with Indexed Access Types
- * Difficulty: Medium
+ * EXERCISE 006 — Safe Nested Property Access with Indexed Access Types
+ * DIFFICULTY: 🟡 Medium
  * 
  * 📝 ENUNCIADO + CONTRATO
  * 
@@ -40,7 +40,7 @@ function getNestedTheme(config: UserConfig | undefined): string {
 
 /**
 =========================================================================
-SUÍTE DE TESTES: Exercise 006
+SUÍTE DE TESTES: EXERCISE 006
 =========================================================================
 Cole este bloco abaixo da sua implementação.
 🔍 Passe o mouse sobre as constantes para checar os tipos inferidos.

@@ -1,6 +1,6 @@
 /**
- * Exercise 007 — Dynamic Payload Filter & Field Extractor
- * Difficulty: Hard
+ * EXERCISE 007 — Dynamic Payload Filter & Field Extractor
+ * DIFFICULTY: 🔴 Hard
  * 
  * 📝 ENUNCIADO + CONTRATO
  * 
