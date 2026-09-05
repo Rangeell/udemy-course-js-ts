@@ -1,6 +1,6 @@
 /**
  * =========================================================================
- * DESAFIO 01: Sistema de Autenticação Multicanal (Overload)
+ * EXERCISE 001: Sistema de Autenticação Multicanal (Overload)
  * DIFICULDADE: Média
  * FOCO: Sobrecarga de Funções com Diferentes Retornos e Parâmetros
  * =========================================================================

@@ -1,6 +1,6 @@
 /**
  * =========================================================================
- * DESAFIO 02: Repositório de Busca Inteligente (Database Query Overload)
+ * EXERCISE 002: Repositório de Busca Inteligente (Database Query Overload)
  * DIFICULDADE: Difícil
  * FOCO: Sobrecarga com Variação de Tipo de Retorno (Objeto Único vs Array)
  * =========================================================================
