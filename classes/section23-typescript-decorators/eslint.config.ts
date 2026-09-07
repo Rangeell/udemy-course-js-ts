@@ -4,6 +4,7 @@ import tseslint from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
+  tseslint.configs.recommended,
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
     plugins: { js },
@@ -19,5 +20,4 @@ export default defineConfig([
       'no-useless-assignment': 'off',
     },
   },
-  tseslint.configs.recommended,
 ]);
