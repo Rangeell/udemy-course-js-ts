@@ -37,7 +37,7 @@ async function transformResponse<T, U>(promise: Promise<T>, cb: CbProtocol<T, U>
  * 🔍 Passe o mouse sobre as constantes para checar os tipos inferidos.
  * ⚙️ Rode o arquivo para validar o comportamento em runtime.
  */
-
+/* eslint-disable */
 interface PerfilUsuario {
     username: string;
     ativo: boolean;
