@@ -21,7 +21,7 @@ Com o Decorador, podemos intervir no meio da classe e fazer alterações sem alt
 
   - A função recebe a classe e retorna ela mesma;
 
-  - Restringimos o tipo genérico T para um Constructor Type, ou seja, garantimos que nossa função possa decorar qualquer classe sem perder a referência de seus argumentos e retorno;
+  - Restringimos o tipo genérico T para um Constructor Type, garantimos que nossa função possa decorar qualquer classe sem perder a referência de seus argumentos e retorno;
 
   - O `new` indica que o objeto é instanciável;
 
@@ -49,14 +49,16 @@ function decorator<T extends new (...args: any[]) => any>(target: T): T {
   };
 }
 
-// Criamos uma variável que rebece a função decorator que recebe a Classe
+// Criamos uma variável que rebece a função decorator que recebe a Classe -> sustenta o valor retornado (classe decorada)
 const AnimalDecorated = decorator(Animal);
 
 // Temos exatamente o mesmo resultado, mas com modificações que não alteraram a classe original
 const animal2 = new AnimalDecorated('Tigre', 'roxo');
 console.log(animal2);
 
-//* Aplicando o decorator na classe Animal usando a sintaxe '@'
+//* Aplicando o decorator na classe Animal usando a sintaxe '@' logo em cima da classe
+
+// Automaticamente, faz a classe Animal2 passar dentro da nossa função sem que precisamos criar uma variável auxiliar para sustentar o retorno da função
 
 @decorator // Chamando nossa função
 export class Animal2 {
