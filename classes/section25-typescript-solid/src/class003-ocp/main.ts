@@ -37,7 +37,7 @@ const fifityPercentDiscount = new FifityPercentDiscount();
 const tenPercentDiscount = new TenPercentDiscount();
 const noDiscount = new NoDiscount();
 
-const shoppingCart = new ShoppingCart(noDiscount);
+const shoppingCart = new ShoppingCart(fifityPercentDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
 const order = new Order(shoppingCart, messaging, persistency);
