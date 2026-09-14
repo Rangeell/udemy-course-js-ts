@@ -148,7 +148,7 @@ The repository is organized according to the sections of the course:
 
 ```text id="4vl1xk"
 .
-├── classes
+├── lessons
     ├── sections
 ├── models
 ├── practice
