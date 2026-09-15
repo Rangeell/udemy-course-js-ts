@@ -6,12 +6,14 @@ Definição: "Os clientes não devem ser forçados a depender de interfaces, tip
 Em outras palavras: é melhor ter várias interfaces específicas e enxutas do que uma única interface genérica e "gorda" (inflada). Quando uma interface possui muitos atributos ou métodos, ela força as classes que a implementam a definir coisas desnecessárias para o seu contexto real.
 */
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Messaging } from './services/messaging.js';
 import { Order } from './classes/order.js';
 import { Persistency } from './services/persistency.js';
 import { Product } from './classes/product.js';
 import { ShoppingCart } from './classes/shopping-cart.js';
 import { FifityPercentDiscount, NoDiscount, TenPercentDiscount } from './classes/discount.js';
+import { EnterpriseCustomer, IndividualCustomer } from './classes/customer.js';
 
 //* --- Teste do Carrinho de Compras ---
 
@@ -23,7 +25,12 @@ const noDiscount = new NoDiscount();
 const shoppingCart = new ShoppingCart(fifityPercentDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
-const order = new Order(shoppingCart, messaging, persistency);
+
+const individualCustomer = new IndividualCustomer('Breno', 'Rangel', '123.456.789-10');
+const enterpriseCustomer = new EnterpriseCustomer('Empresa', '22222222222');
+
+// Independente do customer que chegar aqui, os dados serão processados de forma polimórfica
+const order = new Order(shoppingCart, messaging, persistency, enterpriseCustomer);
 
 // Adicionando produtos ao carrinho
 shoppingCart.addItem(new Product('Camiseta', 49.9));

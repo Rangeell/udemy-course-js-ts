@@ -6,6 +6,7 @@ Essa classe, agora, passa a ser mais "coesa".
 A coesão é uma métrica para avaliar se os elementos de uma classe estão intimamente relacionados. Segundo princípios de Clean Code, uma classe é considerada coesa quando utiliza seus atributos dentro de seus métodos.
 */
 
+import type { CustomerOrderProtocol } from '../interfaces/customer-protocol.js';
 import type { OrderStatus } from '../interfaces/order-status.js';
 import type { Messaging } from '../services/messaging.js';
 import type { Persistency } from '../services/persistency.js';
@@ -21,12 +22,13 @@ export class Order {
     private readonly cart: ShoppingCart, //! Depende de uma classe concreta -> ideal: abstração
     private readonly messaging: Messaging, //! Depende de uma classe concreta -> ideal: abstração
     private readonly persistency: Persistency, //! Depende de uma classe concreta -> ideal: abstração
+    private readonly customer: CustomerOrderProtocol, // Podemos usar getName() e getIDN()
   ) { }
 
-  //* Atributo coeso
+  // Atributo coeso
   private _orderStatus: OrderStatus = 'open';
 
-  //* Método coeso
+  // Método coeso
   get orderStatus(): OrderStatus { return this._orderStatus; }
 
   // Finaliza o carrinho de compras e usa o carrinho recebido no construtor
@@ -40,5 +42,8 @@ export class Order {
     this.messaging.sendMessage(`Seu pedido com o total de ${this.cart.totalWithDiscount()} foi recebido!`);
     this.persistency.saveOrder();
     this.cart.clear();
+
+    // Polimorfismo (sem necessidade de checagens extras)
+    console.log(`O cliente é: ${this.customer.getName()} ${this.customer.getIDN()}`);
   }
 }

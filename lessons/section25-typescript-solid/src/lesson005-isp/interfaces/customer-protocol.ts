@@ -8,6 +8,11 @@ Agrupar `cpf/rg` com `cnpj` em um único contrato é semanticamente incorreto e 
 O verdadeiro custo de uma interface inflada surge no momento da implementação. Ao tentar satisfazer um contrato genérico demais, a classe é obrigada a violar o "Princípio do Menor Conhecimento", lidando com dados que não deveriam existir em seu escopo.
 */
 
+export interface  CustomerOrderProtocol {
+  getName(): string;
+  getIDN(): string; // Identification Number
+}
+
 // Contrato para os clientes (pessoa física)
 export interface IndividualCustomerProtocol {
   firstName: string; // Irrelevante para empresas
@@ -21,3 +26,5 @@ export interface EnterpriseCustomerProtocol {
   name: string;
   cnpj: string; // Irrelevante para pessoa física
 }
+
+// Contrato para emissão de notas do cliente -> Client-Specific Interface
