@@ -53,6 +53,8 @@ export class Order {
     }
 
     this._orderStatus = 'closed';
+
+    // Delegação de funções / serviços para as Classes especializadas
     this.messaging.sendMessage(`Seu pedido com o total de ${this.cart.totalWithDiscount()} foi recebido!`);
     this.persistency.saveOrder();
     this.cart.clear();

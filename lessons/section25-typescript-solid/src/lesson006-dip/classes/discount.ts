@@ -12,7 +12,7 @@ Classe abstrata (contrato) para todos os descontos (subclasses concretas)
 export abstract class Discount {
   protected discount = 0; // Atributo que vai ser sobrescrito nas demais subclasses
 
-  // Método concreto (comum em todas as subclasses)
+  // Método concreto (comum em todas as subclasses) -> D.R.Y.
   calculate(price: number): number {
     return price - price * this.discount;
   }
