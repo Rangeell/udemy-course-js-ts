@@ -10,7 +10,9 @@ export default defineConfig([
       ['**/*.{js,mjs,cjs,ts,mts,cts}'],
     plugins: { js }, extends: ['js/recommended'],
     languageOptions: {
-      globals: globals.node, ...globals.jest
+      globals: {
+        ...globals.node, ...globals.jest,
+      },
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',

@@ -4,7 +4,7 @@ describe('TESTANDO ALGUMA COISA', () => {
 
     expect(num).toBe(1);
   });
-})
+});
 
 describe('TESTANDO OUTRA COISA', () => {
   test('should return Breno', () => {
@@ -12,4 +12,4 @@ describe('TESTANDO OUTRA COISA', () => {
 
     expect(name).toBe('Breno');
   });
-})
+});
