@@ -4,7 +4,11 @@ Módulo que representa o cliente em si.
 Se tivéssmos criado uma fat interface, teríamos que implementar muita coisa que o cliente não usaria de fato -> sinal que estamos implementando contratos incompatíveis com as classes em questão.
 */
 
-import type { IndividualCustomerProtocol, EnterpriseCustomerProtocol, CustomerOrderProtocol } from '../interfaces/customer-protocol.js';
+import type {
+  IndividualCustomerProtocol,
+  EnterpriseCustomerProtocol,
+  CustomerOrderProtocol,
+} from '../interfaces/customer-protocol.js';
 
 // Classe que representa o cliente (pessoa física) -> implementa dois contratos
 export class IndividualCustomer implements IndividualCustomerProtocol, CustomerOrderProtocol {
