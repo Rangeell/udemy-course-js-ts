@@ -80,4 +80,25 @@ describe('ShoppingCart', () => {
     sut.removeItem(0);
     expect(sut.isEmpty()).toBe(true);
   });
+
+  // Testes para a integração do Carrinho com o Desconto
+  it('should call discount.calculate() once when totalWithDiscount() is called', () => {
+    const { sut, discountMock } = createSutWithProducts(); // Destructuring
+
+    const discountMockSpy = jest.spyOn(discountMock, 'calculate'); // Espia o método calculate()
+
+    sut.totalWithDiscount(); // Chama o método que usa o calculate()
+
+    expect(discountMockSpy).toHaveBeenCalledTimes(1); // Verifica se calculate() é chamado
+  });
+
+  it('should call discount.calculate() with total() when totalWithDiscount() is called', () => {
+    const { sut, discountMock } = createSutWithProducts(); // Destructuring
+
+    const discountMockSpy = jest.spyOn(discountMock, 'calculate'); // Espia o método calculate()
+
+    sut.totalWithDiscount(); // Chama o método que usa o calculate() e total()
+
+    expect(discountMockSpy).toHaveBeenCalledWith(sut.total()); // Verifica se calculate() é chamado junto com total()
+  });
 });
