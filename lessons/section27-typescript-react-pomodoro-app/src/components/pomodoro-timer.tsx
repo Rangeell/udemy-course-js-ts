@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useInterval } from '../hooks/useInterval';
-import { secondsToTime } from '../utils/seconds-to-time';
+import { Button } from './button';
+import { Timer } from './timer';
 
 // Tipagem para as nossas props
-interface Props {
+interface PomodoroProps {
   defaultPomodoroTime: number
 }
 
-export function PomodoroTimer({ defaultPomodoroTime }: Props) { // Destructuring
+export function PomodoroTimer({ defaultPomodoroTime }: PomodoroProps) { // Destructuring
   const [mainTime, setMainTime] = useState(defaultPomodoroTime);
 
   // Nosso hook personalizado
@@ -16,5 +17,15 @@ export function PomodoroTimer({ defaultPomodoroTime }: Props) { // Destructuring
     setMainTime(prevTime => prevTime - 1);
   }, 1000);
 
-  return <div>Hello World! {secondsToTime(mainTime)}</div>;
+  return (
+    <div className="pomodoro">
+      <h2>You are: Working</h2>
+      <Timer mainTime={mainTime} />
+
+      <Button
+        text='teste'
+        onClick={() => console.log(1)}>
+      </Button>
+    </div>
+  );
 }
