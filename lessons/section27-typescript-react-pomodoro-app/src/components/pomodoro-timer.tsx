@@ -11,16 +11,19 @@ interface PomodoroProps {
   cycles: number;
 }
 
-export function PomodoroTimer({ pomodoroTime }: PomodoroProps) { // Destructuring
+export function PomodoroTimer({ pomodoroTime, shortRestTime, longRestTime }: PomodoroProps) { // Destructuring
   const [mainTime, setMainTime] = useState(pomodoroTime);
   const [timeCounting, setTimeCounting] = useState(false); // Verifica se está contando ou não
-  const [isWorking, setIsWorking] = useState(false);
 
+  //! O ideal seria usar o State Pattern
+  const [isWorking, setIsWorking] = useState(false);
+  const [isResting, setIsResting] = useState(false);
+
+  //! Não é indicado manipular o DOM diretamente
   useEffect(() => {
-    if (isWorking) { //! Não é indicado manipular o DOM diretamente
-      document.body.classList.add('working');
-    }
-  }, [isWorking]);
+    if (isWorking) { document.body.classList.add('working'); }
+    if (isResting) { document.body.classList.remove('working'); }
+  }, [isWorking, isResting]);
 
   // Nosso hook personalizado
   useInterval(() => {
@@ -30,7 +33,19 @@ export function PomodoroTimer({ pomodoroTime }: PomodoroProps) { // Destructurin
 
   const configureWork = () => {
     setTimeCounting(true);
-    setIsWorking(!isWorking);
+    setIsWorking(true);
+    setIsResting(false);
+
+    setMainTime(pomodoroTime); // Reinicia o timer
+  };
+
+  const configureRest = (long: boolean) => {
+    setTimeCounting(true);
+    setIsWorking(false);
+    setIsResting(true);
+
+    // Seta o tempo do pomodoro para desconso longo ou curto a depender do parâmetro recebido
+    setMainTime(long ? longRestTime : shortRestTime);
   };
 
   return (
@@ -45,12 +60,15 @@ export function PomodoroTimer({ pomodoroTime }: PomodoroProps) { // Destructurin
         </Button>
 
         <Button
-          text='teste'
-          onClick={() => console.log(1)}>
+          text='Rest'
+          onClick={() => configureRest(false)}>
         </Button>
 
         <Button
           text={timeCounting ? 'Pause' : 'Play'}
+
+          // Se não estiver trabalhando e nem descansando add a classe
+          className={!isWorking && !isResting ? 'hidden' : ''}
           onClick={() => setTimeCounting(!timeCounting)}>
         </Button>
       </div>
