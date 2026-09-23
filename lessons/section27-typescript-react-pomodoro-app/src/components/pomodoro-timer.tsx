@@ -22,7 +22,7 @@ interface PomodoroProps {
 export function PomodoroTimer({ pomodoroTime, shortRestTime, longRestTime, cycles }: PomodoroProps) { // Destructuring
   const [mainTime, setMainTime] = useState(pomodoroTime);
   const [timeCounting, setTimeCounting] = useState(false); // Verifica se está contando ou não
-  const [cycleManager, setCycleManager] = useState(new Array(cycles - 1).fill(true));
+  const [cycleManager, setCycleManager] = useState<boolean[]>(new Array(cycles - 1).fill(true));
   const [completedCycles, setCompletedCycles] = useState(0);
   const [fullWorkingTime, setFullWorkingTime] = useState(0);
   const [numberOfPomodoros, setNumberOfPomodoros] = useState(0);
@@ -39,6 +39,8 @@ export function PomodoroTimer({ pomodoroTime, shortRestTime, longRestTime, cycle
 
   // Meu hook personalizado
   useInterval(() => {
+    if (isWorking) setFullWorkingTime(fullWorkingTime + 1);
+
     if (mainTime > 1) {
       setMainTime(prevTime => prevTime - 1); // Usando o state updater (prevTime) do hook useState nativo do React
       return; // Não passa dessa linha se o contador não zerou
@@ -85,7 +87,7 @@ export function PomodoroTimer({ pomodoroTime, shortRestTime, longRestTime, cycle
 
   return (
     <div className='pomodoro'>
-      <h2>You are: Working</h2>
+      <h2>Você está {isWorking ? 'Trabalhando' : 'Descansando'}</h2>
       <Timer mainTime={mainTime} />
 
       <div className='controls'>
