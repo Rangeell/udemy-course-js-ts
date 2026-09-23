@@ -1,9 +1,8 @@
 import zeroLef from './zero-left';
 
-export function secondsToTime(seconds: number): string {
-  const hours = zeroLef(seconds / 3600);
+export function secondsToMinutes(seconds: number): string {
   const min = zeroLef((seconds / 60) % 60); // resto da divisão port 60 da conta "seconds/60"
   const sec = zeroLef(seconds % 60); // resto da divisão por 60
 
-  return `${hours}h${min}m${sec}s`;
+  return `${min}:${sec}`;
 }
