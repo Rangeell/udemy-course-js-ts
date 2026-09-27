@@ -190,10 +190,10 @@ The structure may evolve as the course progresses and new projects or topics are
 * [x] React
 * [x] React Hooks
 * [x] Redux / Redux Saga
-* [ ] TypeScript
+* [x] TypeScript
 * [x] Regular Expressions
-* [ ] SOLID Principles
-* [ ] Jest
+* [x] SOLID Principles
+* [x] Jest
 * [ ] Next.js
 * [ ] Strapi
 * [ ] Knex
