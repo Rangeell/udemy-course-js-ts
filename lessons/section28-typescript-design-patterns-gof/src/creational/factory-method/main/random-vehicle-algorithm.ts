@@ -2,10 +2,10 @@
 
 */
 
-import { BicycleFactory } from '../bicycle-factory';
-import { CarFactory } from '../car-factory';
-import type { Vehicle } from '../../vehicles/vehicle-protocol';
-import { randomNumbers } from '../../utils/random-numbers';
+import { BicycleFactory } from '../factories/bicycle-factory';
+import { CarFactory } from '../factories/car-factory';
+import type { Vehicle } from '../vehicles/vehicle-protocol';
+import { randomNumbers } from '../utils/random-numbers';
 
 export function randomVehicle(): Vehicle {
   const carFactory = new CarFactory();

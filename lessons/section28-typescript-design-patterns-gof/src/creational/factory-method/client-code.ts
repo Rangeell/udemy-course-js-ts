@@ -8,7 +8,7 @@ Resumidamente: é muito melhor ficar acoplado a uma factory a uma classe concret
 
 import { CarFactory } from './factories/car-factory';
 import { randomNumbers } from './utils/random-numbers';
-import { randomVehicle } from './factories/main/random-vehicle-algorithm';
+import { randomVehicle } from './main/random-vehicle-algorithm';
 
 //! const fusca = new Car('Fusca'); -> Acoplamento rídigio
 
