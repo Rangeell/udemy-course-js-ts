@@ -11,8 +11,8 @@ A essência do Adapter nesta aula é a aplicação da Inversão de Dependência 
 */
 
 import type { EmailValidatorFnProtocol, EmailValidatorProtocol } from './validation/email-validator-protocol';
-import { EmailValidatorClassAdapter } from './validation/email-validator-function-adapter';
-import { EmailValidatorFnAdapter } from './validation/email-validator-class-adapter';
+import { EmailValidatorClassAdapter } from './validation/email-validator-class-adapter';
+import { EmailValidatorFnAdapter } from './validation/email-validator-function-adapter';
 
 // Exemplo com Classe: O cliente recebe a abstração via Injeção de Dependência
 function validateEmailClass(emailValidator: EmailValidatorProtocol, email: string) {
