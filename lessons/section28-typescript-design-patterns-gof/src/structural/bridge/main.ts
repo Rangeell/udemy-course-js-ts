@@ -1,3 +1,7 @@
+/*
+Nesta aula prática, aplicamos o padrão de projeto Bridge desenvolvendo um sistema de controles remotos e dispositivos de áudio/vídeo. Acompanhamos como a composição permite separar a Abstração (controles) da Implementação (dispositivos) para que ambas evoluam sem acoplamento rígido.
+*/
+
 import { Radio } from './device/radio';
 import { Tv } from './device/tv';
 import { RemoteControl } from './remote-control/remote-control';
