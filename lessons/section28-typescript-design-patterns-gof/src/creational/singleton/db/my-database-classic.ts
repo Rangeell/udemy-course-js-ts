@@ -15,7 +15,7 @@ export class MyDataBaseClassic {
   private constructor() { }
 
   static get instance() {
-    // Se a instância for nula -> instancia o objeto
+    // Se a instância for nula -> instancia o objeto (lazy initialization)
     if (MyDataBaseClassic._instace === null) {
       MyDataBaseClassic._instace = new MyDataBaseClassic();
     }
