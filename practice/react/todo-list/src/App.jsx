@@ -21,12 +21,9 @@ const App = () => {
   const [allTasks, setAllTasks] = useState(JSON.parse(localStorage.getItem('tasks')) ?? []);
   const [inEditMode, setEditMode] = useState(false);
 
-  useEffect(() => { // Testes
-    console.log('All tasks:', allTasks);
-    console.log('In edit mode:', inEditMode);
-
+  useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(allTasks));
-  }, [allTasks, inEditMode]);
+  }, [allTasks]);
 
   const generateId = (allTasks) => {
     return allTasks.length > 0 ? Math.max(...allTasks.map(task => task.id)) + 1 : 1;
