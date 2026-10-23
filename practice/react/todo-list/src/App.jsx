@@ -18,13 +18,14 @@ import { isDuplicateTask } from './utils/taskHelpers.js';
 
 const App = () => {
   const [taskText, setTaskText] = useState('');
-  const [allTasks, setAllTasks] = useState([]);
+  const [allTasks, setAllTasks] = useState(JSON.parse(localStorage.getItem('tasks')) ?? []);
   const [inEditMode, setEditMode] = useState(false);
 
   useEffect(() => { // Testes
     console.log('All tasks:', allTasks);
     console.log('In edit mode:', inEditMode);
 
+    localStorage.setItem('tasks', JSON.stringify(allTasks));
   }, [allTasks, inEditMode]);
 
   const generateId = (allTasks) => {

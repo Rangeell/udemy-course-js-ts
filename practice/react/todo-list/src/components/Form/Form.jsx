@@ -11,7 +11,11 @@ const Form = ({ taskText, setTaskText, onAddTask, allTasks }) => {
         const el = e.target;
         const newTask = formatString(taskText);
 
-        if (!newTask) return; // TODO: Enviar feedback de erro
+        if (!newTask) { // TODO: Enviar feedback de erro
+            console.warn('Campo não pode ficar vazio!');
+            return;
+        };
+        
         if (isDuplicateTask(allTasks, newTask)) return console.warn('Essa tarefa já existe'); // TODO: Enviar feedback de erro
 
         onAddTask(newTask);
