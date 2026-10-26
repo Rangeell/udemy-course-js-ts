@@ -4,4 +4,5 @@ export interface CartItemProtocol {
     get product(): ProductProtocol;
     get quantity(): number;
     get subTotal(): number;
+    incrementQuantity(amount: number): void; 
 }
