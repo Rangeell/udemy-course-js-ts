@@ -1,11 +1,14 @@
 import { jest } from '@jest/globals';
 import { Product } from './product.js';
 
+// FACTORY FUNCTIONS
 const createSut = (name: string, price: number): Product => new Product(name, price);
 
-describe('Product', () => {
-    afterEach(() => jest.clearAllMocks());
+// HOOKS
+afterEach(() => jest.clearAllMocks());
 
+// TESTS
+describe('Product', () => {
     it('Should throw an error if the name is invalid/empty.', () => {
         expect(() => createSut('', 49.9)).toThrow('Invalid product name!');
     });
@@ -21,12 +24,14 @@ describe('Product', () => {
         const price = sut.price;
         const id = sut.id;
 
+        // Property checks
         expect(sut).toHaveProperty('id');
         expect(sut).toHaveProperty('name');
         expect(sut).toHaveProperty('price');
 
+        // Equality checks
         expect(typeof id).toBe('string');
         expect(name).toBe('Camiseta');
-        expect(price).toBe(49.9);
+        expect(price).toBeCloseTo(49.9);
     });
 }); 

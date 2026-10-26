@@ -13,7 +13,7 @@ export class CartItem implements CartItemProtocol {
     constructor(
         private readonly _product: ProductProtocol,
         private _quantity: number) {
-        if (_quantity <= 0) throw new Error('A quantidade de item deve ser maior que zero!');
+        if (_quantity <= 0) throw new Error('The item quantity must be greater than zero!');
     }
 
     // GETTERS
