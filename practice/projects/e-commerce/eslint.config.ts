@@ -4,6 +4,7 @@ import tseslint from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
+  js.configs.recommended,
   tseslint.configs.recommended,
 
   {
@@ -11,7 +12,7 @@ export default defineConfig([
       ['**/*.{js,mjs,cjs,ts,mts,cts}'],
     plugins: { js },
     extends: ['js/recommended'],
-    languageOptions: { globals: globals.node },
+    languageOptions: { globals: { ...globals.node, ...globals.jest } },
 
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
