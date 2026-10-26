@@ -7,8 +7,8 @@ export class Product implements ProductProtocol {
         private readonly _name: string,
         private readonly _price: number) {
 
-        if (!_name) throw new Error('Nome do produto inválido!');
-        if (_price < 0) throw new Error('Preço do produto não pode ser negativo!');
+        if (!_name) throw new Error('Invalid product name!');
+        if (_price < 0) throw new Error('Product price cannot be negative!');
     }
     
     get id(): string { return this._id; }
