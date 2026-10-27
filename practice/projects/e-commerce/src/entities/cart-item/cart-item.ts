@@ -1,5 +1,5 @@
 /*
-Métodos
+Métodos:
 - `get subTotal()`: 
     O uso clássico de getters é expor o acesso controlado a propriedades privadas.
 
