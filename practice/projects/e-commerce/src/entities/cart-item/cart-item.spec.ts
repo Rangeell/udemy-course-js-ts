@@ -1,7 +1,6 @@
 import { jest } from '@jest/globals';
 import { CartItem } from './cart-item.js';
 import { Product } from '../product/product.js';
-import type { ProductProtocol } from '../product/product-protocol.js';
 
 // FACTORY FUNCTIONS
 const createProduct = (
@@ -9,7 +8,7 @@ const createProduct = (
     price: number = 49.9): Product => new Product(name, price);
 
 const createSut = (
-    product: ProductProtocol,
+    product: Product,
     quantity: number): CartItem => new CartItem(product, quantity);
 
 // HOOKS
