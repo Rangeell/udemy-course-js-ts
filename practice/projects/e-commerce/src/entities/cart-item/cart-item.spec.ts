@@ -26,10 +26,9 @@ describe('Cart Item', () => {
 
     it('Should calculate the correct subtotal based on product price and quantity', () => {
         const sut = createSut(product, 3);
-        const subTotal = sut.subTotal;
 
         // Equality checks
-        expect(subTotal).toBeCloseTo(149.7);
+        expect(sut.subTotal).toBeCloseTo(149.7);
     });
 
     it('Should update the quantity and calculate the new subtotal when incrementQuantity is called', () => {
