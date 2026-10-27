@@ -46,6 +46,10 @@ export class Cart implements CartProtocol {
         });
     }
 
+    calculateTotal(): number {
+        return this._items.reduce((acc, item) => acc + item.subTotal, 0);
+    }
+    
     removeItem(id: string): CartItemProtocol | null {
         const removedItem = this._items.find(item => item.product.id === id);
         if (!removedItem) { return null; }
@@ -53,10 +57,6 @@ export class Cart implements CartProtocol {
         this._items = this._items.filter(item => item.product.id !== id);
 
         return removedItem;
-    }
-
-    calculateTotal(): number {
-        return this._items.reduce((acc, item) => acc + item.subTotal, 0);
     }
 
     clear(): void { this._items = []; }
