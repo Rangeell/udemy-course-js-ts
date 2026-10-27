@@ -197,7 +197,7 @@ The structure may evolve as the course progresses and new projects or topics are
 * [ ] Next.js
 * [ ] Strapi
 * [ ] Knex
-* [ ] Design Patterns
+* [x] Design Patterns
 * [ ] Additional projects
 
 > Progress is based on my personal study path and may not represent the exact completion status of every section of the course.
