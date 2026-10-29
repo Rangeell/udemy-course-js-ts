@@ -13,18 +13,26 @@ export class CartItem implements CartItemProtocol {
     constructor(
         private readonly _product: ProductProtocol,
         private _quantity: number) {
-        if (_quantity <= 0) throw new Error('The item quantity must be greater than zero!');
+        if (!Number.isSafeInteger(_quantity) || _quantity <= 0) {
+            throw new RangeError('Invalid quantity value!');
+        }
     }
 
     // GETTERS
     get quantity(): number { return this._quantity; }
     get product(): ProductProtocol { return this._product; }
-
-    get subTotal(): number {
-        return this._product.price * this._quantity;
-    }
+    get subTotal(): number { return this._product.price * this._quantity; }
 
     incrementQuantity(amount: number): void {
-        this._quantity += amount;
+        if (!Number.isSafeInteger(amount) || amount <= 0) {
+            throw new RangeError('Invalid increment value!');
+        }
+
+        const newQuantity = this._quantity + amount;
+
+        if (!Number.isSafeInteger(newQuantity)) throw new RangeError('Invalid increment value!');
+
+        this._quantity = newQuantity;
+
     }
 }

@@ -18,9 +18,14 @@ afterEach(() => jest.clearAllMocks());
 describe('Cart Item', () => {
     const product = createProduct();
 
-    it('Should throw an error if the product quantity is negative or zero.', () => {
-        expect(() => createSut(product, -1)).toThrow('The item quantity must be greater than zero!');
-        expect(() => createSut(product, 0)).toThrow('The item quantity must be greater than zero!');
+    it('Should throw an error if the quantity is invalid.', () => {
+        expect(() => createSut(product, -1)).toThrow('Invalid quantity value!');
+        expect(() => createSut(product, 0)).toThrow('Invalid quantity value!');
+        expect(() => createSut(product, 1.5)).toThrow('Invalid quantity value!');
+        expect(() => createSut(product, NaN)).toThrow('Invalid quantity value!');
+        expect(() => createSut(product, Number.MAX_VALUE)).toThrow('Invalid quantity value!');
+        expect(() => createSut(product, Infinity)).toThrow('Invalid quantity value!');
+        expect(() => createSut(product, -Infinity)).toThrow('Invalid quantity value!');
     });
 
     it('Should calculate the correct subtotal based on product price and quantity', () => {
@@ -37,6 +42,23 @@ describe('Cart Item', () => {
         // Equality checks
         expect(sut.quantity).toBe(5);
         expect(sut.subTotal).toBeCloseTo(249.5);
+    });
+
+    it('Should return an error when attempting to increment invalid quantities', () => { 
+        const sut = createSut(product, Number.MAX_SAFE_INTEGER);
+        
+        expect(sut.quantity).toBe(Number.MAX_SAFE_INTEGER);
+
+        expect(() => sut.incrementQuantity(-1)).toThrow('Invalid increment value!');
+        expect(() => sut.incrementQuantity(0)).toThrow('Invalid increment value!');
+        expect(() => sut.incrementQuantity(1)).toThrow('Invalid increment value!');
+        expect(() => sut.incrementQuantity(1.5)).toThrow('Invalid increment value!');
+        expect(() => sut.incrementQuantity(NaN)).toThrow('Invalid increment value!');
+        expect(() => sut.incrementQuantity(Number.MAX_VALUE)).toThrow('Invalid increment value!');
+        expect(() => sut.incrementQuantity(Infinity)).toThrow('Invalid increment value!');
+        expect(() => sut.incrementQuantity(-Infinity)).toThrow('Invalid increment value!');
+
+        expect(sut.quantity).toBe(Number.MAX_SAFE_INTEGER);
     });
 
     it('Should have a valid product and quantity when created successfully', () => {
